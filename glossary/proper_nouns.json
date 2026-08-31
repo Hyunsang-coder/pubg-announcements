@@ -1,0 +1,209 @@
+{
+  "_meta": {
+    "kind": "terms",
+    "scope": "공지에 반복 등장하는 인게임 고유명사(기능·재화·모드·아이템 유형). 공지 번역이 자기완결로 돌아가기 위한 최소 집합이며, 게임 용어집 전체의 대체물이 아니다.",
+    "selection": "추측으로 넣지 않는다 — 실제 발행 공지 말뭉치에 등장한 것만 등록했다(2026-08-31 실측 18건).",
+    "authority": "공지 문맥에서는 이 파일이 정본이다(발행된 영문이 곧 확정 표기이므로). 인게임 UI·기획서 등 다른 문맥의 표기는 이 파일의 소관이 아니다.",
+    "inflection": "등록형은 기본형이다. 문장 안에서 수·시제·관사는 도착어 문법에 맞춘다(탈 것 → Drive vehicles, 경쟁전 → in Ranked Mode)."
+  },
+  "terms": [
+    {
+      "id": "pubg_221",
+      "source": "기록보관소 상자",
+      "source_lang": "ko",
+      "target": "Archivist's Chest",
+      "target_lang": "en",
+      "category_id": "store_economy",
+      "context": "Store & Economy",
+      "notes": "제작소 상자 종류",
+      "status": "approved"
+    },
+    {
+      "id": "pubg_224",
+      "source": "서바이버 패스",
+      "source_lang": "ko",
+      "target": "Survivor Pass",
+      "target_lang": "en",
+      "category_id": "store_economy",
+      "context": "Store & Economy",
+      "notes": "시즌 패스",
+      "status": "approved"
+    },
+    {
+      "id": "pubg_350",
+      "source": "서바이벌 레벨",
+      "source_lang": "ko",
+      "target": "Survival Level",
+      "target_lang": "en",
+      "category_id": "game_systems_modes",
+      "context": "Game Systems & Modes",
+      "notes": "\"생존 레벨\"의 원문 변형. EN 표기 동일.",
+      "status": "approved"
+    },
+    {
+      "id": "pubg_100",
+      "source": "밀수품 상자",
+      "source_lang": "ko",
+      "target": "Contraband Crate",
+      "target_lang": "en",
+      "category_id": "items_equipment",
+      "context": "Items & Equipment",
+      "notes": "은신처 보상 상자",
+      "status": "approved"
+    },
+    {
+      "id": "pubg_101",
+      "source": "밀수품 쿠폰",
+      "source_lang": "ko",
+      "target": "Contraband Coupon",
+      "target_lang": "en",
+      "category_id": "items_equipment",
+      "context": "Items & Equipment",
+      "notes": "은신처 밀수품 상자 오픈용",
+      "status": "approved"
+    },
+    {
+      "id": "pubg_356",
+      "source": "나만의 상점",
+      "source_lang": "ko",
+      "target": "Your Shop",
+      "target_lang": "en",
+      "category_id": "store_economy",
+      "context": "Store & Economy",
+      "notes": "개인화 할인 상점(인게임 기능명). 월간 Store Update 공지 고정 문구에 매번 등장. 'My Shop' 아님.",
+      "status": "approved"
+    },
+    {
+      "id": "pubg_349",
+      "source": "생존 레벨",
+      "source_lang": "ko",
+      "target": "Survival Level",
+      "target_lang": "en",
+      "category_id": "game_systems_modes",
+      "context": "Game Systems & Modes",
+      "notes": "원문이 \"서바이벌 레벨\"로 흔들려도 EN 은 Survival Level 고정.",
+      "status": "approved"
+    },
+    {
+      "id": "pubg_351",
+      "source": "추천 코드",
+      "source_lang": "ko",
+      "target": "referral code",
+      "target_lang": "en",
+      "category_id": "uiux",
+      "context": "UI/UX",
+      "notes": "UI 페이지명 \"추천 코드 입력 이벤트\"만 Invitation Code Event (pubg_special_drops.json). 일반 명사는 referral code.",
+      "status": "approved"
+    },
+    {
+      "id": "pubg_363",
+      "source": "일반 제작",
+      "source_lang": "ko",
+      "target": "Regular Crafting",
+      "target_lang": "en",
+      "category_id": "store_economy",
+      "context": "Store & Economy",
+      "notes": "제작소 탭 이름. 특수 제작(Special Crafting, pubg_241)의 대비어. Confluence 302건 실측.",
+      "status": "approved"
+    },
+    {
+      "id": "pubg_172",
+      "source": "탈 것",
+      "source_lang": "ko",
+      "target": "Vehicle",
+      "target_lang": "en",
+      "category_id": "vehicles",
+      "context": "Vehicles",
+      "notes": "PUBG에서의 차량 통칭",
+      "status": "approved"
+    },
+    {
+      "id": "pubg_2",
+      "source": "경쟁전",
+      "source_lang": "ko",
+      "target": "Ranked",
+      "target_lang": "en",
+      "category_id": "game_systems_modes",
+      "context": "Game Systems & Modes",
+      "notes": "PUBG의 랭크 모드",
+      "status": "approved"
+    },
+    {
+      "id": "pubg_210",
+      "source": "스쿼드",
+      "source_lang": "ko",
+      "target": "Squad",
+      "target_lang": "en",
+      "category_id": "ranked_competitive",
+      "context": "Ranked & Competitive",
+      "notes": "4인 모드",
+      "status": "approved"
+    },
+    {
+      "id": "pubg_228",
+      "source": "은신처",
+      "source_lang": "ko",
+      "target": "Hideout",
+      "target_lang": "en",
+      "category_id": "store_economy",
+      "context": "Store & Economy",
+      "notes": "개인 공간 & 보상 시스템",
+      "status": "approved"
+    },
+    {
+      "id": "pubg_231",
+      "source": "제작소",
+      "source_lang": "ko",
+      "target": "Workshop",
+      "target_lang": "en",
+      "category_id": "store_economy",
+      "context": "Store & Economy",
+      "notes": "아이템 제작/개봉 시스템",
+      "status": "approved"
+    },
+    {
+      "id": "pubg_69",
+      "source": "피해량",
+      "source_lang": "ko",
+      "target": "Damage",
+      "target_lang": "en",
+      "category_id": "game_mechanics",
+      "context": "Game Mechanics",
+      "notes": "무기 공격력 수치",
+      "status": "approved"
+    },
+    {
+      "id": "pubg_107",
+      "source": "붕대",
+      "source_lang": "ko",
+      "target": "Bandages",
+      "target_lang": "en",
+      "category_id": "items_equipment",
+      "context": "Items & Equipment",
+      "notes": "기본 회복 아이템",
+      "status": "approved"
+    },
+    {
+      "id": "pubg_205",
+      "source": "듀오",
+      "source_lang": "ko",
+      "target": "Duo",
+      "target_lang": "en",
+      "category_id": "ranked_competitive",
+      "context": "Ranked & Competitive",
+      "notes": "2인 모드",
+      "status": "approved"
+    },
+    {
+      "id": "pubg_3",
+      "source": "관전",
+      "source_lang": "ko",
+      "target": "Spectating",
+      "target_lang": "en",
+      "category_id": "game_systems_modes",
+      "context": "Game Systems & Modes",
+      "notes": "사망 후 팀원 관전",
+      "status": "approved"
+    }
+  ]
+}

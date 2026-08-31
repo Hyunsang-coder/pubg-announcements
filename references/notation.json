@@ -1,0 +1,110 @@
+{
+  "_meta": {
+    "scope": "공지 표기 규칙 — 문자열이 아니라 패턴이라 TM 으로 못 박을 수 없는 것들(날짜·기간·대소문자). 확정 문자열은 glossary/announcements.json 소관.",
+    "direction": "KR → EN 전용. 도착어(EN)에서 지켜야 할 형태를 규정한다.",
+    "severity": "red = 어기면 플레이어가 기간·조건을 오독하거나 로비 표기와 어긋난다. yellow = 앞뒤 회차와 일관성이 깨진다.",
+    "upstream": "이 파일은 사내 번역 룰셋에서 공개 가능한 공지 표기 규칙만 추린 파생본이다. 양쪽이 갈리면 사내 룰셋이 정본이고, 이 파일을 맞춘다."
+  },
+  "rules": [
+    {
+      "id": "event-date-format-en",
+      "summary": "out-game 공지의 날짜·주차·수치 표기 EN 포맷 고정",
+      "avoid": [
+        "Sep 10 / Oct 1 (월 약어)",
+        "September 01 / October 01 (일자 앞자리 0)",
+        "Week2 / Week3 (Week 와 숫자 사이 공백 누락)",
+        "(7 days) (기간제 접미 소문자)",
+        "2026 Black Market (KR 연도 선행 어순을 그대로 옮김)",
+        "26/9/10 (KR 숫자 날짜를 그대로 노출)",
+        "700 m / 600 m (거리 단위 앞 공백)"
+      ],
+      "prefer": [
+        "September 10 / October 1 (월 풀네임 + 앞자리 0 없는 일)",
+        "Week 1 / Weeks 2/3/4 (미공개 주차 묶음)",
+        "(7 Days) — 아이템명 일부라 대문자",
+        "Black Market 2026 (연도 후치)",
+        "700m / 600m (거리 단위는 붙여쓰기)",
+        "시각·타임존은 원문 그대로: 02:00 UTC / 11:00 KST"
+      ],
+      "why": "KR 은 'YY/M/D' 숫자 날짜와 연도 선행 어순을 쓰지만 EN 공지는 월 풀네임·연도 후치가 확정 표기다. 4개월 공지에서 실제로 'Sep 10'·'Week2'·'(7 days)'·'600 m' 표기 흔들림이 관측됐고, 로비 이벤트 페이지 표기와 어긋나면 플레이어가 기간·조건을 오독한다. 거리 단위 붙여쓰기는 style.json 의 number_formatting(숫자와 단위 사이 공백 없음)과 UI 길이 제약(로비 노출 줄은 원문보다 길어지지 않게)을 따른다.",
+      "examples": [
+        {
+          "bad": "PC: 26/9/10, 라이브 서버 점검 완료 후 → PC: Sep 10, after live server maintenance is complete",
+          "good": "PC: September 10, after live server maintenance"
+        },
+        {
+          "bad": "2026 블랙 마켓 화물 티켓 → 2026 Black Market Cargo Ticket",
+          "good": "Black Market 2026 Cargo Ticket"
+        },
+        {
+          "bad": "낙하산을 타고 누적 600 m 이동하기. → Parachute 600 m in total.",
+          "good": "Parachute 600m in total."
+        }
+      ],
+      "severity": "red"
+    },
+    {
+      "id": "event-period-range-format-en",
+      "summary": "공지성 글의 기간(시작-종료) 표기 EN 포맷 고정",
+      "avoid": [
+        "May 21 ~ June 18 (KR 물결표를 그대로 노출)",
+        "May 21 – June 18 / May 21—June 18 (en/em dash)",
+        "From May 21 to June 18 / Until June 18 (전치사 서술형)",
+        "May 21 after live server maintenance - June 18 07:00 (날짜와 시각·조건구 사이 콤마 누락)",
+        "May 21, After Live Server Maintenance (조건구 대문자화)",
+        "May 21, after live server maintenance is complete (조건구에 서술 덧붙임)",
+        "PC : September 15, 02:00 - … (플랫폼 라벨 콜론 앞 공백 — KR 조판 습관을 EN 에 옮김)"
+      ],
+      "prefer": [
+        "May 21, after live server maintenance - June 18, 07:00 (확정형)",
+        "양끝 형태 `<Month> <D>, <시각 또는 조건구>` — 구분자는 공백 하이픈 ` - `",
+        "시각은 24시간 HH:MM. 타임존은 원문·섹션 헤딩 관례를 따른다 (event-date-format-en)",
+        "같은 날 안에서 끝나면 종료 쪽 날짜 생략: February 4, 00:00 - 08:30",
+        "플랫폼 라벨은 콜론 앞 공백 없음: PC: / Console: / PC & Console: / Console (Xbox Game Pass):"
+      ],
+      "why": "스토어 업데이트·패치노트 등 공지성 글의 기간 표기 확정안(2026-08-26 팀 결정). KR 원문은 '5/21 라이브 서버 점검 후 ~ 6/18 07:00'처럼 물결표와 숫자 날짜를 쓰지만, EN 공지는 로비 이벤트 페이지·패치노트 점검 일정(점검 일정 표기 'February 4, 00:00 - 08:30')과 같은 형태로 통일한다. 구분자·콤마가 흔들리면 플레이어가 시작/종료 시점을 오독한다. 날짜 토큰 자체의 표기(월 풀네임·앞자리 0 없는 일·연도 후치)는 event-date-format-en 소관이고, 이 룰은 두 끝을 잇는 방식만 고정한다.",
+      "examples": [
+        {
+          "bad": "5/21 라이브 서버 점검 후 ~ 6/18 07:00 → May 21 after live server maintenance ~ June 18 07:00",
+          "good": "May 21, after live server maintenance - June 18, 07:00"
+        },
+        {
+          "bad": "2/4, 00:00 - 08:30 → From February 4, 00:00 to 08:30",
+          "good": "February 4, 00:00 - 08:30"
+        },
+        {
+          "bad": "PC : September 15, 02:00 - October 14, 00:00",
+          "good": "PC: September 15, 02:00 - October 14, 00:00"
+        }
+      ],
+      "severity": "red"
+    },
+    {
+      "id": "announcement-title-case-en",
+      "summary": "out-game 공지의 섹션 헤더·상품명은 title case (전량 대문자 금지)",
+      "avoid": [
+        "COLLABORATION: XIAOHAI (섹션 헤더 전량 대문자)",
+        "SURVIVOR PASS: SUMMER GETAWAY / FINAL PASSAGE (상품명 전량 대문자)",
+        "PUBG - 2026 PLAYSTATION®PLUS EXCLUSIVE BUNDLE #3"
+      ],
+      "prefer": [
+        "Collaboration: XIAOHAI (헤더는 title case, 인명·브랜드 고유표기는 그대로)",
+        "Survivor Pass: Summer Getaway / Final Passage",
+        "PUBG - 2026 PlayStation®Plus Exclusive Bundle #3",
+        "예외: glossary 에 인게임 표기가 대문자로 등록된 확정 용어는 등록 표기 우선 (예: 인게임 표기가 전량 대문자인 상자류 아이템명)"
+      ],
+      "why": "Store Update 24개 문서 실측에서 섹션 헤더는 title case 가 12:2 로 다수이고(2026-08 만 전량 대문자), 특전 번들 헤딩도 2025년까지 'PUBG - 2025 PlayStation®Plus Exclusive Bundle #3' 형태였다. 2026-08 이 한 달만 전량 대문자로 튀어 앞뒤 달과 어긋났다. 다만 인게임 UI 표기 자체가 대문자로 확정된 용어는 용어 정확성이 스타일보다 우선하므로 등록 표기를 따른다(2026-08-26 사용자 판단).",
+      "examples": [
+        {
+          "bad": "콜라보레이션: XIAOHAI → COLLABORATION: XIAOHAI",
+          "good": "Collaboration: XIAOHAI"
+        },
+        {
+          "bad": "서바이버 패스: 서머 게터웨이 → SURVIVOR PASS: SUMMER GETAWAY",
+          "good": "Survivor Pass: Summer Getaway"
+        }
+      ],
+      "severity": "yellow"
+    }
+  ]
+}
