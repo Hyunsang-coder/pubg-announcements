@@ -9,7 +9,7 @@ description: PUBG 라이브 out-game 공지를 한국어에서 영어로 번역�
 
 ## 방향 — KR → EN 전용
 
-**이 저장소는 한국어 → 영어만 다룬다.** 93건 전부 `source_lang: ko` / `target_lang: en` 이고, 이건 항목별 속성이 아니라 저장소 불변식이다.
+**이 저장소는 한국어 → 영어만 다룬다.** 117건 전부 `source_lang: ko` / `target_lang: en` 이고, 이건 항목별 속성이 아니라 저장소 불변식이다.
 
 **역방향(EN → KR)으로 쓰지 않는다.** 자산이 부족해서가 아니라 **틀린 답을 주기 때문**이다 — KR 원문은 회차마다 조사·공백·마침표가 흔들리지만 EN 정본은 고정이다(도착어 쪽에서 감사하는 이유가 그것). EN 에서 되짚으면 여러 KR 변형 중 임의의 하나, 그것도 과거 회차 것을 집게 된다. EN → KR 요청을 받으면 이 스킬을 쓰지 말고 그렇게 말한다.
 
@@ -66,9 +66,9 @@ description: PUBG 라이브 out-game 공지를 한국어에서 영어로 번역�
 `legal_notice` 항목은 **한정어를 빼거나 범위를 바꾸지 않는다.** 지역 제한·자격 조건·확률 고지는 문구가 곧 고지 의무다.
 UI 경로가 들어간 고지(확률 보기 페이지 등)는 **인게임 표기가 정본**이고, 예뻐 보이는 대안으로 바꾸지 않는다.
 
-## 2. 고유명사 (23개) — 아래 표가 전량. 원본은 `glossary/proper_nouns.json`
+## 2. 고유명사 (47개) — 아래 표가 전량. 원본은 `glossary/proper_nouns.json`
 
-발행 공지에 실제 등장한 인게임 고유명사만 담았다. 23건뿐이라 **파일을 열 필요 없이 여기서 바로 쓴다.**
+발행 공지에 실제 등장한 인게임 고유명사만 담았다. 47건이라 **파일을 열 필요 없이 여기서 바로 쓴다.**
 
 <!-- BEGIN:proper-nouns (생성물 — scripts/build-lean.js) -->
 
@@ -79,23 +79,47 @@ UI 경로가 들어간 고지(확률 보기 페이지 등)는 **인게임 표기
 | 관전 | Spectating |
 | 생존 레벨 | Survival Level |
 | 서바이벌 레벨 | Survival Level |
+| 패스 XP | Pass XP |
+| 기록 파일 | Record File |
+| 도안 | Imprint |
 | 밀수품 상자 | Contraband Crate |
 | 밀수품 쿠폰 | Contraband Coupon |
+| 보급 전리품 | Supply Loot Cache |
 | 붕대 | Bandages |
+| 성장형 무기 스킨 | Progressive weapon skin |
+| 열쇠 | Key |
+| 열쇠 조각 | Key Fragment |
+| 장인 토큰 | Artisan Token |
+| 전리품 | Loot Cache |
 | 전리품 조각 | Loot Cache Fragment |
+| 최고급 꾸러미 | Prime Parcel |
+| 크로마 | Chroma |
+| 화물 | Cargo |
+| 화물 티켓 | Cargo Ticket |
 | 듀오 | Duo |
 | 스쿼드 | Squad |
 | 기록보관소 상자 | Archivist's Chest |
 | 나만의 상점 | Your Shop |
+| 보급고 | Supply Bay |
+| 서바이버 상자 | Survivor's Chest |
 | 서바이버 패스 | Survivor Pass |
 | 스크랩 브로커 | Scrap Broker |
 | 스텝 업 팩 | Step Up Pack |
 | 은신처 | Hideout |
+| 이벤트 패스 | Event Pass |
+| 일반 분해 | Regular Disassembly |
 | 일반 제작 | Regular Crafting |
+| 전리품 팩 | Loot Cache Pack |
 | 제작소 | Workshop |
+| 제작소 패스 | Crafter Pass |
+| 크레딧 | Credits |
 | 특수 분해 | Special Disassembly |
 | 특수 제작 | Special Crafting |
+| 헌터 상자 | Hunter's Chest |
+| 무기 수집가 | Weapon Collector |
+| 수집가 | The Collector |
 | 추천 코드 | referral code |
+| 커스텀 로비 스킨 | Custom Lobby Skin |
 | 탈 것 | Vehicle |
 
 <!-- END:proper-nouns -->

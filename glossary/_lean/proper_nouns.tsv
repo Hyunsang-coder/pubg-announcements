@@ -5,21 +5,45 @@ source	target	category
 관전	Spectating	game_systems_modes
 생존 레벨	Survival Level	game_systems_modes
 서바이벌 레벨	Survival Level	game_systems_modes
+패스 XP	Pass XP	game_systems_modes
+기록 파일	Record File	items_equipment
+도안	Imprint	items_equipment
 밀수품 상자	Contraband Crate	items_equipment
 밀수품 쿠폰	Contraband Coupon	items_equipment
+보급 전리품	Supply Loot Cache	items_equipment
 붕대	Bandages	items_equipment
+성장형 무기 스킨	Progressive weapon skin	items_equipment
+열쇠	Key	items_equipment
+열쇠 조각	Key Fragment	items_equipment
+장인 토큰	Artisan Token	items_equipment
+전리품	Loot Cache	items_equipment
 전리품 조각	Loot Cache Fragment	items_equipment
+최고급 꾸러미	Prime Parcel	items_equipment
+크로마	Chroma	items_equipment
+화물	Cargo	items_equipment
+화물 티켓	Cargo Ticket	items_equipment
 듀오	Duo	ranked_competitive
 스쿼드	Squad	ranked_competitive
 기록보관소 상자	Archivist's Chest	store_economy
 나만의 상점	Your Shop	store_economy
+보급고	Supply Bay	store_economy
+서바이버 상자	Survivor's Chest	store_economy
 서바이버 패스	Survivor Pass	store_economy
 스크랩 브로커	Scrap Broker	store_economy
 스텝 업 팩	Step Up Pack	store_economy
 은신처	Hideout	store_economy
+이벤트 패스	Event Pass	store_economy
+일반 분해	Regular Disassembly	store_economy
 일반 제작	Regular Crafting	store_economy
+전리품 팩	Loot Cache Pack	store_economy
 제작소	Workshop	store_economy
+제작소 패스	Crafter Pass	store_economy
+크레딧	Credits	store_economy
 특수 분해	Special Disassembly	store_economy
 특수 제작	Special Crafting	store_economy
+헌터 상자	Hunter's Chest	store_economy
+무기 수집가	Weapon Collector	uiux
+수집가	The Collector	uiux
 추천 코드	referral code	uiux
+커스텀 로비 스킨	Custom Lobby Skin	uiux
 탈 것	Vehicle	vehicles

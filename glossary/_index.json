@@ -2,7 +2,7 @@
   "version": "0.1.0",
   "description": "PUBG out-game 공지 번역 자산 색인. 수치는 실측이며 손으로 박지 않는다.",
   "scope_rule": "이 스킬은 플레이어에게 발행되는 out-game 공지만 다룬다. 인게임 UI · 기획서 · 회의록은 범위 밖이다. 확정 문구가 쌓인 공지 유형은 Store Update 와 Special Drops 둘이며, 다른 유형에는 common 문구와 references/ 의 규칙만 적용한다 — 유형 전용 문구를 지어내지 않는다.",
-  "total_terms": 93,
+  "total_terms": 117,
   "total_categories": 13,
   "ips": [
     "PUBG"
@@ -24,7 +24,7 @@
       "ip": "PUBG",
       "project": "PUBG",
       "kind": "terms",
-      "term_count": 23
+      "term_count": 47
     }
   ]
 }

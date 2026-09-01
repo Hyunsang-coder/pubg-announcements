@@ -2,9 +2,10 @@
   "_meta": {
     "kind": "terms",
     "scope": "공지에 반복 등장하는 인게임 고유명사(기능·재화·모드·아이템 유형). 공지 번역이 자기완결로 돌아가기 위한 최소 집합이며, 게임 용어집 전체의 대체물이 아니다.",
-    "selection": "추측으로 넣지 않는다 — 실제 발행 공지 말뭉치에 등장한 것만 등록했다(2026-08-31 실측 18건).",
-    "authority": "공지 문맥에서는 이 파일이 정본이다(발행된 영문이 곧 확정 표기이므로). 인게임 UI·기획서 등 다른 문맥의 표기는 이 파일의 소관이 아니다.",
-    "inflection": "등록형은 기본형이다. 문장 안에서 수·시제·관사는 도착어 문법에 맞춘다(탈 것 → Drive vehicles, 경쟁전 → in Ranked Mode)."
+    "selection": "추측으로 넣지 않는다 — 실제 발행 공지 말뭉치에 등장한 것만 등록했다(2026-08-31 실측 18건 → 2026-09-01 코퍼스 19회차 KR/EN 대조로 47건).",
+    "authority": "공지 문맥에서는 이 파일이 정본이다(발행된 영문이 곧 확정 표기이므로). 다만 인게임 표기가 확인되고 발행분과 어긋나면 인게임이 이긴다 — 반려한 발행 표기는 notes 에 남긴다(references/judgment.md \"인게임 문자열이 걸린 경우\"). 인게임 UI·기획서 등 다른 문맥의 표기는 이 파일의 소관이 아니다.",
+    "inflection": "등록형은 기본형이다. 문장 안에서 수·시제·관사는 도착어 문법에 맞춘다(탈 것 → Drive vehicles, 경쟁전 → in Ranked Mode).",
+    "notation": "이 파일이 고정하는 것은 철자다. 아포스트로피는 곧은 것(U+0027)으로 통일하고, 대소문자는 자리에 따라 갈리므로 references/notation.json 의 announcement-title-case-en 소관이다."
   },
   "terms": [
     {
@@ -258,6 +259,270 @@
       "category_id": "store_economy",
       "context": "Store & Economy",
       "notes": "코퍼스 7회차 전부 KR/EN 동시 등장, EN 표기 변형 0건(2026-09-01): 2025-07 news/8875, 2026-01 news/9637, 2026-04 news/9892, 2026-05 news/10041, 2026-06 news/10182, 2026-07 news/10427, 2026-08 news/10828. 은신처/제작소 계열의 스크랩 교환 기능.",
+      "status": "approved"
+    },
+    {
+      "id": "pubg_369",
+      "source": "보급고",
+      "source_lang": "ko",
+      "target": "Supply Bay",
+      "target_lang": "en",
+      "category_id": "store_economy",
+      "context": "Store & Economy",
+      "notes": "42.1 업데이트로 추가된 제작소 하위 페이지. 실측(2026-09-01) 2026-06 news/10182 8회 · 2026-07 news/10427 1회, EN 표기 변형 0건. 경로 표기는 Workshop > Supply Bay. 2026-06 news/10180 은 KR \"보급고를 통해\"를 EN 에서 directly from a single Cargo 로 풀어 써 대응어가 없다 — 표기 갈림이 아니라 그 문장만 의역한 경우.",
+      "status": "approved"
+    },
+    {
+      "id": "pubg_370",
+      "source": "전리품",
+      "source_lang": "ko",
+      "target": "Loot Cache",
+      "target_lang": "en",
+      "category_id": "items_equipment",
+      "context": "Items & Equipment",
+      "notes": "제작소 아이템 상자의 기본형. 코퍼스 16회차 등장. 상품명 접두가 붙어 파생한다(보급 전리품 / 콜라보명 전리품 / 전리품 팩). 이미 등록된 전리품 조각 → Loot Cache Fragment 의 상위 개념.",
+      "status": "approved"
+    },
+    {
+      "id": "pubg_371",
+      "source": "보급 전리품",
+      "source_lang": "ko",
+      "target": "Supply Loot Cache",
+      "target_lang": "en",
+      "category_id": "items_equipment",
+      "context": "Items & Equipment",
+      "notes": "코퍼스 7회차, EN 표기 변형 0건. 상품명 접두가 없는 기본 보급형.",
+      "status": "approved"
+    },
+    {
+      "id": "pubg_372",
+      "source": "전리품 팩",
+      "source_lang": "ko",
+      "target": "Loot Cache Pack",
+      "target_lang": "en",
+      "category_id": "store_economy",
+      "context": "Store & Economy",
+      "notes": "상품 팩. 코퍼스 6회차. 벨기에·네덜란드 판매 제한 고지가 이 상품에 붙는다.",
+      "status": "approved"
+    },
+    {
+      "id": "pubg_373",
+      "source": "최고급 꾸러미",
+      "source_lang": "ko",
+      "target": "Prime Parcel",
+      "target_lang": "en",
+      "category_id": "items_equipment",
+      "context": "Items & Equipment",
+      "notes": "코퍼스 8회차. 42.1 업데이트(2026-06)로 시스템에서 제거됐으나 과거 회차 대조와 종료 안내 문구에 계속 쓰인다. 상품명 접두형이 대부분(HARLEY-DAVIDSON™ Prime Parcel 등).",
+      "status": "approved"
+    },
+    {
+      "id": "pubg_374",
+      "source": "도안",
+      "source_lang": "ko",
+      "target": "Imprint",
+      "target_lang": "en",
+      "category_id": "items_equipment",
+      "context": "Items & Equipment",
+      "notes": "특수 분해의 목적어. 코퍼스 7회차. 표 헤더 도안명 → Imprint Name.",
+      "status": "approved"
+    },
+    {
+      "id": "pubg_375",
+      "source": "장인 토큰",
+      "source_lang": "ko",
+      "target": "Artisan Token",
+      "target_lang": "en",
+      "category_id": "items_equipment",
+      "context": "Items & Equipment",
+      "notes": "특수 제작 재화. 코퍼스 7회차.",
+      "status": "approved"
+    },
+    {
+      "id": "pubg_376",
+      "source": "열쇠",
+      "source_lang": "ko",
+      "target": "Key",
+      "target_lang": "en",
+      "category_id": "items_equipment",
+      "context": "Items & Equipment",
+      "notes": "코퍼스 13회차. 상자 개봉 재화.",
+      "status": "approved"
+    },
+    {
+      "id": "pubg_377",
+      "source": "열쇠 조각",
+      "source_lang": "ko",
+      "target": "Key Fragment",
+      "target_lang": "en",
+      "category_id": "items_equipment",
+      "context": "Items & Equipment",
+      "notes": "코퍼스 6회차. 표·보상 목록에만 등장.",
+      "status": "approved"
+    },
+    {
+      "id": "pubg_378",
+      "source": "일반 분해",
+      "source_lang": "ko",
+      "target": "Regular Disassembly",
+      "target_lang": "en",
+      "category_id": "store_economy",
+      "context": "Store & Economy",
+      "notes": "제작소 분해 메뉴의 두 갈래 중 하나. 코퍼스 6회차 전부 특수 분해와 같은 문장에 나온다(Regular Disassembly or Special Disassembly).",
+      "status": "approved"
+    },
+    {
+      "id": "pubg_379",
+      "source": "헌터 상자",
+      "source_lang": "ko",
+      "target": "Hunter's Chest",
+      "target_lang": "en",
+      "category_id": "store_economy",
+      "context": "Store & Economy",
+      "notes": "코퍼스 10회차. 아포스트로피는 곧은 것 U+0027 로 고정한다 — 실측은 굽은 따옴표 U+2019 가 10회, 곧은 것이 8회지만 굽은 쪽은 편집기 자동 치환 산물이고 이미 등록된 Archivist's Chest 와도 어긋난다. 대소문자와 달리 아포스트로피는 철자 문제라 자리에 따라 흔들리지 않는다.",
+      "status": "approved"
+    },
+    {
+      "id": "pubg_380",
+      "source": "화물",
+      "source_lang": "ko",
+      "target": "Cargo",
+      "target_lang": "en",
+      "category_id": "items_equipment",
+      "context": "Items & Equipment",
+      "notes": "보급고에서 여는 컨테이너. 코퍼스 6회차. 상품명 접두형(Black Market 2026 Cargo).",
+      "status": "approved"
+    },
+    {
+      "id": "pubg_381",
+      "source": "화물 티켓",
+      "source_lang": "ko",
+      "target": "Cargo Ticket",
+      "target_lang": "en",
+      "category_id": "items_equipment",
+      "context": "Items & Equipment",
+      "notes": "화물 개봉 재화. 코퍼스 5회차. 항상 상품명 접두가 붙는다(Contender Cargo Ticket / Black Market 2026 Cargo Ticket).",
+      "status": "approved"
+    },
+    {
+      "id": "pubg_382",
+      "source": "크로마",
+      "source_lang": "ko",
+      "target": "Chroma",
+      "target_lang": "en",
+      "category_id": "items_equipment",
+      "context": "Items & Equipment",
+      "notes": "코퍼스 5회차. 성장형 무기 스킨의 색상 변형.",
+      "status": "approved"
+    },
+    {
+      "id": "pubg_383",
+      "source": "성장형 무기 스킨",
+      "source_lang": "ko",
+      "target": "Progressive weapon skin",
+      "target_lang": "en",
+      "category_id": "items_equipment",
+      "context": "Items & Equipment",
+      "notes": "코퍼스 6회차. 대소문자는 자리에 따라 갈린다 — 본문은 Progressive weapon skin 14회, 헤더·상품명 자리는 Progressive Weapon Skin 2회. 둘 다 오류가 아니고 대소문자는 references/notation.json 의 announcement-title-case-en 소관이다. 이 항목이 고정하는 것은 철자다.",
+      "status": "approved"
+    },
+    {
+      "id": "pubg_384",
+      "source": "패스 XP",
+      "source_lang": "ko",
+      "target": "Pass XP",
+      "target_lang": "en",
+      "category_id": "game_systems_modes",
+      "context": "Game Systems & Modes",
+      "notes": "코퍼스 5회차. Pass XP can be earned... 문장에 고정 등장.",
+      "status": "approved"
+    },
+    {
+      "id": "pubg_385",
+      "source": "이벤트 패스",
+      "source_lang": "ko",
+      "target": "Event Pass",
+      "target_lang": "en",
+      "category_id": "store_economy",
+      "context": "Store & Economy",
+      "notes": "코퍼스 4회차. 콜론 뒤에 이벤트명이 붙는다(Event Pass: PAYDAY).",
+      "status": "approved"
+    },
+    {
+      "id": "pubg_386",
+      "source": "제작소 패스",
+      "source_lang": "ko",
+      "target": "Crafter Pass",
+      "target_lang": "en",
+      "category_id": "store_economy",
+      "context": "Store & Economy",
+      "notes": "코퍼스 2회차. 제작소 → Workshop 이지만 이 패스만 Crafter Pass 다 — Workshop Pass 로 옮기지 않는다(2026-09-01 확인). 콜론 뒤에 시즌명이 붙는다(Crafter Pass: Black Market 2026).",
+      "status": "approved"
+    },
+    {
+      "id": "pubg_387",
+      "source": "크레딧",
+      "source_lang": "ko",
+      "target": "Credits",
+      "target_lang": "en",
+      "category_id": "store_economy",
+      "context": "Store & Economy",
+      "notes": "제작·분해 재화. 코퍼스 3회차. 수량 표기에서도 복수형 고정(Credits x6,000).",
+      "status": "approved"
+    },
+    {
+      "id": "pubg_388",
+      "source": "커스텀 로비 스킨",
+      "source_lang": "ko",
+      "target": "Custom Lobby Skin",
+      "target_lang": "en",
+      "category_id": "uiux",
+      "context": "UI/UX",
+      "notes": "코퍼스 3회차. 보상 목록에서 아이템명 뒤 괄호로 붙는다 — Private Gallery (Custom Lobby Skin).",
+      "status": "approved"
+    },
+    {
+      "id": "pubg_389",
+      "source": "수집가",
+      "source_lang": "ko",
+      "target": "The Collector",
+      "target_lang": "en",
+      "category_id": "uiux",
+      "context": "UI/UX",
+      "notes": "Special Drops 이벤트 섹션 헤더. 코퍼스 4회차 전부 ### 수집가 ↔ ### The Collector 로 정렬 확인. 정관사를 뺀 Collector 는 쓰지 않는다.",
+      "status": "approved"
+    },
+    {
+      "id": "pubg_390",
+      "source": "무기 수집가",
+      "source_lang": "ko",
+      "target": "Weapon Collector",
+      "target_lang": "en",
+      "category_id": "uiux",
+      "context": "UI/UX",
+      "notes": "2026-02 events/9698 의 같은 섹션 헤더. 이후 회차에서 수집가 → The Collector 로 바뀌었으므로 시기별 명칭 변경이지 병존하는 두 라벨이 아니다. 과거 회차 대조용.",
+      "status": "approved"
+    },
+    {
+      "id": "pubg_391",
+      "source": "기록 파일",
+      "source_lang": "ko",
+      "target": "Record File",
+      "target_lang": "en",
+      "category_id": "items_equipment",
+      "context": "Items & Equipment",
+      "notes": "컨텐더 제작 결과물. 코퍼스 2회차(2026-07 news/10427 외). 인물명 접두형(Contender/Dorian/Hanna/Glasya Record File).",
+      "status": "approved"
+    },
+    {
+      "id": "pubg_392",
+      "source": "서바이버 상자",
+      "source_lang": "ko",
+      "target": "Survivor's Chest",
+      "target_lang": "en",
+      "category_id": "store_economy",
+      "context": "Store & Economy",
+      "notes": "인게임 표기가 정본이라 Survivor's Chest 로 등록(2026-09-01 확인). 발행분 2회차(2026-07 news/10427 · 2026-08 news/10828)는 Survivor Crate 로 나갔으나 반려 — 둘 다 서바이버 패스 보상 변경을 알리는 같은 문장이고, 인게임 문자열과 어긋난다. 발행분이 정본이라는 원칙은 인게임 표기가 확인되지 않을 때의 기준이다.",
       "status": "approved"
     }
   ]
