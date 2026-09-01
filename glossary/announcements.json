@@ -2,7 +2,17 @@
   "_meta": {
     "kind": "sentence_tm",
     "scope": "PUBG 라이브 out-game 공지(Store Update·Special Drops 등)에서 회차마다 그대로 재사용되는 고정 문구. 문장 단위 TM 이며 재번역 대상이 아니다.",
-    "evidence": "PUBG 공식 홈페이지에 발행된 공지 KR/EN 대조. 표기가 갈린 항목은 다수결로 확정하고 소수 형태를 notes 에 남긴다. 출처 정책은 references/sources.md.",
+    "evidence": "PUBG 공식 홈페이지에 발행된 공지 KR/EN 대조. 표기가 갈린 항목은 다수결로 확정하고 소수 형태를 notes 에 남긴다. 출처 정책과 수집 방법(로케일 교체)은 references/sources.md.",
+    "evidence_corpus": {
+      "note": "최초 등록분 67건은 사내 대조 기록에서 옮겨온 것이라 회차 목록이 남아 있지 않다. 아래는 공개 발행분으로 재검증한 회차이며, 앞으로 등록·재검증할 때 이 목록에 추가한다.",
+      "verified": [
+        "news/8875 — 2025-07 Store Update. 섹션 헤더·※ 고지·확률 고지·클로징·서명 확인. 완역 예시는 references/example-store-update.md.",
+        "news/10043 — 2026-05 콜라보(할리데이비슨). ※ 고지 2건·기간 표기·서명 확인. 인사말 없음, 클로징은 회차 창작 문구.",
+        "news/9469 — 2025-12 콜라보(발렌시아가). 인사말·※ 고지 2건·해를 넘기는 기간 표기 확인. 클로징은 회차 창작 문구.",
+        "news/10182 — 2026-06 블랙 마켓(제작소 개편). 특수 제작 계열 헤더·서명 확인. 인사말 없음, 클로징은 회차 창작 문구."
+      ],
+      "open": "인사말 'Hello players!'(콤마 없음)가 8875(2025-07)·9469(2025-12) 두 회차에서 관측됐으나 정본은 'Hello, players!' 로 유지한다(2026-09-01 재확인) — 영어 호격은 콤마가 문법적으로 맞고, 두 표본은 판례가 전환 시점으로 본 2026-07 이전이라 오히려 시간순 전환(2025 콤마 없음 → 2026 콤마 있음)과 일치한다. 자세한 판례는 references/judgment.md."
+    },
     "doc_type": "이 문장이 어느 공지에서 확인됐는가. store_update | special_drops | common(두 공지가 같이 쓰는 것). 조회에는 거의 쓸 일이 없다 — 67건의 source 가 서로 하나도 겹치지 않아 원문에서 찾아 들어가면 유형이 달라도 헷갈릴 수 없다(클로징조차 원문이 다르다). doc_type 이 일하는 자리는 원문에 없던 자리를 채울 때다: 원문 클로징이 등록된 둘 중 어느 것도 아니면 이 공지 유형의 클로징이 무엇인지를 doc_type 이 답한다. 등록되지 않은 유형이면 지어내지 말고 확정을 받는다(references/style.json closing).",
     "matching": "source 는 선행 기호(※·*)를 뗀 형태로 등록한다. 검증은 원문이 아니라 도착어 쪽에서 한다 — 원문은 회차마다 조사·공백이 흔들려 매칭이 조용히 빗나간다.",
     "notation": "날짜·기간·대소문자처럼 문자열이 아니라 패턴인 규칙은 references/notation.json 이 정본."
@@ -27,9 +37,9 @@
       "target": "All featured items may become available again at a later date via the Workshop, Your Shop, or other in-game features, as well as various events and promotions.",
       "target_lang": "en",
       "category_id": "legal_notice",
-      "doc_type": "store_update",
+      "doc_type": "common",
       "context": "공지 골격 — 신규 상품 섹션 상단 고지 (선행 ※)",
-      "notes": "4개월(2026-06~09) 문자 그대로 동일한 유일한 장문. 재번역 금지.",
+      "notes": "4개월(2026-06~09) 문자 그대로 동일한 유일한 장문. 재번역 금지. 발행분 4회차(news/8875·10043·9469·10182) 실측: 콜라보 공지(10043·9469)에도 같은 자리에 동일하게 등장 — store_update 전용이 아니라 common.",
       "status": "approved"
     },
     {
@@ -41,7 +51,7 @@
       "category_id": "section_header",
       "doc_type": "store_update",
       "context": "공지 골격 — 상품별 판매 기간 블록 헤더",
-      "notes": "EN 표기 3변형 관측(Sales Period (UTC) 18 / Sales Period(UTC) 5 / Sales period(UTC) 1). 다수결 + 'Period' 대문자·괄호 앞 공백으로 확정. KR 은 항상 공백 없는 '판매 기간(UTC)'.",
+      "notes": "EN 표기 3변형 관측(Sales Period (UTC) 18 / Sales Period(UTC) 5 / Sales period(UTC) 1). 다수결 + 'Period' 대문자·괄호 앞 공백으로 확정. KR 은 항상 공백 없는 '판매 기간(UTC)'. [근거 백필 2026-09-01] 코퍼스 19회차 중 12건 적중 (store_update 9 · collab 2 · event 1): 2025-07 news/8875, 2025-12 news/9469, 2026-01 news/9637, 2026-02 news/9692, 2026-03 news/9805, 2026-04 news/9892, 2026-05 news/10041, 2026-05 news/10043, 2026-06 news/10180, 2026-06 news/10182, 2026-07 news/10427, 2026-08 news/10828.",
       "status": "approved"
     },
     {
@@ -113,7 +123,7 @@
       "category_id": "boilerplate",
       "doc_type": "common",
       "context": "공지 골격 — 본문 첫 줄 인사말",
-      "notes": "콤마 있는 형태로 확정(2026-08-26 사용자 판단). 24개 문서 실측은 'Hello players!' 25 : 'Hello, players!' 3 으로 빈도상 콤마 없음이 다수지만, 콤마본 3건이 전부 최근 3개월(2026-07~09)이라 의도된 전환으로 보고 최근형을 따랐다. 영어 호격은 콤마가 문법적으로 맞다. Special Drops(special_drops_1)도 같은 문자열로 통일했다.",
+      "notes": "콤마 있는 형태로 확정(2026-08-26 사용자 판단). 24개 문서 실측은 'Hello players!' 25 : 'Hello, players!' 3 으로 빈도상 콤마 없음이 다수지만, 콤마본 3건이 전부 최근 3개월(2026-07~09)이라 의도된 전환으로 보고 최근형을 따랐다. 영어 호격은 콤마가 문법적으로 맞다. Special Drops(special_drops_1)도 같은 문자열로 통일했다. [근거 백필 2026-09-01] 코퍼스 19회차 중 2건 적중 (store_update 2): 2026-07 news/10427, 2026-08 news/10828.",
       "status": "approved"
     },
     {
@@ -123,9 +133,9 @@
       "target": "The sales periods shown below are subject to change.",
       "target_lang": "en",
       "category_id": "legal_notice",
-      "doc_type": "store_update",
+      "doc_type": "common",
       "context": "공지 골격 — 신규 상품 섹션 상단 고지 (선행 ※)",
-      "notes": "2026-08-26 사용자 확정. 7·8월의 'Sale periods are subject to change depending on circumstances.' 는 '상황에 따라' 직역투라 반려. 'shown below' 가 적용 범위를 명시한다.",
+      "notes": "2026-08-26 사용자 확정. 7·8월의 'Sale periods are subject to change depending on circumstances.' 는 '상황에 따라' 직역투라 반려. 'shown below' 가 적용 범위를 명시한다. 발행분 4회차(news/8875·10043·9469·10182) 실측: 콜라보 공지(10043·9469)에도 같은 자리에 동일하게 등장 — store_update 전용이 아니라 common.",
       "status": "approved"
     },
     {
@@ -137,7 +147,7 @@
       "category_id": "legal_notice",
       "doc_type": "store_update",
       "context": "공지 골격 — 밀수품 상자 확률 고지 (선행 ※)",
-      "notes": "UI 경로는 인게임 문자열이 정본 — 24개 문서(2022-09~2026-09) 실측으로 'View Probabilities'(복수) 확정. KR 이 2025-03 에 '상세 확률'→'확률 보기' 로 바뀌면서 EN 도 'Probability to acquire'→'View Probabilities' 로 옮겨갔고, 2025-03~2026-05 11개 문서가 이 형태다. 2026-07 의 'View Probability'(단수)·2026-08 의 'Probability to acquire'(구 표기 회귀) 는 둘 다 오류. 술부도 'drop rates' 가 아니라 'probabilities'.",
+      "notes": "UI 경로는 인게임 문자열이 정본 — 24개 문서(2022-09~2026-09) 실측으로 'View Probabilities'(복수) 확정. KR 이 2025-03 에 '상세 확률'→'확률 보기' 로 바뀌면서 EN 도 'Probability to acquire'→'View Probabilities' 로 옮겨갔고, 2025-03~2026-05 11개 문서가 이 형태다. 2026-07 의 'View Probability'(단수)·2026-08 의 'Probability to acquire'(구 표기 회귀) 는 둘 다 오류. 술부도 'drop rates' 가 아니라 'probabilities'. [근거 백필 2026-09-01] 코퍼스 19회차 중 5건 적중 (store_update 4 · event 1): 2025-07 news/8875, 2026-01 news/9637, 2026-04 news/9892, 2026-05 news/10041, 2026-06 news/10182.",
       "status": "approved"
     },
     {
@@ -149,7 +159,7 @@
       "category_id": "legal_notice",
       "doc_type": "store_update",
       "context": "공지 골격 — 확률형 아이템 지역 판매 제한 고지 (선행 ※)",
-      "notes": "2026-08-26 사용자 확정 — 7월형. 8월의 'are unavailable for purchase in the BE and NL regions' 는 반려(KR '판매 불가' 에 직접 대응하는 not available for sale 이 우선).",
+      "notes": "2026-08-26 사용자 확정 — 7월형. 8월의 'are unavailable for purchase in the BE and NL regions' 는 반려(KR '판매 불가' 에 직접 대응하는 not available for sale 이 우선). [근거 백필 2026-09-01] 코퍼스 19회차 중 1건 적중 (store_update 1): 2026-07 news/10427.",
       "status": "approved"
     },
     {
@@ -161,7 +171,7 @@
       "category_id": "product_label",
       "doc_type": "store_update",
       "context": "상품명 — 밀수품 상자 10회 개봉 번들",
-      "notes": "'(10회)' 는 상품명 접미사. 2026-08-26 사용자 확정 — 'Open 10'. 7월의 '(10-pull)' 은 가챠 jargon 이라 반려.",
+      "notes": "'(10회)' 는 상품명 접미사. 2026-08-26 사용자 확정 — 'Open 10'. 7월의 '(10-pull)' 은 가챠 jargon 이라 반려. [근거 백필 2026-09-01] 코퍼스 19회차 중 6건 적중 (store_update 5 · event 1): 2025-07 news/8875, 2026-01 news/9637, 2026-04 news/9892, 2026-05 news/10041, 2026-06 news/10182, 2026-08 news/10828.",
       "status": "approved"
     },
     {
@@ -173,7 +183,7 @@
       "category_id": "product_label",
       "doc_type": "store_update",
       "context": "공지 골격 — 번들 첫 구매 할인 고지 (선행 ※, 상품명 뒤에 붙는 술부)",
-      "notes": "상품명을 문장 앞에 두고 술부를 뒤에 붙인다(8월형) — KR 어순과 같다. 7월형 'A 50% discount is applied on the first purchase - Contraband Crate (10-pull).' 은 상품명이 문장 뒤로 밀려 반려(2026-08-26).",
+      "notes": "상품명을 문장 앞에 두고 술부를 뒤에 붙인다(8월형) — KR 어순과 같다. 7월형 'A 50% discount is applied on the first purchase - Contraband Crate (10-pull).' 은 상품명이 문장 뒤로 밀려 반려(2026-08-26). [근거 백필 2026-09-01] 코퍼스 19회차 중 4건 적중 (store_update 3 · event 1): 2025-07 news/8875, 2026-01 news/9637, 2026-06 news/10182, 2026-08 news/10828.",
       "status": "approved"
     },
     {
@@ -185,7 +195,7 @@
       "category_id": "section_header",
       "doc_type": "store_update",
       "context": "공지 골격 — 은신처 무기 스킨 섹션 헤더",
-      "notes": "복수형 확정 — 24개 문서 실측 16:1(2026-07 만 단수 'Weapon Skin').",
+      "notes": "복수형 확정 — 24개 문서 실측 16:1(2026-07 만 단수 'Weapon Skin'). [근거 백필 2026-09-01] 코퍼스 19회차 중 5건 적중 (store_update 5): 2025-07 news/8875, 2026-01 news/9637, 2026-04 news/9892, 2026-05 news/10041, 2026-08 news/10828.",
       "status": "approved"
     },
     {
@@ -221,7 +231,7 @@
       "category_id": "section_header",
       "doc_type": "store_update",
       "context": "공지 골격 — 판매 종료 일시 라벨. 타임존 표기가 붙으면 'Sales End Date (UTC)'",
-      "notes": "24개 문서 실측 15:1 로 확정(2026-07 의 'End of Sales Date' 는 반려). 괄호 앞 공백은 'Sales Period (UTC)' 와 맞춘다 — 2026-06 의 'Sales End Date(UTC)'·'End Date(UTC)' 는 공백 누락·라벨 축약이라 반려.",
+      "notes": "24개 문서 실측 15:1 로 확정(2026-07 의 'End of Sales Date' 는 반려). 괄호 앞 공백은 'Sales Period (UTC)' 와 맞춘다 — 2026-06 의 'Sales End Date(UTC)'·'End Date(UTC)' 는 공백 누락·라벨 축약이라 반려. [근거 백필 2026-09-01] 코퍼스 19회차 중 1건 적중 (store_update 1): 2026-06 news/10180.",
       "status": "approved"
     },
     {
@@ -233,7 +243,7 @@
       "category_id": "section_header",
       "doc_type": "store_update",
       "context": "공지 골격 — 판매 종료 대상 목록 라벨",
-      "notes": "선례 없음(2026-06·07 에만 등장). 2026-08-26 사용자 판단으로 간결한 6월형 확정. 7월의 'Items No Longer Available for Purchase' 는 반려.",
+      "notes": "선례 없음(2026-06·07 에만 등장). 2026-08-26 사용자 판단으로 간결한 6월형 확정. 7월의 'Items No Longer Available for Purchase' 는 반려. [근거 백필 2026-09-01] 코퍼스 19회차 중 1건 적중 (store_update 1): 2026-06 news/10180.",
       "status": "approved"
     },
     {
@@ -245,7 +255,7 @@
       "category_id": "boilerplate",
       "doc_type": "store_update",
       "context": "공지 골격 — GPT(이스포츠 글로벌 파트너 팀) 섹션 소개문",
-      "notes": "전치사 from 확정(2026-08-26 사용자 판단) — KR '팀의'(출처)에 대응. 2026-08 의 'special edition skins for the …' 는 반려. 연도는 가변부.",
+      "notes": "전치사 from 확정(2026-08-26 사용자 판단) — KR '팀의'(출처)에 대응. 2026-08 의 'special edition skins for the …' 는 반려. 연도는 가변부. [근거 백필 2026-09-01] 코퍼스 19회차(references/corpus.json)에 이 정본이 0건 — 계절/회차 한정 섹션일 가능성이 크다. 폐기 전에 해당 섹션이 있는 회차를 먼저 찾을 것.",
       "status": "approved"
     },
     {
@@ -677,7 +687,7 @@
       "category_id": "section_header",
       "doc_type": "special_drops",
       "context": "주간 미션 릴레이 — 미공개 주차 묶음",
-      "notes": "8월 문서 'Week2/Week 3/Week 4' 는 공백 누락 오류. 9월 형태로 확정.",
+      "notes": "8월 문서 'Week2/Week 3/Week 4' 는 공백 누락 오류. 9월 형태로 확정. [근거 백필 2026-09-01] 코퍼스 19회차(references/corpus.json)에 이 정본이 0건 — 계절/회차 한정 섹션일 가능성이 크다. 폐기 전에 해당 섹션이 있는 회차를 먼저 찾을 것.",
       "status": "approved"
     },
     {
@@ -713,7 +723,7 @@
       "category_id": "legal_notice",
       "doc_type": "special_drops",
       "context": "보상 부가 설명 — 기간제 보상 하위 불릿",
-      "notes": "'* 아래 보상은…' 변형. 선행 '*' 는 원문 그대로 보존.",
+      "notes": "'* 아래 보상은…' 변형. 선행 '*' 는 원문 그대로 보존. [근거 백필 2026-09-01] 코퍼스 19회차 중 4건 적중 (special_drops 4): 2026-02 events/9698, 2026-04 events/9858, 2026-07 events/10406, 2026-08 events/10829.",
       "status": "approved"
     },
     {
@@ -810,6 +820,42 @@
       "doc_type": "special_drops",
       "context": "친구 초대 — UI 페이지명",
       "notes": "이 페이지명만 Invitation Code (referral 아님). 일반 명사 '추천 코드' 는 referral code (pubg_br).",
+      "status": "approved"
+    },
+    {
+      "id": "store_update_21",
+      "source": "특수 제작 탭 운영 종료일",
+      "source_lang": "ko",
+      "target": "Special Crafting Closing Date (UTC)",
+      "target_lang": "en",
+      "category_id": "section_header",
+      "doc_type": "common",
+      "context": "공지 골격 — 특수 제작 섹션의 운영 종료 일시 라벨",
+      "notes": "발행분 4회차(news/8875·10043·9469·10182) 실측 3회차에서 헤딩으로 확인(10182 는 다른 형태). KR 에 '(UTC)' 가 없어도 EN 은 붙인다 — 판매 기간(UTC) 와 같은 처리.",
+      "status": "approved"
+    },
+    {
+      "id": "store_update_22",
+      "source": "제작 가능 아이템",
+      "source_lang": "ko",
+      "target": "Craftable Items",
+      "target_lang": "en",
+      "category_id": "section_header",
+      "doc_type": "common",
+      "context": "공지 골격 — 특수 제작 섹션의 제작 가능 목록 라벨",
+      "notes": "발행분 4회차(news/8875·10043·9469·10182) 실측 4/4 회차 동일.",
+      "status": "approved"
+    },
+    {
+      "id": "store_update_23",
+      "source": "콜라보레이션",
+      "source_lang": "ko",
+      "target": "Collaboration",
+      "target_lang": "en",
+      "category_id": "section_header",
+      "doc_type": "common",
+      "context": "공지 골격 — 콜라보 섹션 헤더. 실제로는 '콜라보레이션: <파트너명>' 형태로 쓰인다",
+      "notes": "발행분 4회차(news/8875·10043·9469·10182) 실측 3회차 확인(Collaboration: PUBG x aespa / Harley-Davidson / BALENCIAGA). 파트너명은 가변부이고 브랜드 고유표기를 그대로 둔다 — 헤더 대소문자는 notation.json announcement-title-case-en.",
       "status": "approved"
     }
   ]

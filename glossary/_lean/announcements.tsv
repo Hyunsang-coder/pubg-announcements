@@ -1,0 +1,74 @@
+# 생성물 — 손으로 편집하지 않는다. 원본: glossary/announcements.json / 생성: scripts/build-lean.js
+# 확정 문장 TM. 있으면 그대로 쓰고 가변부(날짜·서수·수치·상품명·연도)만 교체한다.
+# notes(확정 사유)·status·근거는 원본 JSON 에 있다. 문서 단위 섹션 순서는 references/skeletons.md.
+doc_type	category	source	target
+common	section_header	제작 가능 아이템	Craftable Items
+common	section_header	콜라보레이션	Collaboration
+common	section_header	특수 제작 탭 운영 종료일	Special Crafting Closing Date (UTC)
+common	legal_notice	소개된 모든 상품은 제작소, 나만의 상점 등 게임 내 플랫폼 및/또는 이벤트/프로모션을 통해 추후 재등장할 수 있습니다.	All featured items may become available again at a later date via the Workshop, Your Shop, or other in-game features, as well as various events and promotions.
+common	legal_notice	판매 기간은 상황에 따라 변경될 수 있습니다.	The sales periods shown below are subject to change.
+common	period_phrase	라이브 서버 점검 완료 후	after live server maintenance
+common	boilerplate	안녕하세요, 플레이어 여러분!	Hello, players!
+common	boilerplate	PUBG: 배틀그라운드 팀	PUBG: BATTLEGROUNDS Team
+store_update	section_header	신규 아이템과 스킨	New Items and Skins
+store_update	section_header	은신처: 무기 스킨	Hideout: Weapon Skins
+store_update	section_header	판매 기간(UTC)	Sales Period (UTC)
+store_update	section_header	판매 종료 대상 아이템	Items Affected
+store_update	section_header	판매 종료 아이템과 스킨	Items and Skins End Date Reminder
+store_update	section_header	판매 종료일	Sales End Date
+store_update	legal_notice	기록보관소 상자에서 획득 가능한 아이템의 획득 확률은 제작소 - 일반 제작 - 기록보관소 상자 - 확률 보기 페이지에서 확인하실 수 있습니다.	The probabilities for items obtainable from the Archivist's Chest can be found on the Workshop - Regular Crafting - Archivist's Chest - View Probabilities page.
+store_update	legal_notice	밀수품 상자에서 획득 가능한 아이템의 획득 확률은 은신처 - 밀수품 - 세부 정보 - 확률 보기 페이지에서 확인하실 수 있습니다.	The probabilities for items obtainable from Contraband Crates can be found on the Hideout - Contraband - More Details - View Probabilities page.
+store_update	legal_notice	서바이버 패스 등 확률형 아이템은 법률적 이슈로 인하여 BE, NL(벨기에, 네덜란드) 지역에는 판매 불가	Probability-based items such as the Survivor Pass are not available for sale in BE and NL (Belgium and the Netherlands) due to legal issues.
+store_update	product_label	밀수품 상자 (10회)	Contraband Crate (Open 10)
+store_update	product_label	최초 구매 시 50% 할인이 적용됩니다.	offers a 50% discount for the first purchase.
+store_update	period_phrase	이후 안내 시까지	until further notice
+store_update	boilerplate	2026 PUBG: 배틀그라운드 이스포츠 글로벌 파트너 팀의 특별한 아이템을 확인해 보세요!	Check out the special items from the 2026 PUBG: BATTLEGROUNDS Esports Global Partner Teams!
+store_update	boilerplate	이용에 참고 부탁드립니다. 감사합니다.	Thank you for your understanding.
+store_update	boilerplate	즐거운 쇼핑 되시길 바랍니다.	Happy shopping!
+special_drops	section_header	1명 초대 시	Invite 1 Friend
+special_drops	section_header	1주차	Week 1
+special_drops	section_header	2주차/3주차/4주차	Weeks 2/3/4
+special_drops	section_header	9월 Check-in	September Check-in
+special_drops	section_header	미션	Mission
+special_drops	section_header	보너스 체크인	Bonus Check-in
+special_drops	section_header	빙고 완성 보상	Bingo Completion Rewards
+special_drops	section_header	업데이트 내역	Update History
+special_drops	section_header	이벤트 기간 (UTC)	Event Schedule (UTC)
+special_drops	section_header	이벤트 안내	Event Details
+special_drops	section_header	주차 별 획득 가능한 보상	Obtainable Rewards by Week
+special_drops	section_header	총 획득 가능한 보상	Total Obtainable Rewards
+special_drops	section_header	추천 코드 입력 이벤트	Invitation Code Event
+special_drops	section_header	획득 가능한 보상	Obtainable Rewards
+special_drops	legal_notice	(단, 6종의 아이템 중 1종만 선택 가능합니다.)	(However, only 1 of the 6 items can be selected.)
+special_drops	legal_notice	(접속 기준이 매일 02:00 UTC에 초기화됩니다.)	(Resets every day at 02:00 UTC.)
+special_drops	legal_notice	(접속 기준이 매일 11:00 KST에 초기화됩니다.)	(Resets every day at 11:00 KST.)
+special_drops	legal_notice	각 미션은 매일 11:00 KST에 초기화됩니다.	Each mission resets every day at 11:00 KST.
+special_drops	legal_notice	각 미션은 매주 초기화됩니다.	Each mission resets every week.
+special_drops	legal_notice	각 미션이 매일 02:00 UTC에 초기화됩니다.	Each mission resets every day at 02:00 UTC.
+special_drops	legal_notice	복귀 플레이어: PUBG: 배틀그라운드 마지막 접속일로부터 28일 이상 경과한 플레이어	Returning Players: players who have been inactive for 28 days or more since their last login
+special_drops	legal_notice	생존 미션은 듀오 또는 스쿼드 모드에서는 동료를 관전하는 시간을 포함합니다.	Survival time includes time spent spectating your teammates.
+special_drops	legal_notice	신규 플레이어: PUBG: 배틀그라운드에 신규 가입한 지 14일 이하인 플레이어	New Players: players who joined PUBG: BATTLEGROUNDS 14 days ago or less
+special_drops	legal_notice	아래 보상은 획득 후 7일간 이용할 수 있습니다.	Can be used for 7 days from the time the reward is claimed.
+special_drops	legal_notice	친구 초대 이벤트는 생존 레벨 10 이상부터 참여가 가능합니다.	Players must have Survival Level 10 or higher to participate in the Friend Invite Event.
+special_drops	legal_notice	해당 보상은 획득 후 7일간 이용할 수 있습니다.	Can be used for 7 days from the time the reward is claimed.
+special_drops	mission_phrase	각 주차마다 오픈되는 미션을 클리어하여 보상을 획득할 수 있습니다.	Complete the missions that open each week to earn rewards.
+special_drops	mission_phrase	경쟁전에서 누적 30분 동안 생존하기.	Survive a total of 30 minutes in Ranked Mode.
+special_drops	mission_phrase	낙하산을 타고 누적 600 m 이동하기.	Parachute 600m in total.
+special_drops	mission_phrase	누적 30분 동안 생존하기.	Survive 30 minutes in total.
+special_drops	mission_phrase	로비 입장하기.	Enter the lobby.
+special_drops	mission_phrase	로비에 매일 접속하기.	Enter the lobby daily.
+special_drops	mission_phrase	로비에 접속하기.	Log in to the lobby.
+special_drops	mission_phrase	미션을 수행하여 티켓을 획득하고, 빙고판에서 빙고를 달성하세요!	Complete missions to earn tickets, and complete your Bingo board!
+special_drops	mission_phrase	미션을 수행하여 포인트를 획득하고, 누적한 포인트로 다양한 보상 아이템과 교환해보세요!	Complete missions to earn points, and exchange your accumulated points for a variety of reward items!
+special_drops	mission_phrase	미션을 수행하여 포인트를 획득하고, 누적한 포인트로 보상 아이템과 교환해보세요!	Complete missions to earn points, and exchange your accumulated points for reward items.
+special_drops	mission_phrase	붕대 누적 6개 사용하기.	Use 6 Bandages in total.
+special_drops	mission_phrase	서바이벌 레벨 10을 달성하여 보상 획득하기.	Reach Survival Level 10 and earn a reward.
+special_drops	mission_phrase	은신처에서 밀수품 쿠폰 50장 사용하기.	Use 50 Contraband Coupons in the Hideout.
+special_drops	mission_phrase	이벤트 페이지에서 추천 코드를 생성하여 친구들에게 전달하기.	Generate a referral code from the event page and share it with your friends.
+special_drops	mission_phrase	이전 미션을 완료하면 다음 미션이 오픈되어 진행할 수 있습니다.	Complete each mission to unlock the next.
+special_drops	mission_phrase	이후 순차적으로 공개될 예정입니다.	To be revealed sequentially.
+special_drops	mission_phrase	적에게 누적 피해량 400 주기.	Deal 400 total damage to enemies.
+special_drops	mission_phrase	탈 것을 운전하여 누적 700 m 이동하기.	Drive vehicles 700m in total.
+special_drops	product_label	(7일)	(7 Days)
+special_drops	boilerplate	로비 내 이벤트 페이지를 통해 자세한 이벤트 내용을 확인할 수 있습니다.	Event details can be checked via the in-game lobby event page.
+special_drops	boilerplate	전장에서 뵙겠습니다.	Happy Drops!

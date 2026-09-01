@@ -1,0 +1,24 @@
+# 생성물 — 손으로 편집하지 않는다. 원본: glossary/proper_nouns.json / 생성: scripts/build-lean.js
+source	target	category
+피해량	Damage	game_mechanics
+경쟁전	Ranked	game_systems_modes
+관전	Spectating	game_systems_modes
+생존 레벨	Survival Level	game_systems_modes
+서바이벌 레벨	Survival Level	game_systems_modes
+밀수품 상자	Contraband Crate	items_equipment
+밀수품 쿠폰	Contraband Coupon	items_equipment
+붕대	Bandages	items_equipment
+전리품 조각	Loot Cache Fragment	items_equipment
+듀오	Duo	ranked_competitive
+스쿼드	Squad	ranked_competitive
+기록보관소 상자	Archivist's Chest	store_economy
+나만의 상점	Your Shop	store_economy
+서바이버 패스	Survivor Pass	store_economy
+스텝 업 팩	Step Up Pack	store_economy
+은신처	Hideout	store_economy
+일반 제작	Regular Crafting	store_economy
+제작소	Workshop	store_economy
+특수 분해	Special Disassembly	store_economy
+특수 제작	Special Crafting	store_economy
+추천 코드	referral code	uiux
+탈 것	Vehicle	vehicles

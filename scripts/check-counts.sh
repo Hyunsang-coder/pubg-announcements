@@ -90,6 +90,11 @@ done < <(awk -F'|' '
   }' SKILL.md)
 
 echo
+echo "== 조회면(lean) 신선도 =="
+# 생성물이 원본 JSON 과 어긋나면 번역 중에 읽는 쪽이 낡은 값을 준다 — 카운트 불일치보다 위험하다.
+if node "$ROOT/scripts/build-lean.js" --check; then :; else fail=1; fi
+
+echo
 if [[ $fail -eq 0 ]]; then
   echo "[check-counts] 전부 일치."
 else

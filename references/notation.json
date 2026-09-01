@@ -60,6 +60,8 @@
         "양끝 형태 `<Month> <D>, <시각 또는 조건구>` — 구분자는 공백 하이픈 ` - `",
         "시각은 24시간 HH:MM. 타임존은 원문·섹션 헤딩 관례를 따른다 (event-date-format-en)",
         "같은 날 안에서 끝나면 종료 쪽 날짜 생략: February 4, 00:00 - 08:30",
+        "해를 넘기면 종료 쪽에만 연도를 붙인다: December 3, after live server maintenance - January 12, 2026, 00:00 (같은 해 안이면 연도를 쓰지 않는다)",
+        "KR 원문의 시각은 KST 다. EN 은 UTC 로 환산한다 — 09:00 → 00:00, 11:00 → 02:00 (−9h). 숫자를 그대로 옮기지 않는다",
         "플랫폼 라벨은 콜론 앞 공백 없음: PC: / Console: / PC & Console: / Console (Xbox Game Pass):"
       ],
       "why": "스토어 업데이트·패치노트 등 공지성 글의 기간 표기 확정안(2026-08-26 팀 결정). KR 원문은 '5/21 라이브 서버 점검 후 ~ 6/18 07:00'처럼 물결표와 숫자 날짜를 쓰지만, EN 공지는 로비 이벤트 페이지·패치노트 점검 일정(점검 일정 표기 'February 4, 00:00 - 08:30')과 같은 형태로 통일한다. 구분자·콤마가 흔들리면 플레이어가 시작/종료 시점을 오독한다. 날짜 토큰 자체의 표기(월 풀네임·앞자리 0 없는 일·연도 후치)는 event-date-format-en 소관이고, 이 룰은 두 끝을 잇는 방식만 고정한다.",
@@ -75,6 +77,10 @@
         {
           "bad": "PC : September 15, 02:00 - October 14, 00:00",
           "good": "PC: September 15, 02:00 - October 14, 00:00"
+        },
+        {
+          "bad": "25/12/3, 라이브 서버 점검 완료 후 - 26/1/12, 09:00 → December 3, after live server maintenance - January 12, 09:00",
+          "good": "December 3, after live server maintenance - January 12, 2026, 00:00"
         }
       ],
       "severity": "red"

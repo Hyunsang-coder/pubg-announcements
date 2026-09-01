@@ -204,6 +204,50 @@
       "context": "Game Systems & Modes",
       "notes": "사망 후 팀원 관전",
       "status": "approved"
+    },
+    {
+      "id": "pubg_364",
+      "source": "특수 제작",
+      "source_lang": "ko",
+      "target": "Special Crafting",
+      "target_lang": "en",
+      "category_id": "store_economy",
+      "context": "Store & Economy",
+      "notes": "발행분 4회차(news/8875·10043·9469·10182) 실측 4/4 회차 동일. 제작소 메뉴명 — '일반 제작 → Regular Crafting'(pubg_363) 과 같은 계열.",
+      "status": "approved"
+    },
+    {
+      "id": "pubg_365",
+      "source": "특수 분해",
+      "source_lang": "ko",
+      "target": "Special Disassembly",
+      "target_lang": "en",
+      "category_id": "store_economy",
+      "context": "Store & Economy",
+      "notes": "발행분 4회차(news/8875·10043·9469·10182) 실측 4/4 회차 동일. 제작소 분해 메뉴 — 일반 분해와 짝.",
+      "status": "approved"
+    },
+    {
+      "id": "pubg_366",
+      "source": "전리품 조각",
+      "source_lang": "ko",
+      "target": "Loot Cache Fragment",
+      "target_lang": "en",
+      "category_id": "items_equipment",
+      "context": "Items & Equipment",
+      "notes": "발행분 4회차(news/8875·10043·9469·10182) 실측 3회차 동일(10182 에는 없음). 10개를 모아 '전리품' 1개를 제작하는 재료 아이템.",
+      "status": "approved"
+    },
+    {
+      "id": "pubg_367",
+      "source": "스텝 업 팩",
+      "source_lang": "ko",
+      "target": "Step Up Pack",
+      "target_lang": "en",
+      "category_id": "store_economy",
+      "context": "Store & Economy",
+      "notes": "발행분 4회차(news/8875·10043·9469·10182) 실측 콜라보 2회차(10043·9469)에서 확인. 발행분에는 복수형 'Step Up Packs' 로만 등장했으나 등록형은 기본형 규칙(_meta.inflection)에 따라 단수로 둔다 — 문장·헤딩에서는 수를 문법에 맞춘다.",
+      "status": "approved"
     }
   ]
 }

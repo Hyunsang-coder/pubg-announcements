@@ -1,0 +1,35 @@
+{
+  "_meta": {
+    "scope": "근거로 대조한(또는 대조할) 발행 공지 목록. 이 파일은 id 만 담고 본문은 담지 않는다 — 본문은 PUBG 저작물이라 재배포하지 않고, scripts/fetch-announcement.js 로 .corpus/(gitignore)에 받아 쓴다.",
+    "why": "회차가 쌓이면 '이 문장이 몇 개 회차에 반복되는가'를 셀 수 있다. 그게 새 확정 문구를 찾는 방법이고, 표기가 갈렸을 때 다수형을 정하는 근거다. 눈으로 훑는 건 서너 회차까지만 된다.",
+    "url_patterns": {
+      "news": "https://pubg.com/<locale>/news/<id>",
+      "events": "https://pubg.com/<locale>/events/notice/<id>",
+      "note": "로케일 세그먼트만 갈아 끼우면 같은 회차의 다른 언어판이다(ko ↔ en. kr 은 404). Store Update·콜라보는 news, Special Drops 는 events 경로를 쓴다 — 경로가 다르므로 path 필드로 갈라 둔다."
+    },
+    "adding": "새 회차를 추가하면 node scripts/fetch-announcement.js 로 받고, 등록에 쓴 회차는 glossary/announcements.json 의 _meta.evidence_corpus 에도 남긴다."
+  },
+  "announcements": [
+    { "id": "9637",  "path": "news",   "doc_type": "store_update",  "published": "2026-01", "title_en": "January Store Update 2026" },
+    { "id": "9692",  "path": "news",   "doc_type": "store_update",  "published": "2026-02", "title_en": "February Store Update 2026" },
+    { "id": "9805",  "path": "news",   "doc_type": "store_update",  "published": "2026-03", "title_en": "March Store Update 2026" },
+    { "id": "9892",  "path": "news",   "doc_type": "store_update",  "published": "2026-04", "title_en": "April Store Update 2026" },
+    { "id": "10041", "path": "news",   "doc_type": "store_update",  "published": "2026-05", "title_en": "May Store Update 2026" },
+    { "id": "10180", "path": "news",   "doc_type": "store_update",  "published": "2026-06", "title_en": "June Store Update 2026" },
+    { "id": "10427", "path": "news",   "doc_type": "store_update",  "published": "2026-07", "title_en": "July Store Update 2026" },
+    { "id": "10828", "path": "news",   "doc_type": "store_update",  "published": "2026-08", "title_en": "August Store Update 2026" },
+    { "id": "8875",  "path": "news",   "doc_type": "store_update",  "published": "2025-07", "title_en": "July Store Update 2025", "note": "references/example-store-update.md 의 완역 예시 원본." },
+
+    { "id": "9663",  "path": "events", "doc_type": "special_drops", "published": "2026-01", "title_en": "Special Drops - January 2026" },
+    { "id": "9698",  "path": "events", "doc_type": "special_drops", "published": "2026-02", "title_en": "Special Drops - February 2026" },
+    { "id": "9858",  "path": "events", "doc_type": "special_drops", "published": "2026-04", "title_en": "Special Drops - April 2026" },
+    { "id": "10020", "path": "events", "doc_type": "special_drops", "published": "2026-05", "title_en": "Special Drops - May 2026" },
+    { "id": "10183", "path": "events", "doc_type": "special_drops", "published": "2026-06", "title_en": "Special Drops - June 2026" },
+    { "id": "10406", "path": "events", "doc_type": "special_drops", "published": "2026-07", "title_en": "Special Drops - July 2026" },
+    { "id": "10829", "path": "events", "doc_type": "special_drops", "published": "2026-08", "title_en": "Special Drops - August 2026" },
+
+    { "id": "10043", "path": "news",   "doc_type": "collab",        "published": "2026-05", "title_en": "Collaboration: Harley-Davidson" },
+    { "id": "9469",  "path": "news",   "doc_type": "collab",        "published": "2025-12", "title_en": "Collaboration: BALENCIAGA" },
+    { "id": "10182", "path": "news",   "doc_type": "event",         "published": "2026-06", "title_en": "Black Market 2026" }
+  ]
+}
