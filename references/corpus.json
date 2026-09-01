@@ -275,6 +275,42 @@
         "ko": "34a426bbd07b4b93",
         "en": "7368422faf699cd2"
       }
+    },
+    {
+      "id": "9809",
+      "path": "news",
+      "doc_type": "patch_notes",
+      "published": "2026-03",
+      "title_en": "Patch Notes - Update 40.2",
+      "fetched": "2026-09-01",
+      "sha256": {
+        "ko": "4f6a82c2d06b914f",
+        "en": "af87ba43ad210f14"
+      }
+    },
+    {
+      "id": "9926",
+      "path": "news",
+      "doc_type": "patch_notes",
+      "published": "2026-04",
+      "title_en": "Patch Notes - Update 41.1",
+      "fetched": "2026-09-01",
+      "sha256": {
+        "ko": "95a3d0a92d956c26",
+        "en": "b283d8fe32d58828"
+      }
+    },
+    {
+      "id": "10080",
+      "path": "news",
+      "doc_type": "patch_notes",
+      "published": "2026-05",
+      "title_en": "Patch Notes - Update 41.2",
+      "fetched": "2026-09-01",
+      "sha256": {
+        "ko": "d53bf7413d4d3763",
+        "en": "2118e4d9701477c4"
+      }
     }
   ]
 }

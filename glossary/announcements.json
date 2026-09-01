@@ -958,13 +958,14 @@
       "id": "patch_notes_9",
       "source": "운영 시간",
       "source_lang": "ko",
-      "target": "Operating Hours",
+      "target": "Operating Hours (UTC)",
       "target_lang": "en",
       "doc_type": "patch_notes",
       "category_id": "section_header",
       "context": "Announcement",
-      "notes": "패치노트 2/3회차. 경쟁전 서비스 일정 안내에 붙는다.",
-      "status": "approved"
+      "notes": "패치노트 4회차 실측은 전부 Operating Hours(UTC) 로 괄호 앞 공백이 없었으나 **공백을 넣어 등록**했다(2026-09-01). 같은 문서 안의 Service Period (UTC) 는 4/4 공백이 있고, Sales Period (UTC) 도 56:5 로 공백형이 다수다. 괄호 앞 공백은 대소문자와 달리 자리에 따라 갈릴 성질이 아니라 조판 문제라 저장소 정합성을 따른다. KR 헤더에는 (UTC) 가 없다 — 붙이는 것은 EN 쪽이다.",
+      "status": "approved",
+      "published_form": "Operating Hours(UTC)"
     },
     {
       "id": "patch_notes_10",
@@ -988,6 +989,114 @@
       "category_id": "mission_phrase",
       "context": "Announcement",
       "notes": "패치노트 3회차 전부 이 형태. KR 은 아이템, EN 은 item sets 로 나간다. 아포스트로피는 곧은 것(U+0027) — 발행분도 이 회차들에서는 곧은 것이었다.",
+      "status": "approved"
+    },
+    {
+      "id": "patch_notes_12",
+      "source": "서비스 기간",
+      "source_lang": "ko",
+      "target": "Service Period (UTC)",
+      "target_lang": "en",
+      "doc_type": "patch_notes",
+      "category_id": "section_header",
+      "context": "Announcement",
+      "notes": "패치노트 4회차 전부 공백 있는 형태. 경쟁전 시즌 안내에 붙는다. KR 헤더에 (UTC) 가 없어도 EN 은 붙인다.",
+      "status": "approved"
+    },
+    {
+      "id": "patch_notes_13",
+      "source": "일부 총기 삭제 예정 안내",
+      "source_lang": "ko",
+      "target": "Weapons to be Removed",
+      "target_lang": "en",
+      "doc_type": "patch_notes",
+      "category_id": "section_header",
+      "context": "Announcement",
+      "notes": "패치노트 2회차. KR 은 \"안내\"가 붙지만 EN 헤더는 안 붙인다.",
+      "status": "approved"
+    },
+    {
+      "id": "patch_notes_14",
+      "source": "봇 고도화",
+      "source_lang": "ko",
+      "target": "Bot Refinement",
+      "target_lang": "en",
+      "doc_type": "patch_notes",
+      "category_id": "section_header",
+      "context": "Announcement",
+      "notes": "패치노트 2회차.",
+      "status": "approved"
+    },
+    {
+      "id": "patch_notes_15",
+      "source": "모드 소개",
+      "source_lang": "ko",
+      "target": "Mode Overview",
+      "target_lang": "en",
+      "doc_type": "patch_notes",
+      "category_id": "section_header",
+      "context": "Announcement",
+      "notes": "패치노트 2회차.",
+      "status": "approved"
+    },
+    {
+      "id": "patch_notes_16",
+      "source": "클리핑 현상: 두 물체가 교차할 때 하나의 물체가 다른 물체를 가리는 현상",
+      "source_lang": "ko",
+      "target": "Clipping issue: Graphics that are shown outside the visible part of an image/object.",
+      "target_lang": "en",
+      "doc_type": "patch_notes",
+      "category_id": "mission_phrase",
+      "context": "Announcement",
+      "notes": "패치노트 5회차 전부 이 형태. **EN 이 KR 직역이 아니다** — KR 은 \"두 물체가 교차할 때 하나가 다른 하나를 가리는 현상\", EN 은 \"이미지·오브젝트의 보이는 범위 밖에 그려지는 그래픽\"으로 서로 다른 정의를 쓴다. 직역으로 되돌리지 않는다. 선행 기호 ※ 는 뗀 형태로 등록.",
+      "status": "approved"
+    },
+    {
+      "id": "patch_notes_17",
+      "source": "라이브 서버 업데이트와 함께 순위표가 초기화됩니다.",
+      "source_lang": "ko",
+      "target": "The leaderboard will reset after the live server maintenance.",
+      "target_lang": "en",
+      "doc_type": "patch_notes",
+      "category_id": "mission_phrase",
+      "context": "Announcement",
+      "notes": "패치노트 2회차. KR 은 \"업데이트와 함께\", EN 은 after the live server maintenance 다 — 등록된 기간 조각 라이브 서버 점검 완료 후 → after live server maintenance 와 같은 자리다.",
+      "status": "approved"
+    },
+    {
+      "id": "patch_notes_18",
+      "source": "지난 시즌의 최종 티어는 전적 페이지에서 확인할 수 있습니다.",
+      "source_lang": "ko",
+      "target": "Check out your final Tier from the previous season through your Career page.",
+      "target_lang": "en",
+      "doc_type": "patch_notes",
+      "category_id": "mission_phrase",
+      "context": "Announcement",
+      "notes": "패치노트 2회차. 전적 페이지 → Career page. Tier 는 대문자.",
+      "status": "approved"
+    },
+    {
+      "id": "patch_notes_19",
+      "source": "지난 시즌의 최종 티어를 기반으로 획득하게 될 경쟁전 티어 보상을 확인해 보세요.",
+      "source_lang": "ko",
+      "target": "Below are the rewards you'll be receiving based on your final Tier from the previous Ranked season.",
+      "target_lang": "en",
+      "doc_type": "patch_notes",
+      "category_id": "mission_phrase",
+      "context": "Announcement",
+      "notes": "패치노트 2회차. KR 명령형(\"확인해 보세요\")이 EN 에서는 평서문(Below are...)으로 바뀐다 — 직역하지 않는다.",
+      "status": "approved"
+    },
+    {
+      "id": "patch_notes_20",
+      "source": "경쟁전 운영 시간은 서비스 안정화 및 플레이 환경 개선을 위해 이후에도 지속적으로 조정될 수 있습니다.",
+      "source_lang": "ko",
+      "target": "Ranked service schedules may continue to be adjusted to improve service stability and overall matchmaking quality.",
+      "target_lang": "en",
+      "doc_type": "patch_notes",
+      "category_id": "legal_notice",
+      "context": "Announcement",
+      "notes": "패치노트 2회차. KR 은 \"운영 시간\", EN 은 service schedules 다. KR 에 없는 matchmaking quality 가 EN 에 있으므로 줄여 옮기지 않는다.",
       "status": "approved"
     }
   ]

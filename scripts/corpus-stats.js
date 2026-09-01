@@ -67,11 +67,15 @@ function audit(docs, terms) {
     .map((t) => ({ t, hits: docs.filter((d) => d.en.includes(t.target)) }))
     .sort((a, b) => a.hits.length - b.hits.length);
   for (const { t, hits } of rows) {
-    const mark = hits.length === 0 ? "✗" : hits.length < 3 ? "·" : "✓";
+    // published_form 은 '발행분과 일부러 다르게 등록한 것'이다 — 0건이어도 폐기 후보가 아니다.
+    const mark = t.published_form ? "정" : hits.length === 0 ? "✗" : hits.length < 3 ? "·" : "✓";
     console.log(`${mark} ${String(hits.length).padStart(2)}/${docs.length}  [${t.doc_type}] ${t.target.slice(0, 60)}`);
-    if (hits.length && hits.length < 6) console.log(`        ${hits.map(ref).join(", ")}`);
+    if (t.published_form) {
+      const drift = docs.filter((d) => d.en.includes(t.published_form)).length;
+      console.log(`        정정 등록 — 발행분은 "${t.published_form}" ${drift}/${docs.length}회차. 0건은 폐기 신호가 아니다(notes 참조).`);
+    } else if (hits.length && hits.length < 6) console.log(`        ${hits.map(ref).join(", ")}`);
   }
-  const zero = rows.filter((r) => !r.hits.length).length;
+  const zero = rows.filter((r) => !r.hits.length && !r.t.published_form).length;
   console.log(`\n0건 ${zero}건 — 폐기 후보가 아니라 '이 코퍼스에 그 섹션이 없다'일 수 있다. 회차를 늘려 보고 판단한다.`);
 }
 

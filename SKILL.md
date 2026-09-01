@@ -9,7 +9,7 @@ description: PUBG 라이브 out-game 공지를 한국어에서 영어로 번역�
 
 ## 방향 — KR → EN 전용
 
-**이 저장소는 한국어 → 영어만 다룬다.** 129건 전부 `source_lang: ko` / `target_lang: en` 이고, 이건 항목별 속성이 아니라 저장소 불변식이다.
+**이 저장소는 한국어 → 영어만 다룬다.** 157건 전부 `source_lang: ko` / `target_lang: en` 이고, 이건 항목별 속성이 아니라 저장소 불변식이다.
 
 **역방향(EN → KR)으로 쓰지 않는다.** 자산이 부족해서가 아니라 **틀린 답을 주기 때문**이다 — KR 원문은 회차마다 조사·공백·마침표가 흔들리지만 EN 정본은 고정이다(도착어 쪽에서 감사하는 이유가 그것). EN 에서 되짚으면 여러 KR 변형 중 임의의 하나, 그것도 과거 회차 것을 집게 된다. EN → KR 요청을 받으면 이 스킬을 쓰지 말고 그렇게 말한다.
 
@@ -40,7 +40,7 @@ description: PUBG 라이브 out-game 공지를 한국어에서 영어로 번역�
 
 ---
 
-## 1. 확정 문구 (81개) — 조회는 `glossary/_lean/announcements.tsv`, 원본은 `glossary/announcements.json`
+## 1. 확정 문구 (90개) — 조회는 `glossary/_lean/announcements.tsv`, 원본은 `glossary/announcements.json`
 
 문장 단위 TM. **가변부(날짜·서수·수치·상품명·연도)만 갈아 끼운다.**
 
@@ -48,9 +48,9 @@ description: PUBG 라이브 out-game 공지를 한국어에서 영어로 번역�
 
 | 분류 | 개수 | 무엇 |
 |---|---|---|
-| `section_header` | 32 | 섹션 헤더·라벨 (신규 아이템과 스킨 → New Items and Skins) |
-| `legal_notice` | 18 | 법률·규정·조건 고지 (지역 판매 제한, 확률 고지, 참여 조건, 초기화 안내) |
-| `mission_phrase` | 19 | 미션·안내 문장 (Special Drops 계열) |
+| `section_header` | 36 | 섹션 헤더·라벨 (신규 아이템과 스킨 → New Items and Skins) |
+| `legal_notice` | 19 | 법률·규정·조건 고지 (지역 판매 제한, 확률 고지, 참여 조건, 초기화 안내) |
+| `mission_phrase` | 23 | 미션·안내 문장 (Special Drops 계열) |
 | `boilerplate` | 7 | 인사·클로징·서명 |
 | `product_label` | 3 | 상품명 접미·할인 술부 |
 | `period_phrase` | 2 | 기간 표기 조각 (라이브 서버 점검 완료 후 → after live server maintenance) |
@@ -66,9 +66,9 @@ description: PUBG 라이브 out-game 공지를 한국어에서 영어로 번역�
 `legal_notice` 항목은 **한정어를 빼거나 범위를 바꾸지 않는다.** 지역 제한·자격 조건·확률 고지는 문구가 곧 고지 의무다.
 UI 경로가 들어간 고지(확률 보기 페이지 등)는 **인게임 표기가 정본**이고, 예뻐 보이는 대안으로 바꾸지 않는다.
 
-## 2. 고유명사 (48개) — 아래 표가 전량. 원본은 `glossary/proper_nouns.json`
+## 2. 고유명사 (67개) — 아래 표가 전량. 원본은 `glossary/proper_nouns.json`
 
-발행 공지에 실제 등장한 인게임 고유명사만 담았다. 48건이라 **파일을 열 필요 없이 여기서 바로 쓴다.**
+발행 공지에 실제 등장한 인게임 고유명사만 담았다. 67건이라 **파일을 열 필요 없이 여기서 바로 쓴다.**
 
 <!-- BEGIN:proper-nouns (생성물 — scripts/build-lean.js) -->
 
@@ -77,10 +77,14 @@ UI 경로가 들어간 고지(확률 보기 페이지 등)는 **인게임 표기
 | 피해량 | Damage |
 | 경쟁전 | Ranked |
 | 관전 | Spectating |
+| 비밀의 방 | Secret Room |
 | 생존 레벨 | Survival Level |
 | 서바이벌 레벨 | Survival Level |
 | 패스 XP | Pass XP |
+| 경쟁전 낙하산 스킨 | Ranked Parachute Skin |
+| 경쟁전 무기 스킨 | Ranked Weapon Skin |
 | 기록 파일 | Record File |
+| 네임플레이트 | Nameplate |
 | 도안 | Imprint |
 | 밀수품 상자 | Contraband Crate |
 | 밀수품 쿠폰 | Contraband Coupon |
@@ -94,10 +98,23 @@ UI 경로가 들어간 고지(확률 보기 페이지 등)는 **인게임 표기
 | 전리품 조각 | Loot Cache Fragment |
 | 최고급 꾸러미 | Prime Parcel |
 | 크로마 | Chroma |
+| 틸티드 그립 | Tilted Grip |
+| 하이브리드 스코프 | Hybrid Scope |
 | 화물 | Cargo |
 | 화물 티켓 | Cargo Ticket |
+| PUBG ID 엠블럼 | PUBG ID Emblem |
+| 골드 | Gold |
+| 다이아몬드 | Diamond |
 | 듀오 | Duo |
+| 마스터 | Master |
+| 메달 | Medal |
+| 브론즈 | Bronze |
+| 서바이버 | Survivor |
 | 스쿼드 | Squad |
+| 실버 | Silver |
+| 크리스탈 | Crystal |
+| 티어 | Tier |
+| 플래티넘 | Platinum |
 | 기록보관소 상자 | Archivist's Chest |
 | 나만의 상점 | Your Shop |
 | 보급고 | Supply Bay |
@@ -118,7 +135,9 @@ UI 경로가 들어간 고지(확률 보기 페이지 등)는 **인게임 표기
 | 헌터 상자 | Hunter's Chest |
 | 무기 수집가 | Weapon Collector |
 | 수집가 | The Collector |
+| 순위표 | leaderboard |
 | 액션 래디얼 | Action Radial |
+| 전적 페이지 | Career page |
 | 추천 코드 | referral code |
 | 커스텀 로비 스킨 | Custom Lobby Skin |
 | 탈 것 | Vehicle |

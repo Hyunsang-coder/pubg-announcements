@@ -3,10 +3,14 @@ source	target	category
 피해량	Damage	game_mechanics
 경쟁전	Ranked	game_systems_modes
 관전	Spectating	game_systems_modes
+비밀의 방	Secret Room	game_systems_modes
 생존 레벨	Survival Level	game_systems_modes
 서바이벌 레벨	Survival Level	game_systems_modes
 패스 XP	Pass XP	game_systems_modes
+경쟁전 낙하산 스킨	Ranked Parachute Skin	items_equipment
+경쟁전 무기 스킨	Ranked Weapon Skin	items_equipment
 기록 파일	Record File	items_equipment
+네임플레이트	Nameplate	items_equipment
 도안	Imprint	items_equipment
 밀수품 상자	Contraband Crate	items_equipment
 밀수품 쿠폰	Contraband Coupon	items_equipment
@@ -20,10 +24,23 @@ source	target	category
 전리품 조각	Loot Cache Fragment	items_equipment
 최고급 꾸러미	Prime Parcel	items_equipment
 크로마	Chroma	items_equipment
+틸티드 그립	Tilted Grip	items_equipment
+하이브리드 스코프	Hybrid Scope	items_equipment
 화물	Cargo	items_equipment
 화물 티켓	Cargo Ticket	items_equipment
+PUBG ID 엠블럼	PUBG ID Emblem	items_equipment
+골드	Gold	ranked_competitive
+다이아몬드	Diamond	ranked_competitive
 듀오	Duo	ranked_competitive
+마스터	Master	ranked_competitive
+메달	Medal	ranked_competitive
+브론즈	Bronze	ranked_competitive
+서바이버	Survivor	ranked_competitive
 스쿼드	Squad	ranked_competitive
+실버	Silver	ranked_competitive
+크리스탈	Crystal	ranked_competitive
+티어	Tier	ranked_competitive
+플래티넘	Platinum	ranked_competitive
 기록보관소 상자	Archivist's Chest	store_economy
 나만의 상점	Your Shop	store_economy
 보급고	Supply Bay	store_economy
@@ -44,7 +61,9 @@ source	target	category
 헌터 상자	Hunter's Chest	store_economy
 무기 수집가	Weapon Collector	uiux
 수집가	The Collector	uiux
+순위표	leaderboard	uiux
 액션 래디얼	Action Radial	uiux
+전적 페이지	Career page	uiux
 추천 코드	referral code	uiux
 커스텀 로비 스킨	Custom Lobby Skin	uiux
 탈 것	Vehicle	vehicles

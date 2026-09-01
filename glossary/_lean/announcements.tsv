@@ -77,9 +77,18 @@ patch_notes	section_header	게임 플레이	Gameplay
 patch_notes	section_header	기본 훈련	Basic Training
 patch_notes	section_header	라이브 점검 일정	Live Maintenance Schedule (UTC)
 patch_notes	section_header	맵 서비스	Map Service
+patch_notes	section_header	모드 소개	Mode Overview
 patch_notes	section_header	버그 수정	Bug Fixes
+patch_notes	section_header	봇 고도화	Bot Refinement
+patch_notes	section_header	서비스 기간	Service Period (UTC)
 patch_notes	section_header	아이템 & 스킨	Items & Skins
-patch_notes	section_header	운영 시간	Operating Hours
+patch_notes	section_header	운영 시간	Operating Hours (UTC)
 patch_notes	section_header	월드	World
+patch_notes	section_header	일부 총기 삭제 예정 안내	Weapons to be Removed
+patch_notes	legal_notice	경쟁전 운영 시간은 서비스 안정화 및 플레이 환경 개선을 위해 이후에도 지속적으로 조정될 수 있습니다.	Ranked service schedules may continue to be adjusted to improve service stability and overall matchmaking quality.
 patch_notes	legal_notice	아래 명시된 시간은 점검 상황에 따라 변경될 수 있습니다.	The times shown below are subject to change.
+patch_notes	mission_phrase	라이브 서버 업데이트와 함께 순위표가 초기화됩니다.	The leaderboard will reset after the live server maintenance.
+patch_notes	mission_phrase	지난 시즌의 최종 티어는 전적 페이지에서 확인할 수 있습니다.	Check out your final Tier from the previous season through your Career page.
+patch_notes	mission_phrase	지난 시즌의 최종 티어를 기반으로 획득하게 될 경쟁전 티어 보상을 확인해 보세요.	Below are the rewards you'll be receiving based on your final Tier from the previous Ranked season.
+patch_notes	mission_phrase	클리핑 현상: 두 물체가 교차할 때 하나의 물체가 다른 물체를 가리는 현상	Clipping issue: Graphics that are shown outside the visible part of an image/object.
 patch_notes	mission_phrase	헌터 상자와 기록보관소 상자에 새로운 아이템이 추가되었습니다.	New item sets have been added to the Hunter's Chest and Archivist's Chest.
