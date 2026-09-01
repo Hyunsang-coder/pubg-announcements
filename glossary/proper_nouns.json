@@ -248,6 +248,17 @@
       "context": "Store & Economy",
       "notes": "발행분 4회차(news/8875·10043·9469·10182) 실측 콜라보 2회차(10043·9469)에서 확인. 발행분에는 복수형 'Step Up Packs' 로만 등장했으나 등록형은 기본형 규칙(_meta.inflection)에 따라 단수로 둔다 — 문장·헤딩에서는 수를 문법에 맞춘다.",
       "status": "approved"
+    },
+    {
+      "id": "pubg_368",
+      "source": "스크랩 브로커",
+      "source_lang": "ko",
+      "target": "Scrap Broker",
+      "target_lang": "en",
+      "category_id": "store_economy",
+      "context": "Store & Economy",
+      "notes": "코퍼스 7회차 전부 KR/EN 동시 등장, EN 표기 변형 0건(2026-09-01): 2025-07 news/8875, 2026-01 news/9637, 2026-04 news/9892, 2026-05 news/10041, 2026-06 news/10182, 2026-07 news/10427, 2026-08 news/10828. 은신처/제작소 계열의 스크랩 교환 기능.",
+      "status": "approved"
     }
   ]
 }

@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 **Claude Code 스킬 패키지**다. 산출물은 `SKILL.md` + JSON 데이터이고, 빌드·린트 파이프라인이 없다(검증 스크립트 둘만 있다 — 아래 "검증 명령"). 여기서의 "작업"은 거의 항상 둘 중 하나다: **번역 자산 조회**, 또는 **새 확정 문구 등록**.
 
-내용은 PUBG out-game 공지의 **KR→EN 전용** 번역 자산이다. 92건 전부 `source_lang: ko` / `target_lang: en` 이고, 이건 항목별 속성이 아니라 저장소 불변식이다. **역방향(EN→KR)으로 쓰지 않는다** — KR 원문은 회차마다 흔들리지만 EN 정본은 고정이라, EN 에서 되짚으면 임의의 과거 변형을 집게 된다.
+내용은 PUBG out-game 공지의 **KR→EN 전용** 번역 자산이다. 93건 전부 `source_lang: ko` / `target_lang: en` 이고, 이건 항목별 속성이 아니라 저장소 불변식이다. **역방향(EN→KR)으로 쓰지 않는다** — KR 원문은 회차마다 흔들리지만 EN 정본은 고정이라, EN 에서 되짚으면 임의의 과거 변형을 집게 된다.
 
 인게임 UI·기획서·회의록은 명시적으로 범위 밖이며, 그쪽 용어 체계를 여기로 끌어오지 않는다.
 
@@ -18,7 +18,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 1. `glossary/announcements.json` — **문장 단위 TM(70개)**. 있으면 그대로 쓴다. 재번역 금지, 가변부(날짜·서수·수치·상품명·연도)만 교체.
 2. `references/notation.json` — **패턴 규칙(3개)**. 문자열이 아니라 형태라서 TM 으로 못 박는 것(날짜·기간 범위·title case).
-3. `glossary/proper_nouns.json` — 공지 빈출 고유명사(22개). 인게임 표기가 정본.
+3. `glossary/proper_nouns.json` — 공지 빈출 고유명사(23개). 인게임 표기가 정본.
 4. `references/judgment.md` — 위 셋으로 안 덮이는 경우의 판단 순서와 실제 판례(선례가 갈릴 때 빈도·최근성·문법을 함께 본다).
 
 계층에 얹히는 것들 — `references/style.json` 은 문체·골격 규칙(구조 보존·길이·클로징 맵·기밀), `references/skeletons.md` 는 유형별 섹션 골격(우선순위가 아니라 작업용 지도. `MISS` 를 드리프트와 섹션 부재로 가를 때 쓴다), `references/sources.md` 는 무엇을 근거로 쓸 수 있는지의 정책, `glossary/_categories.json` 은 `category_id` 정의다.
@@ -42,7 +42,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## 데이터 스키마
 
-두 glossary 파일 모두 `{ _meta, terms[] }` 구조이고, term 필드는 `id · source · source_lang · target · target_lang · category_id · context · notes · status`. `source_lang`·`target_lang` 은 92건 전부 상수(`ko`/`en`)라 조회면에서는 뺀다.
+두 glossary 파일 모두 `{ _meta, terms[] }` 구조이고, term 필드는 `id · source · source_lang · target · target_lang · category_id · context · notes · status`. `source_lang`·`target_lang` 은 93건 전부 상수(`ko`/`en`)라 조회면에서는 뺀다.
 
 `announcements.json` 에만 **`doc_type`** 이 추가로 있다 — `store_update` / `special_drops` / `common`. **"이 문장이 어느 공지에서 확인됐는가"** 라는 출처 표시다.
 

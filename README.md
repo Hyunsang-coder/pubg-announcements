@@ -2,7 +2,7 @@
 
 PUBG out-game 공지(Store Update · Special Drops 등)를 **한국어 → 영어**로 번역할 때 쓰는 Claude Code 스킬.
 
-실행 코드가 아니라 **번역 자산**이다. 확정 문구 TM 70건, 공지 빈출 고유명사 22건, 표기 규칙 3건, 그리고 애매할 때의 판단 기준.
+실행 코드가 아니라 **번역 자산**이다. 확정 문구 TM 70건, 공지 빈출 고유명사 23건, 표기 규칙 3건, 그리고 애매할 때의 판단 기준.
 
 > **KR → EN 전용이고, 역방향으로는 쓰지 않는다.**
 > 자산이 부족해서가 아니라 틀린 답을 주기 때문이다 — KR 원문은 회차마다 조사·공백이 흔들리지만 EN 정본은 고정이다. EN 에서 되짚으면 여러 KR 변형 중 임의의 하나, 그것도 과거 회차 것을 집게 된다.
@@ -49,7 +49,7 @@ node scripts/build-lean.js
 |---|---|---|
 | 1 | `glossary/announcements.json` | **확정 문장 TM (70)** — 있으면 그대로. 재번역 금지 |
 | 2 | `references/notation.json` | **패턴 규칙 (3)** — 날짜·기간 범위·title case. 문자열이 아니라 형태라 TM 으로 못 박는 것 |
-| 3 | `glossary/proper_nouns.json` | 공지 빈출 고유명사 (22). 인게임 표기가 정본 |
+| 3 | `glossary/proper_nouns.json` | 공지 빈출 고유명사 (23). 인게임 표기가 정본 |
 | 4 | `references/judgment.md` | 위 셋으로 안 덮이는 경우의 판단 순서와 실제 판례 |
 
 여기에 얹히는 것:
