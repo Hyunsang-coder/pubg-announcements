@@ -8,7 +8,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 내용은 PUBG out-game 공지의 **KR→EN 전용** 번역 자산이다. 157건 전부 `source_lang: ko` / `target_lang: en` 이고, 이건 항목별 속성이 아니라 저장소 불변식이다. **역방향(EN→KR)으로 쓰지 않는다** — KR 원문은 회차마다 흔들리지만 EN 정본은 고정이라, EN 에서 되짚으면 임의의 과거 변형을 집게 된다.
 
-인게임 UI·기획서·회의록은 명시적으로 범위 밖이며, 그쪽 용어 체계를 여기로 끌어오지 않는다.
+인게임 UI·기획서·회의록은 명시적으로 범위 밖이며, 그쪽 용어 체계를 여기로 끌어오지 않는다. 구체적으로 **`pubg-context` 스킬은 이 저장소 작업에서 쓰지 않는다** — 아래 "pubg-context 와의 경계".
 
 **공개 저장소다.** 그래서 두 가지가 따라온다: 근거는 발행물만 쓰고(→ "등록할 때"), 스크립트·문서는 외부 절대경로를 참조하지 않는다 — 남의 머신에서 안 돌기 때문이다.
 
@@ -92,16 +92,24 @@ node scripts/fetch-announcement.js --verify # 로컬 본문이 등록 근거 판
 
 > **주의**: 상류 trans_agent 의 `sync-glossary-index.js` · `add-term.js` 에 의존하지 않는다. 이 저장소의 검증은 위 두 스크립트로 자립한다(공개 배포 대상이라 외부 경로를 참조하면 남의 머신에서 안 돈다).
 
-## 상류 관계 — trans_agent/pubg-context
+## pubg-context 와의 경계 — 조회 대상이 아니다
 
-이 저장소는 **`trans_agent/.claude/skills/pubg-context` 에서 공개 가능한 부분만 추려낸 파생본**이다.
+**이 저장소의 작업에서 `pubg-context` 스킬과 상류 저장소를 조회하지 않는다.** 스킬 호출도, 그 폴더 직접 grep 도 하지 않는다. `.claude/settings.json` 이 `Skill(pubg-context)` 을 deny 로 막아두지만, 도구 차단보다 이 규칙이 먼저다 — 셸로 우회하면 설정은 못 막는다.
+
+이유는 범위다. pubg-context 는 인게임·기획서·회의록까지 덮는 상위 온톨로지이고, 이 저장소는 **out-game 공지 KR→EN 전용**이다. 저쪽에 있는 용어가 여기 없는 것은 대개 누락이 아니라 **공개·범위 필터가 작동한 결과**다.
+
+**조회 결과가 없으면 "없다"가 답이다.** 인접 항목으로 대체하지 않는다 — 표제어가 다르면 다른 용어다. 등록 여부를 묻는 질문에 상류 항목을 끌어와 답하면 범위 밖 인게임 용어가 공지 정본인 것처럼 굳고, 그게 이 저장소가 막으려는 드리프트 그 자체다.
+
+### 파생 이력 — 릴리스 방향이지 조회 경로가 아니다
+
+이 저장소는 **상류에서 공개 가능한 부분만 추려낸 파생본**이다.
 
 - `glossary/announcements.json` = 상류 `pubg_store_update.json`(20) + `pubg_special_drops.json`(50) 에서 중복 3건을 `common` 으로 합쳐 67건으로 출발했다(이후 발행분 대조로 추가 등록). target 문자열은 전부 동일하다.
 - `glossary/proper_nouns.json` = 상류 `pubg_br.json` 에서 발행 공지에 실제 등장한 것만 추려 18건으로 출발했다.
 - 상류의 `project` 필드는 빼고 `doc_type` 을 새로 넣었으며, `announcement_boilerplate` 단일 분류를 6종으로 다시 갈랐다.
 - `notation.json` 의 `_meta.upstream` 이 명시하듯 **사내 룰셋이 정본**이고 갈리면 이쪽을 맞춘다.
 
-두 저장소를 동시에 만질 일이 생기면 상류를 먼저 고치고 여기로 내리는 방향을 지킨다. 반대 방향은 공개 판정을 우회하게 된다.
+두 저장소를 동시에 만질 일이 생기면 상류를 먼저 고치고 여기로 내리는 방향을 지킨다. 반대 방향은 공개 판정을 우회하게 된다. **이건 등록·릴리스 절차이지, 번역 중 용어를 조회하는 경로가 아니다.**
 
 ## 등록할 때
 
