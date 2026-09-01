@@ -524,6 +524,17 @@
       "context": "Store & Economy",
       "notes": "인게임 표기가 정본이라 Survivor's Chest 로 등록(2026-09-01 확인). 발행분 2회차(2026-07 news/10427 · 2026-08 news/10828)는 Survivor Crate 로 나갔으나 반려 — 둘 다 서바이버 패스 보상 변경을 알리는 같은 문장이고, 인게임 문자열과 어긋난다. 발행분이 정본이라는 원칙은 인게임 표기가 확인되지 않을 때의 기준이다.",
       "status": "approved"
+    },
+    {
+      "id": "pubg_393",
+      "source": "액션 래디얼",
+      "source_lang": "ko",
+      "target": "Action Radial",
+      "target_lang": "en",
+      "category_id": "uiux",
+      "context": "UI/UX",
+      "notes": "42.2 에서 이모트 휠(Emote Wheel)의 명칭이 바뀐 것. 패치노트 2/3회차(2026-07 news/10459 · 2026-08 news/10885). 구 명칭 이모트 휠 → Emote Wheel 은 1회차뿐이라 미등록 — 과거 회차를 옮길 일이 생기면 그때 확인한다.",
+      "status": "approved"
     }
   ]
 }

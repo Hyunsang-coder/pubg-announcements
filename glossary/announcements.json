@@ -857,6 +857,138 @@
       "context": "공지 골격 — 콜라보 섹션 헤더. 실제로는 '콜라보레이션: <파트너명>' 형태로 쓰인다",
       "notes": "발행분 4회차(news/8875·10043·9469·10182) 실측 3회차 확인(Collaboration: PUBG x aespa / Harley-Davidson / BALENCIAGA). 파트너명은 가변부이고 브랜드 고유표기를 그대로 둔다 — 헤더 대소문자는 notation.json announcement-title-case-en.",
       "status": "approved"
+    },
+    {
+      "id": "patch_notes_1",
+      "source": "라이브 점검 일정",
+      "source_lang": "ko",
+      "target": "Live Maintenance Schedule (UTC)",
+      "target_lang": "en",
+      "doc_type": "patch_notes",
+      "category_id": "section_header",
+      "context": "Announcement",
+      "notes": "패치노트 3회차(2026-06 news/10179 · 2026-07 news/10459 · 2026-08 news/10885) 전부 이 형태. KR 원문에 (UTC) 가 없어도 EN 헤더는 붙는다 — 판매 기간 → Sales Period (UTC) 와 같은 자리다.",
+      "status": "approved"
+    },
+    {
+      "id": "patch_notes_2",
+      "source": "맵 서비스",
+      "source_lang": "ko",
+      "target": "Map Service",
+      "target_lang": "en",
+      "doc_type": "patch_notes",
+      "category_id": "section_header",
+      "context": "Announcement",
+      "notes": "패치노트 3회차 전부 이 형태.",
+      "status": "approved"
+    },
+    {
+      "id": "patch_notes_3",
+      "source": "게임 플레이",
+      "source_lang": "ko",
+      "target": "Gameplay",
+      "target_lang": "en",
+      "doc_type": "patch_notes",
+      "category_id": "section_header",
+      "context": "Announcement",
+      "notes": "패치노트 3회차 전부 이 형태. 한 단어로 붙인다. 건 플레이 → Gunplay 와 다른 섹션이므로 섞지 않는다.",
+      "status": "approved"
+    },
+    {
+      "id": "patch_notes_4",
+      "source": "건 플레이",
+      "source_lang": "ko",
+      "target": "Gunplay",
+      "target_lang": "en",
+      "doc_type": "patch_notes",
+      "category_id": "section_header",
+      "context": "Announcement",
+      "notes": "패치노트 2/3회차(2026-07·2026-08). 한 단어로 붙인다 — Gun Play 로 띄우지 않는다. 총기 밸런스 섹션이고 게임 플레이 → Gameplay 와 별개다.",
+      "status": "approved"
+    },
+    {
+      "id": "patch_notes_5",
+      "source": "버그 수정",
+      "source_lang": "ko",
+      "target": "Bug Fixes",
+      "target_lang": "en",
+      "doc_type": "patch_notes",
+      "category_id": "section_header",
+      "context": "Announcement",
+      "notes": "패치노트 3회차 전부 이 형태. 복수형 고정.",
+      "status": "approved"
+    },
+    {
+      "id": "patch_notes_6",
+      "source": "월드",
+      "source_lang": "ko",
+      "target": "World",
+      "target_lang": "en",
+      "doc_type": "patch_notes",
+      "category_id": "section_header",
+      "context": "Announcement",
+      "notes": "패치노트 3회차 전부 이 형태. 버그 수정 하위 섹션.",
+      "status": "approved"
+    },
+    {
+      "id": "patch_notes_7",
+      "source": "아이템 & 스킨",
+      "source_lang": "ko",
+      "target": "Items & Skins",
+      "target_lang": "en",
+      "doc_type": "patch_notes",
+      "category_id": "section_header",
+      "context": "Announcement",
+      "notes": "패치노트 3회차 전부 이 형태. 앰퍼샌드 앞뒤 공백을 지킨다.",
+      "status": "approved"
+    },
+    {
+      "id": "patch_notes_8",
+      "source": "기본 훈련",
+      "source_lang": "ko",
+      "target": "Basic Training",
+      "target_lang": "en",
+      "doc_type": "patch_notes",
+      "category_id": "section_header",
+      "context": "Announcement",
+      "notes": "패치노트 2/3회차.",
+      "status": "approved"
+    },
+    {
+      "id": "patch_notes_9",
+      "source": "운영 시간",
+      "source_lang": "ko",
+      "target": "Operating Hours",
+      "target_lang": "en",
+      "doc_type": "patch_notes",
+      "category_id": "section_header",
+      "context": "Announcement",
+      "notes": "패치노트 2/3회차. 경쟁전 서비스 일정 안내에 붙는다.",
+      "status": "approved"
+    },
+    {
+      "id": "patch_notes_10",
+      "source": "아래 명시된 시간은 점검 상황에 따라 변경될 수 있습니다.",
+      "source_lang": "ko",
+      "target": "The times shown below are subject to change.",
+      "target_lang": "en",
+      "doc_type": "patch_notes",
+      "category_id": "legal_notice",
+      "context": "Announcement",
+      "notes": "패치노트 3회차 전부 이 형태. 상점 공지의 판매 기간은 상황에 따라 변경될 수 있습니다. → The sales periods shown below are subject to change. 와 자리가 다르다 — 이쪽은 점검 일정이므로 sales periods 를 끌어오지 않는다.",
+      "status": "approved"
+    },
+    {
+      "id": "patch_notes_11",
+      "source": "헌터 상자와 기록보관소 상자에 새로운 아이템이 추가되었습니다.",
+      "source_lang": "ko",
+      "target": "New item sets have been added to the Hunter's Chest and Archivist's Chest.",
+      "target_lang": "en",
+      "doc_type": "patch_notes",
+      "category_id": "mission_phrase",
+      "context": "Announcement",
+      "notes": "패치노트 3회차 전부 이 형태. KR 은 아이템, EN 은 item sets 로 나간다. 아포스트로피는 곧은 것(U+0027) — 발행분도 이 회차들에서는 곧은 것이었다.",
+      "status": "approved"
     }
   ]
 }

@@ -9,7 +9,7 @@ description: PUBG 라이브 out-game 공지를 한국어에서 영어로 번역�
 
 ## 방향 — KR → EN 전용
 
-**이 저장소는 한국어 → 영어만 다룬다.** 117건 전부 `source_lang: ko` / `target_lang: en` 이고, 이건 항목별 속성이 아니라 저장소 불변식이다.
+**이 저장소는 한국어 → 영어만 다룬다.** 129건 전부 `source_lang: ko` / `target_lang: en` 이고, 이건 항목별 속성이 아니라 저장소 불변식이다.
 
 **역방향(EN → KR)으로 쓰지 않는다.** 자산이 부족해서가 아니라 **틀린 답을 주기 때문**이다 — KR 원문은 회차마다 조사·공백·마침표가 흔들리지만 EN 정본은 고정이다(도착어 쪽에서 감사하는 이유가 그것). EN 에서 되짚으면 여러 KR 변형 중 임의의 하나, 그것도 과거 회차 것을 집게 된다. EN → KR 요청을 받으면 이 스킬을 쓰지 말고 그렇게 말한다.
 
@@ -40,7 +40,7 @@ description: PUBG 라이브 out-game 공지를 한국어에서 영어로 번역�
 
 ---
 
-## 1. 확정 문구 (70개) — 조회는 `glossary/_lean/announcements.tsv`, 원본은 `glossary/announcements.json`
+## 1. 확정 문구 (81개) — 조회는 `glossary/_lean/announcements.tsv`, 원본은 `glossary/announcements.json`
 
 문장 단위 TM. **가변부(날짜·서수·수치·상품명·연도)만 갈아 끼운다.**
 
@@ -48,27 +48,27 @@ description: PUBG 라이브 out-game 공지를 한국어에서 영어로 번역�
 
 | 분류 | 개수 | 무엇 |
 |---|---|---|
-| `section_header` | 23 | 섹션 헤더·라벨 (신규 아이템과 스킨 → New Items and Skins) |
-| `legal_notice` | 17 | 법률·규정·조건 고지 (지역 판매 제한, 확률 고지, 참여 조건, 초기화 안내) |
-| `mission_phrase` | 18 | 미션·안내 문장 (Special Drops 계열) |
+| `section_header` | 32 | 섹션 헤더·라벨 (신규 아이템과 스킨 → New Items and Skins) |
+| `legal_notice` | 18 | 법률·규정·조건 고지 (지역 판매 제한, 확률 고지, 참여 조건, 초기화 안내) |
+| `mission_phrase` | 19 | 미션·안내 문장 (Special Drops 계열) |
 | `boilerplate` | 7 | 인사·클로징·서명 |
 | `product_label` | 3 | 상품명 접미·할인 술부 |
 | `period_phrase` | 2 | 기간 표기 조각 (라이브 서버 점검 완료 후 → after live server maintenance) |
 
-**`doc_type` 은 "이 문장이 어느 공지에서 확인됐는가"** 다 — `store_update` / `special_drops` / `common`(두 유형이 같이 쓰는 것).
+**`doc_type` 은 "이 문장이 어느 공지에서 확인됐는가"** 다 — `store_update` / `special_drops` / `patch_notes` / `common`(여러 유형이 같이 쓰는 것).
 
 조회할 때는 신경 쓸 일이 거의 없다. **70건의 `source` 는 서로 하나도 안 겹치므로**, 원문에서 찾아 들어가는 한 doc_type 이 달라도 헷갈릴 수 없다. 클로징조차 원문이 다르다 — `즐거운 쇼핑 되시길 바랍니다` vs `전장에서 뵙겠습니다`.
 
-`doc_type` 이 실제로 일하는 자리는 하나다: **원문에 없던 자리를 채울 때.** 원문 클로징이 등록된 둘 중 어느 것도 아니면 조회는 MISS 고, 그때 "이 공지 유형의 클로징은 무엇인가"를 doc_type 이 답한다 — `store_update` = `Happy shopping!` / `special_drops` = `Happy Drops!`. **등록되지 않은 유형이면 지어내지 말고 확정을 받는다.**
+`doc_type` 이 실제로 일하는 자리는 하나다: **원문에 없던 자리를 채울 때.** 원문 클로징이 등록된 것 중 어느 것도 아니면 조회는 MISS 고, 그때 "이 공지 유형의 클로징은 무엇인가"를 doc_type 이 답한다 — `store_update` = `Happy shopping!` / `special_drops` = `Happy Drops!` / `patch_notes` = **없음**(버그 수정 목록으로 끝난다. 빌려 붙이지 않는다). **등록되지 않은 유형이면 지어내지 말고 확정을 받는다.**
 
 ### 법률·규정 고지는 특별 취급
 
 `legal_notice` 항목은 **한정어를 빼거나 범위를 바꾸지 않는다.** 지역 제한·자격 조건·확률 고지는 문구가 곧 고지 의무다.
 UI 경로가 들어간 고지(확률 보기 페이지 등)는 **인게임 표기가 정본**이고, 예뻐 보이는 대안으로 바꾸지 않는다.
 
-## 2. 고유명사 (47개) — 아래 표가 전량. 원본은 `glossary/proper_nouns.json`
+## 2. 고유명사 (48개) — 아래 표가 전량. 원본은 `glossary/proper_nouns.json`
 
-발행 공지에 실제 등장한 인게임 고유명사만 담았다. 47건이라 **파일을 열 필요 없이 여기서 바로 쓴다.**
+발행 공지에 실제 등장한 인게임 고유명사만 담았다. 48건이라 **파일을 열 필요 없이 여기서 바로 쓴다.**
 
 <!-- BEGIN:proper-nouns (생성물 — scripts/build-lean.js) -->
 
@@ -118,6 +118,7 @@ UI 경로가 들어간 고지(확률 보기 페이지 등)는 **인게임 표기
 | 헌터 상자 | Hunter's Chest |
 | 무기 수집가 | Weapon Collector |
 | 수집가 | The Collector |
+| 액션 래디얼 | Action Radial |
 | 추천 코드 | referral code |
 | 커스텀 로비 스킨 | Custom Lobby Skin |
 | 탈 것 | Vehicle |

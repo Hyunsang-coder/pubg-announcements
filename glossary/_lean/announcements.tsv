@@ -72,3 +72,14 @@ special_drops	mission_phrase	탈 것을 운전하여 누적 700 m 이동하기.	
 special_drops	product_label	(7일)	(7 Days)
 special_drops	boilerplate	로비 내 이벤트 페이지를 통해 자세한 이벤트 내용을 확인할 수 있습니다.	Event details can be checked via the in-game lobby event page.
 special_drops	boilerplate	전장에서 뵙겠습니다.	Happy Drops!
+patch_notes	section_header	건 플레이	Gunplay
+patch_notes	section_header	게임 플레이	Gameplay
+patch_notes	section_header	기본 훈련	Basic Training
+patch_notes	section_header	라이브 점검 일정	Live Maintenance Schedule (UTC)
+patch_notes	section_header	맵 서비스	Map Service
+patch_notes	section_header	버그 수정	Bug Fixes
+patch_notes	section_header	아이템 & 스킨	Items & Skins
+patch_notes	section_header	운영 시간	Operating Hours
+patch_notes	section_header	월드	World
+patch_notes	legal_notice	아래 명시된 시간은 점검 상황에 따라 변경될 수 있습니다.	The times shown below are subject to change.
+patch_notes	mission_phrase	헌터 상자와 기록보관소 상자에 새로운 아이템이 추가되었습니다.	New item sets have been added to the Hunter's Chest and Archivist's Chest.

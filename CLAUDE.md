@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 **Claude Code 스킬 패키지**다. 산출물은 `SKILL.md` + JSON 데이터이고, 빌드·린트 파이프라인이 없다(검증 스크립트 둘만 있다 — 아래 "검증 명령"). 여기서의 "작업"은 거의 항상 둘 중 하나다: **번역 자산 조회**, 또는 **새 확정 문구 등록**.
 
-내용은 PUBG out-game 공지의 **KR→EN 전용** 번역 자산이다. 117건 전부 `source_lang: ko` / `target_lang: en` 이고, 이건 항목별 속성이 아니라 저장소 불변식이다. **역방향(EN→KR)으로 쓰지 않는다** — KR 원문은 회차마다 흔들리지만 EN 정본은 고정이라, EN 에서 되짚으면 임의의 과거 변형을 집게 된다.
+내용은 PUBG out-game 공지의 **KR→EN 전용** 번역 자산이다. 129건 전부 `source_lang: ko` / `target_lang: en` 이고, 이건 항목별 속성이 아니라 저장소 불변식이다. **역방향(EN→KR)으로 쓰지 않는다** — KR 원문은 회차마다 흔들리지만 EN 정본은 고정이라, EN 에서 되짚으면 임의의 과거 변형을 집게 된다.
 
 인게임 UI·기획서·회의록은 명시적으로 범위 밖이며, 그쪽 용어 체계를 여기로 끌어오지 않는다.
 
@@ -44,7 +44,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 두 glossary 파일 모두 `{ _meta, terms[] }` 구조이고, term 필드는 `id · source · source_lang · target · target_lang · category_id · context · notes · status`. `source_lang`·`target_lang` 은 93건 전부 상수(`ko`/`en`)라 조회면에서는 뺀다.
 
-`announcements.json` 에만 **`doc_type`** 이 추가로 있다 — `store_update` / `special_drops` / `common`. **"이 문장이 어느 공지에서 확인됐는가"** 라는 출처 표시다.
+`announcements.json` 에만 **`doc_type`** 이 추가로 있다 — `store_update` / `special_drops` / `patch_notes` / `common`. **"이 문장이 어느 공지에서 확인됐는가"** 라는 출처 표시다.
 
 조회에는 거의 쓸 일이 없다. **70건의 `source` 가 서로 하나도 안 겹쳐서**, 원문에서 찾아 들어가는 한 유형이 달라도 헷갈릴 수 없다(클로징조차 원문이 다르다 — `즐거운 쇼핑 되시길 바랍니다` vs `전장에서 뵙겠습니다`). `doc_type` 이 일하는 자리는 **원문에 없던 자리를 채울 때** 하나다: 원문 클로징이 등록된 둘 중 어느 것도 아니면 조회는 MISS 고, 그때 유형별 클로징을 doc_type 이 답한다. **등록되지 않은 유형이면 지어내지 않는다** (`references/style.json` 의 `closing.map._unlisted`).
 
