@@ -82,6 +82,8 @@ JSON 파싱 · `_index.json` 카운트 3종 · `category_id` 가 `_categories.js
 node scripts/fetch-announcement.js      # corpus.json 의 회차를 .corpus/ 로 (gitignore)
 node scripts/corpus-stats.js --audit    # 등록 정본이 몇 회차에 나오는가
 node scripts/corpus-stats.js --mine --min 5 --doc-type store_update
+node scripts/corpus-stats.js --conflicts    # 표기가 갈린 자리 (빈도 우선, 동률이면 최신)
+node scripts/fetch-announcement.js --verify # 로컬 본문이 등록 근거 판본과 같은가
 ```
 
 `--mine` 이 이 저장소를 키우는 방법이다 — 미등록인데 여러 회차에 반복되는 줄을 뽑는다. **후보지 확정이 아니다**: 반복은 굳었다는 증거가 아니라 같은 사람이 계속 썼다는 증거일 수도 있다(judgment.md "번역자가 만든 라벨을 의심한다").

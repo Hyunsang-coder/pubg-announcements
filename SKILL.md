@@ -187,3 +187,30 @@ node scripts/tm-audit.js --file <번역문.txt>
 ```
 node scripts/build-lean.js && bash scripts/check-counts.sh
 ```
+
+### 근거를 세려면 코퍼스를 받는다
+
+**번역에는 필요 없다.** 조회는 위 §1~§7 만으로 끝나고, 아래는 **등록·감사할 때만** 쓴다.
+
+공지 전문은 PUBG 저작물이라 이 저장소에 커밋하지 않는다. 커밋되는 건 `references/corpus.json` 의 **회차 id 뿐**이고, 본문은 필요할 때 각자 공식 홈페이지에서 받아 `.corpus/`(gitignore)에 둔다.
+
+```
+node scripts/fetch-announcement.js      # corpus.json 의 회차를 .corpus/ 로
+node scripts/corpus-stats.js --audit    # 등록 정본이 몇 회차에 나오는가
+node scripts/corpus-stats.js --mine --min 5   # 미등록인데 반복되는 줄 = 새 후보
+node scripts/corpus-stats.js --conflicts      # 표기가 갈린 자리 = 판정이 필요한 곳
+```
+
+`--conflicts` 는 같은 자리인데 대소문자·콤마·아포스트로피가 갈린 줄을 묶어 점수를 매긴다 — **회차 수 우선, 동률이면 최신 회차.** `◆` 가 점수 우세형, `★` 가 이미 등록된 정본이다.
+
+**둘이 어긋나는 자리가 실제로 있다**(현재 코퍼스에서 3건). `Hello players!` 는 11회차로 점수는 1등이지만 등록 정본은 2회차짜리 `Hello, players!` 다 — 영어 호격 콤마가 문법으로 결론을 내기 때문이다. **점수는 문법·인게임 표기로 결론이 안 날 때 쓴다.**
+
+`corpus.json` 은 회차마다 `sha256` 을 들고 있다 — **등록 근거를 센 시점의 본문 판본**이다. 원문이 개정되면 같은 회차를 다시 세도 다른 수가 나오므로, 받은 뒤 대조한다:
+
+```
+node scripts/fetch-announcement.js --verify
+```
+
+`CHANGED` 는 오류가 아니라 **그 회차를 근거로 삼은 `notes` 를 다시 보라는 신호**다. 내가 틀렸는지, 원문이 바뀌었는지, 추출이 깨졌는지를 이걸로 가른다.
+
+`--mine` 이 뽑는 건 후보지 확정이 아니다. 반복은 굳었다는 증거가 아니라 같은 사람이 계속 썼다는 증거일 수도 있다 → `references/judgment.md`.

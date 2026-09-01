@@ -7,29 +7,238 @@
       "events": "https://pubg.com/<locale>/events/notice/<id>",
       "note": "로케일 세그먼트만 갈아 끼우면 같은 회차의 다른 언어판이다(ko ↔ en. kr 은 404). Store Update·콜라보는 news, Special Drops 는 events 경로를 쓴다 — 경로가 다르므로 path 필드로 갈라 둔다."
     },
-    "adding": "새 회차를 추가하면 node scripts/fetch-announcement.js 로 받고, 등록에 쓴 회차는 glossary/announcements.json 의 _meta.evidence_corpus 에도 남긴다."
+    "adding": "새 회차를 추가하면 node scripts/fetch-announcement.js 로 받고, 받은 직후의 본문 해시를 그 회차의 sha256 에 기록한다. 등록에 쓴 회차는 glossary/announcements.json 의 _meta.evidence_corpus 에도 남긴다.",
+    "integrity": "각 회차의 sha256 은 등록 근거를 센 시점의 본문 판본을 가리킨다(추출본의 SHA-256 앞 16자). 본문을 커밋하지 않으므로 \"내가 센 숫자를 지금 다시 세면 같은 수가 나오는가\"를 이것으로 판별한다. node scripts/fetch-announcement.js --verify 가 로컬 .corpus/ 를 이 값과 대조한다. 불일치는 오류가 아니라 원문이 개정됐다는 신호다 — 그 회차를 근거로 삼은 notes 를 다시 본다."
   },
   "announcements": [
-    { "id": "9637",  "path": "news",   "doc_type": "store_update",  "published": "2026-01", "title_en": "January Store Update 2026" },
-    { "id": "9692",  "path": "news",   "doc_type": "store_update",  "published": "2026-02", "title_en": "February Store Update 2026" },
-    { "id": "9805",  "path": "news",   "doc_type": "store_update",  "published": "2026-03", "title_en": "March Store Update 2026" },
-    { "id": "9892",  "path": "news",   "doc_type": "store_update",  "published": "2026-04", "title_en": "April Store Update 2026" },
-    { "id": "10041", "path": "news",   "doc_type": "store_update",  "published": "2026-05", "title_en": "May Store Update 2026" },
-    { "id": "10180", "path": "news",   "doc_type": "store_update",  "published": "2026-06", "title_en": "June Store Update 2026" },
-    { "id": "10427", "path": "news",   "doc_type": "store_update",  "published": "2026-07", "title_en": "July Store Update 2026" },
-    { "id": "10828", "path": "news",   "doc_type": "store_update",  "published": "2026-08", "title_en": "August Store Update 2026" },
-    { "id": "8875",  "path": "news",   "doc_type": "store_update",  "published": "2025-07", "title_en": "July Store Update 2025", "note": "references/example-store-update.md 의 완역 예시 원본." },
-
-    { "id": "9663",  "path": "events", "doc_type": "special_drops", "published": "2026-01", "title_en": "Special Drops - January 2026" },
-    { "id": "9698",  "path": "events", "doc_type": "special_drops", "published": "2026-02", "title_en": "Special Drops - February 2026" },
-    { "id": "9858",  "path": "events", "doc_type": "special_drops", "published": "2026-04", "title_en": "Special Drops - April 2026" },
-    { "id": "10020", "path": "events", "doc_type": "special_drops", "published": "2026-05", "title_en": "Special Drops - May 2026" },
-    { "id": "10183", "path": "events", "doc_type": "special_drops", "published": "2026-06", "title_en": "Special Drops - June 2026" },
-    { "id": "10406", "path": "events", "doc_type": "special_drops", "published": "2026-07", "title_en": "Special Drops - July 2026" },
-    { "id": "10829", "path": "events", "doc_type": "special_drops", "published": "2026-08", "title_en": "Special Drops - August 2026" },
-
-    { "id": "10043", "path": "news",   "doc_type": "collab",        "published": "2026-05", "title_en": "Collaboration: Harley-Davidson" },
-    { "id": "9469",  "path": "news",   "doc_type": "collab",        "published": "2025-12", "title_en": "Collaboration: BALENCIAGA" },
-    { "id": "10182", "path": "news",   "doc_type": "event",         "published": "2026-06", "title_en": "Black Market 2026" }
+    {
+      "id": "9637",
+      "path": "news",
+      "doc_type": "store_update",
+      "published": "2026-01",
+      "title_en": "January Store Update 2026",
+      "fetched": "2026-09-01",
+      "sha256": {
+        "ko": "afa02543c4ac60a4",
+        "en": "4e2952f84b336234"
+      }
+    },
+    {
+      "id": "9692",
+      "path": "news",
+      "doc_type": "store_update",
+      "published": "2026-02",
+      "title_en": "February Store Update 2026",
+      "fetched": "2026-09-01",
+      "sha256": {
+        "ko": "b104384223ffe3ac",
+        "en": "15b4b5c6d32c78a0"
+      }
+    },
+    {
+      "id": "9805",
+      "path": "news",
+      "doc_type": "store_update",
+      "published": "2026-03",
+      "title_en": "March Store Update 2026",
+      "fetched": "2026-09-01",
+      "sha256": {
+        "ko": "0a37f93988353fdd",
+        "en": "e913879d67dcabf2"
+      }
+    },
+    {
+      "id": "9892",
+      "path": "news",
+      "doc_type": "store_update",
+      "published": "2026-04",
+      "title_en": "April Store Update 2026",
+      "fetched": "2026-09-01",
+      "sha256": {
+        "ko": "5446ec0ff8d7509c",
+        "en": "bcb8e63a1af8c33f"
+      }
+    },
+    {
+      "id": "10041",
+      "path": "news",
+      "doc_type": "store_update",
+      "published": "2026-05",
+      "title_en": "May Store Update 2026",
+      "fetched": "2026-09-01",
+      "sha256": {
+        "ko": "736d1fa5656c4d9a",
+        "en": "351a972350a29ab6"
+      }
+    },
+    {
+      "id": "10180",
+      "path": "news",
+      "doc_type": "store_update",
+      "published": "2026-06",
+      "title_en": "June Store Update 2026",
+      "fetched": "2026-09-01",
+      "sha256": {
+        "ko": "ef483ab03499c226",
+        "en": "8dba4de39956c87b"
+      }
+    },
+    {
+      "id": "10427",
+      "path": "news",
+      "doc_type": "store_update",
+      "published": "2026-07",
+      "title_en": "July Store Update 2026",
+      "fetched": "2026-09-01",
+      "sha256": {
+        "ko": "cb6e46a1955071d3",
+        "en": "38edd2a70ebb1062"
+      }
+    },
+    {
+      "id": "10828",
+      "path": "news",
+      "doc_type": "store_update",
+      "published": "2026-08",
+      "title_en": "August Store Update 2026",
+      "fetched": "2026-09-01",
+      "sha256": {
+        "ko": "c3a0d25f32c97726",
+        "en": "ddf9b50d299cb1f4"
+      }
+    },
+    {
+      "id": "8875",
+      "path": "news",
+      "doc_type": "store_update",
+      "published": "2025-07",
+      "title_en": "July Store Update 2025",
+      "note": "references/example-store-update.md 의 완역 예시 원본.",
+      "fetched": "2026-09-01",
+      "sha256": {
+        "ko": "ceca8f4d37efd2f2",
+        "en": "a1252b8f2419ee02"
+      }
+    },
+    {
+      "id": "9663",
+      "path": "events",
+      "doc_type": "special_drops",
+      "published": "2026-01",
+      "title_en": "Special Drops - January 2026",
+      "fetched": "2026-09-01",
+      "sha256": {
+        "ko": "33ba4d602b9e2a97",
+        "en": "8fb9e4ade2d5ae31"
+      }
+    },
+    {
+      "id": "9698",
+      "path": "events",
+      "doc_type": "special_drops",
+      "published": "2026-02",
+      "title_en": "Special Drops - February 2026",
+      "fetched": "2026-09-01",
+      "sha256": {
+        "ko": "58f3149b63ad5e96",
+        "en": "3b79d30ac983c6f3"
+      }
+    },
+    {
+      "id": "9858",
+      "path": "events",
+      "doc_type": "special_drops",
+      "published": "2026-04",
+      "title_en": "Special Drops - April 2026",
+      "fetched": "2026-09-01",
+      "sha256": {
+        "ko": "e64af8833ffb9211",
+        "en": "c3e1bad65fef26e0"
+      }
+    },
+    {
+      "id": "10020",
+      "path": "events",
+      "doc_type": "special_drops",
+      "published": "2026-05",
+      "title_en": "Special Drops - May 2026",
+      "fetched": "2026-09-01",
+      "sha256": {
+        "ko": "95f414497ab6a23a",
+        "en": "5551504a07bb3d7a"
+      }
+    },
+    {
+      "id": "10183",
+      "path": "events",
+      "doc_type": "special_drops",
+      "published": "2026-06",
+      "title_en": "Special Drops - June 2026",
+      "fetched": "2026-09-01",
+      "sha256": {
+        "ko": "f9b05b704118ae55",
+        "en": "c0888d86028f97f0"
+      }
+    },
+    {
+      "id": "10406",
+      "path": "events",
+      "doc_type": "special_drops",
+      "published": "2026-07",
+      "title_en": "Special Drops - July 2026",
+      "fetched": "2026-09-01",
+      "sha256": {
+        "ko": "ea13436b9d9f1400",
+        "en": "c4923827d8919679"
+      }
+    },
+    {
+      "id": "10829",
+      "path": "events",
+      "doc_type": "special_drops",
+      "published": "2026-08",
+      "title_en": "Special Drops - August 2026",
+      "fetched": "2026-09-01",
+      "sha256": {
+        "ko": "e075bd5f948df8af",
+        "en": "9f6cd42249c8fb3a"
+      }
+    },
+    {
+      "id": "10043",
+      "path": "news",
+      "doc_type": "collab",
+      "published": "2026-05",
+      "title_en": "Collaboration: Harley-Davidson",
+      "fetched": "2026-09-01",
+      "sha256": {
+        "ko": "b668974476e42e60",
+        "en": "75a46c073d8e4817"
+      }
+    },
+    {
+      "id": "9469",
+      "path": "news",
+      "doc_type": "collab",
+      "published": "2025-12",
+      "title_en": "Collaboration: BALENCIAGA",
+      "fetched": "2026-09-01",
+      "sha256": {
+        "ko": "93315381d6329f93",
+        "en": "440185f06a77470f"
+      }
+    },
+    {
+      "id": "10182",
+      "path": "news",
+      "doc_type": "event",
+      "published": "2026-06",
+      "title_en": "Black Market 2026",
+      "fetched": "2026-09-01",
+      "sha256": {
+        "ko": "a57e9b9c868e0457",
+        "en": "7e858878234de65b"
+      }
+    }
   ]
 }

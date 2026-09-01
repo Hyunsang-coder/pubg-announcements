@@ -10,8 +10,12 @@
  *   node scripts/fetch-announcement.js              corpus.json 의 회차 전부 (이미 받은 건 건너뜀)
  *   node scripts/fetch-announcement.js 10828 9637   특정 id 만
  *   node scripts/fetch-announcement.js --force      이미 받은 것도 다시 받음
+ *   node scripts/fetch-announcement.js --verify     받지 않고, 로컬 본문이 corpus.json 의 sha256 과 같은지만 본다
  *
  * 출력: .corpus/<id>.ko.txt · .corpus/<id>.en.txt (본문만, 구조 보존)
+ *
+ * 판본 대조: corpus.json 의 sha256 은 등록 근거를 센 시점의 판본이다. 새로 받은 본문이 다르면
+ * 그 회차를 근거로 삼은 notes 를 다시 봐야 한다는 신호라 CHANGED 로 표시한다(오류는 아니다).
  *
  * 주의: pubg.com 의 현재 HTML 구조(content-template__inner)에 의존한다. 사이트가 개편되면
  * 추출이 빈 결과를 내며, 그때는 이 파일의 CONTENT_RE 를 고친다. 빈 결과는 조용히 넘어가지 않고 세운다.
@@ -22,6 +26,7 @@
 "use strict";
 const fs = require("fs");
 const path = require("path");
+const crypto = require("crypto");
 
 const ROOT = path.resolve(__dirname, "..");
 const CACHE = path.join(ROOT, ".corpus");
@@ -77,6 +82,8 @@ function extract(html) {
     .join("\n").replace(/\n{3,}/g, "\n\n").trim();
 }
 
+const sha = (s) => crypto.createHash("sha256").update(s, "utf8").digest("hex").slice(0, 16);
+
 function urlFor(entry, locale) {
   const seg = entry.path === "events" ? "events/notice" : "news";
   return `https://pubg.com/${locale}/${seg}/${entry.id}`;
@@ -91,6 +98,7 @@ async function get(url) {
 async function main() {
   const args = process.argv.slice(2);
   const force = args.includes("--force");
+  const verify = args.includes("--verify");
   const ids = args.filter((a) => /^\d+$/.test(a));
 
   const corpus = JSON.parse(fs.readFileSync(CORPUS, "utf8"));
@@ -99,8 +107,10 @@ async function main() {
     entries = ids.map((id) => entries.find((e) => e.id === id) || { id, path: "news" });
   }
 
+  if (verify) return runVerify(entries);
+
   fs.mkdirSync(CACHE, { recursive: true });
-  let got = 0, skipped = 0, failed = 0;
+  let got = 0, skipped = 0, failed = 0, changed = 0;
 
   for (const e of entries) {
     for (const loc of LOCALES) {
@@ -111,6 +121,12 @@ async function main() {
         const text = extract(await get(url));
         if (text.length < 200) throw new Error(`본문이 너무 짧다 (${text.length}자)`);
         fs.writeFileSync(out, text + "\n", "utf8");
+        const want = e.sha256 && e.sha256[loc];
+        const have = sha(text + "\n");
+        if (want && want !== have) {
+          console.log(`  CHANGED ${e.id}.${loc}  등록 근거 판본(${want}) ≠ 지금(${have}) — 이 회차를 근거로 쓴 notes 를 다시 본다`);
+          changed++;
+        }
         console.log(`  got   ${e.id}.${loc}  ${text.length}자  ${e.title_en || ""}`);
         got++;
       } catch (err) {
@@ -120,8 +136,27 @@ async function main() {
       await new Promise((r) => setTimeout(r, 400)); // 연속 요청 간격
     }
   }
-  console.log(`\n[fetch] 받음 ${got} · 건너뜀 ${skipped} · 실패 ${failed} → ${path.relative(ROOT, CACHE)}/`);
+  console.log(`\n[fetch] 받음 ${got} · 건너뜀 ${skipped} · 실패 ${failed}${changed ? ` · 판본 변경 ${changed}` : ""} → ${path.relative(ROOT, CACHE)}/`);
   if (failed) process.exit(1);
+}
+
+/** 받지 않고 로컬 본문만 corpus.json 의 sha256 과 대조한다. */
+function runVerify(entries) {
+  let ok = 0, changed = 0, absent = 0, unrecorded = 0;
+  for (const e of entries) {
+    for (const loc of LOCALES) {
+      const f = path.join(CACHE, `${e.id}.${loc}.txt`);
+      if (!fs.existsSync(f)) { absent++; continue; }
+      const want = e.sha256 && e.sha256[loc];
+      if (!want) { console.log(`  ?     ${e.id}.${loc}  corpus.json 에 sha256 없음`); unrecorded++; continue; }
+      const have = sha(fs.readFileSync(f, "utf8"));
+      if (want === have) { ok++; continue; }
+      console.log(`  CHANGED ${e.id}.${loc}  등록 근거 판본(${want}) ≠ 로컬(${have})  ${e.published || ""} ${e.title_en || ""}`);
+      changed++;
+    }
+  }
+  console.log(`\n[verify] 일치 ${ok} · 판본 변경 ${changed} · 미수신 ${absent} · 미기록 ${unrecorded}`);
+  if (changed) console.log("판본 변경은 오류가 아니다 — 원문이 개정됐다는 뜻이고, 그 회차를 근거로 삼은 notes 를 다시 본다.");
 }
 
 main().catch((e) => { console.error(`[fetch] ${e.message}`); process.exit(2); });
