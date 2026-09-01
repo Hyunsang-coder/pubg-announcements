@@ -120,6 +120,11 @@ function variantKey(line) {
     .trim();
 }
 
+/** 단어 열쇠 — 글자와 숫자만 남긴다. 이것까지 같으면 갈린 건 조판뿐이다. */
+function wordKey(line) {
+  return line.toLowerCase().replace(/[^a-z0-9가-힣]/g, "");
+}
+
 /** published('2026-08')를 비교 가능한 수로. */
 const ym = (d) => Number((d.published || "0000-00").replace("-", ""));
 
@@ -151,11 +156,13 @@ function conflicts(docs, terms, nouns, min) {
   }
   rows.sort((a, b) => b.reduce((s, v) => s + v.n, 0) - a.reduce((s, v) => s + v.n, 0));
 
-  console.log(`표기가 갈린 자리 — ${rows.length}건 (대상 ${docs.length}회차)`);
-  console.log("점수: 회차 수 우선, 동률이면 최신 회차. ◆ = 점수 우세형 · ★ = 이미 등록된 정본\n");
+  // 갈림을 두 종류로 가른다.
+  //  - 단어가 다르면 판정 대상이다(철자·어휘 선택).
+  //  - 글자가 같고 공백·부호·대소문자만 다르면 조판이라 표준 영문 스타일로 정리한다.
+  const word = rows.filter((vs) => new Set(vs.map((v) => wordKey(v.line))).size > 1);
+  const style = rows.filter((vs) => new Set(vs.map((v) => wordKey(v.line))).size === 1);
 
-  let disputed = 0;
-  for (const vs of rows) {
+  const show = (vs) => {
     const tie = vs.length > 1 && vs[0].n === vs[1].n;
     for (const [i, v] of vs.entries()) {
       const mark = (i === 0 ? "◆" : " ") + (v.reg ? "★" : " ");
@@ -164,13 +171,25 @@ function conflicts(docs, terms, nouns, min) {
     }
     if (tie) console.log("     ↑ 동률 — 최신 회차로 갈랐다");
     if (vs.some((v) => v.reg) && !vs[0].reg) {
-      console.log("     ↑ 점수와 등록이 갈린다 — 문법·인게임 표기로 이미 판정한 자리다. 점수를 따르지 않는다.");
-      disputed++;
+      console.log("     ↑ 점수와 등록이 갈린다 — 이미 판정한 자리다. 점수를 따르지 않는다.");
     }
     console.log("");
+  };
+
+  console.log(`\n■ 단어가 갈린 자리 — ${word.length}건 (대상 ${docs.length}회차)`);
+  console.log("철자·어휘가 다르다. 실측이 필요한 건 여기다 — 회차 수 우선, 동률이면 최신.");
+  console.log("◆ = 점수 우세형 · ★ = 이미 등록된 정본\n");
+  if (!word.length) console.log("  (없음)\n");
+  word.forEach(show);
+
+  console.log(`■ 조판만 갈린 자리 — ${style.length}건`);
+  console.log("글자는 같고 공백·문장부호·대소문자만 다르다. **세지 않는다** — 표준 영문 스타일로 맞춘다.");
+  console.log("(괄호 앞 공백 · 콜론 앞 공백 없음 · 곧은 아포스트로피 · 헤더는 title case)\n");
+  for (const vs of style) {
+    console.log("  " + vs.map((v) => `"${v.line.slice(0, 60)}"(${v.n})`).join("  vs  "));
   }
-  console.log("점수는 추천이지 판정이 아니다. 문법이나 인게임 표기로 결론이 나면 그쪽이 먼저다 — references/judgment.md.");
-  if (disputed) console.log(`점수와 등록이 갈린 자리 ${disputed}건 — 이 저장소가 판단 순서를 두는 이유가 그것이다.`);
+
+  console.log("\n단어 쪽도 점수는 추천이지 판정이 아니다. 인게임 표기로 결론이 나면 그쪽이 먼저다 — references/judgment.md.");
 }
 
 function main() {

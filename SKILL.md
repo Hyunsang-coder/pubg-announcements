@@ -218,12 +218,15 @@ node scripts/build-lean.js && bash scripts/check-counts.sh
 node scripts/fetch-announcement.js      # corpus.json 의 회차를 .corpus/ 로
 node scripts/corpus-stats.js --audit    # 등록 정본이 몇 회차에 나오는가
 node scripts/corpus-stats.js --mine --min 5   # 미등록인데 반복되는 줄 = 새 후보
-node scripts/corpus-stats.js --conflicts      # 표기가 갈린 자리 = 판정이 필요한 곳
+node scripts/corpus-stats.js --conflicts      # 표기가 갈린 자리 (단어 / 조판으로 갈라 보여준다)
 ```
 
-`--conflicts` 는 같은 자리인데 대소문자·콤마·아포스트로피가 갈린 줄을 묶어 점수를 매긴다 — **회차 수 우선, 동률이면 최신 회차.** `◆` 가 점수 우세형, `★` 가 이미 등록된 정본이다.
+`--conflicts` 는 같은 자리인데 표기가 갈린 줄을 묶어 **두 종류로 갈라** 보여준다.
 
-**둘이 어긋나는 자리가 실제로 있다**(현재 코퍼스에서 3건). `Hello players!` 는 11회차로 점수는 1등이지만 등록 정본은 2회차짜리 `Hello, players!` 다 — 영어 호격 콤마가 문법으로 결론을 내기 때문이다. **점수는 문법·인게임 표기로 결론이 안 날 때 쓴다.**
+- **단어가 갈린 자리** — 철자·어휘가 다르다. 여기만 센다(회차 수 우선, 동률이면 최신). `◆` 가 점수 우세형, `★` 가 등록된 정본이고 **둘이 어긋나면 등록이 맞다.**
+- **조판만 갈린 자리** — 글자는 같고 공백·부호·대소문자만 다르다. **세지 않고 표준 영문 스타일로 맞춘다** → `references/judgment.md`.
+
+코퍼스 25회차 실측에서는 갈린 자리 20건이 **전부 조판**이었다. 갈림을 만나면 어느 쪽인지부터 본다 — 대개 셀 일이 아니다.
 
 `corpus.json` 은 회차마다 `sha256` 을 들고 있다 — **등록 근거를 센 시점의 본문 판본**이다. 원문이 개정되면 같은 회차를 다시 세도 다른 수가 나오므로, 받은 뒤 대조한다:
 
