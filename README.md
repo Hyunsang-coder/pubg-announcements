@@ -62,7 +62,7 @@ python3 ~/.codex/skills/.system/skill-installer/scripts/install-skill-from-githu
 | 자료 기준일 | **2026-09-01** |
 | 참고 공지 발행 범위 | **2025-07 ~ 2026-08** |
 | 최신 참고 공지 | **2026-08** |
-| 참고 공지 수 | **25건** |
+| 참고 공지 수 | **33건** |
 | 마지막 코퍼스 수집일 | **2026-09-01** |
 
 발행 공지가 추가되거나 기존 공지가 개정되면 `references/corpus.json`에 기록하고, 이 표의 기준일과 수집일도 함께 갱신합니다. 정확한 회차별 발행일·ID·수집일은 [`references/corpus.json`](references/corpus.json)이 기준입니다.
@@ -89,8 +89,8 @@ python3 ~/.codex/skills/.system/skill-installer/scripts/install-skill-from-githu
 
 | 자산 | 개수 | 역할 |
 |---|---:|---|
-| 확정 문장 TM | 90 | 공지에 반복되는 문장. 있으면 그대로 재사용 |
-| 고유명사 | 67 | PUBG 인게임 표기가 확인된 게임 용어 |
+| 확정 문장 TM | 98 | 공지에 반복되는 문장. 있으면 그대로 재사용 |
+| 고유명사 | 73 | PUBG 인게임 표기가 확인된 게임 용어 |
 | 표기 규칙 | 3 | 날짜·기간·title case 같은 패턴 규칙 |
 | 참고 공지 | 25 | KR/EN 대조에 사용한 공지 회차 목록 |
 

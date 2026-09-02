@@ -105,7 +105,7 @@ function buildProperNounsTsv(rows) {
   );
 }
 
-/** SKILL.md 의 마커 사이를 고유명사 표로 갈아 끼운다. 18건뿐이라 파일을 따로 열 이유가 없다. */
+/** SKILL.md 의 마커 사이를 고유명사 표로 갈아 끼운다. 조회량이 작아 파일을 따로 열 이유가 없다. */
 function buildSkillMd(rows) {
   const src = fs.readFileSync(path.join(ROOT, "SKILL.md"), "utf8");
   const b = src.indexOf(MARK_BEGIN);

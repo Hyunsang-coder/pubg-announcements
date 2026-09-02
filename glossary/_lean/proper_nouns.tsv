@@ -4,9 +4,15 @@ source	target	category
 경쟁전	Ranked	game_systems_modes
 관전	Spectating	game_systems_modes
 비밀의 방	Secret Room	game_systems_modes
+사용자 지정 매치	Custom Match	game_systems_modes
 생존 레벨	Survival Level	game_systems_modes
 서바이벌 레벨	Survival Level	game_systems_modes
+인텐스 배틀로얄	Intense Battle Royale	game_systems_modes
+일반 매치	Normal Match	game_systems_modes
+캐주얼 모드	Casual Mode	game_systems_modes
+팀 데스매치	Team Deathmatch	game_systems_modes
 패스 XP	Pass XP	game_systems_modes
+UGC 알파	UGC Alpha	game_systems_modes
 경쟁전 낙하산 스킨	Ranked Parachute Skin	items_equipment
 경쟁전 무기 스킨	Ranked Weapon Skin	items_equipment
 기록 파일	Record File	items_equipment

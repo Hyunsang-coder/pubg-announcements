@@ -311,6 +311,102 @@
         "ko": "d53bf7413d4d3763",
         "en": "2118e4d9701477c4"
       }
+    },
+    {
+      "id": "9690",
+      "path": "news",
+      "doc_type": "patch_notes",
+      "published": "2026-02",
+      "title_en": "Patch Notes - Update 40.1",
+      "fetched": "2026-09-01",
+      "sha256": {
+        "ko": "bb1ac20f0087054f",
+        "en": "6e9f426465fa43da"
+      }
+    },
+    {
+      "id": "9635",
+      "path": "news",
+      "doc_type": "patch_notes",
+      "published": "2026-01",
+      "title_en": "Patch Notes - Update 39.2",
+      "fetched": "2026-09-01",
+      "sha256": {
+        "ko": "f9a826587d600904",
+        "en": "197bf95d277e705b"
+      }
+    },
+    {
+      "id": "9466",
+      "path": "news",
+      "doc_type": "patch_notes",
+      "published": "2025-12",
+      "title_en": "Patch Notes - Update 39.1",
+      "fetched": "2026-09-01",
+      "sha256": {
+        "ko": "02b33de7a80799c3",
+        "en": "d6e4aa301625f55c"
+      }
+    },
+    {
+      "id": "9356",
+      "path": "news",
+      "doc_type": "patch_notes",
+      "published": "2025-11",
+      "title_en": "Patch Notes - Update 38.2",
+      "fetched": "2026-09-01",
+      "sha256": {
+        "ko": "37f97e014ec30ebe",
+        "en": "f22b758e9d96f53a"
+      }
+    },
+    {
+      "id": "9273",
+      "path": "news",
+      "doc_type": "patch_notes",
+      "published": "2025-10",
+      "title_en": "Patch Notes - Update 38.1",
+      "fetched": "2026-09-01",
+      "sha256": {
+        "ko": "1662b12bd32b48e0",
+        "en": "ffb46d84608ca37e"
+      }
+    },
+    {
+      "id": "9087",
+      "path": "news",
+      "doc_type": "patch_notes",
+      "published": "2025-09",
+      "title_en": "Patch Notes - Update 37.2",
+      "fetched": "2026-09-01",
+      "sha256": {
+        "ko": "cf14bad735101be8",
+        "en": "304a823391e0dacc"
+      }
+    },
+    {
+      "id": "9002",
+      "path": "news",
+      "doc_type": "patch_notes",
+      "published": "2025-08",
+      "title_en": "Patch Notes - Update 37.1",
+      "fetched": "2026-09-01",
+      "sha256": {
+        "ko": "3a77cbd8bb4d16c3",
+        "en": "8d9736dcce1192b8"
+      }
+    },
+    {
+      "id": "8871",
+      "path": "news",
+      "doc_type": "patch_notes",
+      "published": "2025-07",
+      "title_en": "Patch Notes - Update 36.2",
+      "fetched": "2026-09-01",
+      "sha256": {
+        "ko": "3ce107ee253c2ad4",
+        "en": "26378b4bc8c86adb"
+      }
     }
   ]
 }

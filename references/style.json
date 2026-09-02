@@ -33,7 +33,7 @@
       "store_update": "Happy shopping!",
       "special_drops": "Happy Drops!",
       "_unlisted": "STOP — 이 맵에 없는 공지 유형(콜라보·이벤트 등)에는 고정 클로징이 없다. 발행분 실측에서 그 자리는 회차마다 새로 쓰는 문구였다: news/10043 'Live to Ride, Ride to Live'(파트너 슬로건, KR 원문 없음) · news/9469 'Step into the world of PUBG, elevated by BALENCIAGA.' · news/10182 'Enjoy guilt-free shopping at Black Market 2026.' 셋 다 서로 다르고 store_update/special_drops 둘 중 어느 것도 아니다. 따라서 위 둘을 빌려 쓰지 않는다 — 원문에 클로징이 있으면 그 회차의 문구로 번역하고, 원문에 없으면 만들어 넣지 않는다.",
-      "patch_notes": "STOP — 패치노트에는 클로징이 없다. 발행분 3회차(2026-06 news/10179 · 2026-07 news/10459 · 2026-08 news/10885) 전부 버그 수정 목록의 마지막 항목으로 끝난다. 인사말도 서명도 없다. 다른 유형의 클로징을 빌려 붙이지 않는다."
+      "patch_notes": "STOP — 패치노트에는 클로징이 없다. 현재 코퍼스의 패치노트 14회차(2025-07~2026-08) 전부 버그 수정 목록의 마지막 항목으로 끝난다. 인사말도 서명도 없다. 다른 유형의 클로징을 빌려 붙이지 않는다."
     },
     "note": "둘 다 원문 직역이 아니라 유형별로 굳은 관용역이다. 원문 클로징이 등록된 둘 중 어느 것도 아니면 조회는 MISS 가 나는데, 그때 비어 있는 자리를 임의로 메우는 것이 이 계열의 대표적 사고다 — _unlisted 를 따른다."
   },

@@ -13,7 +13,7 @@
       ],
       "open": "없음. 인사말 건은 2026-09-01 코퍼스 19회차 검증으로 종결(store_update_9 의 notes 참고)."
     },
-    "doc_type": "이 문장이 어느 공지에서 확인됐는가. store_update | special_drops | common(두 공지가 같이 쓰는 것). 조회에는 거의 쓸 일이 없다 — 67건의 source 가 서로 하나도 겹치지 않아 원문에서 찾아 들어가면 유형이 달라도 헷갈릴 수 없다(클로징조차 원문이 다르다). doc_type 이 일하는 자리는 원문에 없던 자리를 채울 때다: 원문 클로징이 등록된 둘 중 어느 것도 아니면 이 공지 유형의 클로징이 무엇인지를 doc_type 이 답한다. 등록되지 않은 유형이면 지어내지 말고 확정을 받는다(references/style.json closing).",
+    "doc_type": "이 문장이 어느 공지에서 확인됐는가. store_update | special_drops | patch_notes | common(여러 유형이 같이 쓰는 것). 조회에는 거의 쓸 일이 없다 — source 가 서로 하나도 겹치지 않아 원문에서 찾아 들어가면 유형이 달라도 헷갈릴 수 없다(클로징조차 원문이 다르다). doc_type 이 일하는 자리는 원문에 없던 자리를 채울 때다: 원문 클로징이 등록된 유형 중 어느 것도 아니면 이 공지 유형의 클로징이 무엇인지를 doc_type 이 답한다. 등록되지 않은 유형이면 지어내지 말고 확정을 받는다(references/style.json closing).",
     "matching": "source 는 선행 기호(※·*)를 뗀 형태로 등록한다. 검증은 원문이 아니라 도착어 쪽에서 한다 — 원문은 회차마다 조사·공백이 흔들려 매칭이 조용히 빗나간다.",
     "notation": "날짜·기간·대소문자처럼 문자열이 아니라 패턴인 규칙은 references/notation.json 이 정본."
   },
@@ -867,7 +867,7 @@
       "doc_type": "patch_notes",
       "category_id": "section_header",
       "context": "Announcement",
-      "notes": "패치노트 3회차(2026-06 news/10179 · 2026-07 news/10459 · 2026-08 news/10885) 전부 이 형태. KR 원문에 (UTC) 가 없어도 EN 헤더는 붙는다 — 판매 기간 → Sales Period (UTC) 와 같은 자리다.",
+      "notes": "현재 코퍼스 패치노트 14회차 중 10회차에서 이 형태를 확인했다. KR 원문에 (UTC) 가 없어도 EN 헤더는 붙는다 — 판매 기간 → Sales Period (UTC) 와 같은 자리다.",
       "status": "approved"
     },
     {
@@ -879,7 +879,7 @@
       "doc_type": "patch_notes",
       "category_id": "section_header",
       "context": "Announcement",
-      "notes": "패치노트 3회차 전부 이 형태.",
+      "notes": "현재 코퍼스 패치노트 14회차 전부 이 형태.",
       "status": "approved"
     },
     {
@@ -891,7 +891,7 @@
       "doc_type": "patch_notes",
       "category_id": "section_header",
       "context": "Announcement",
-      "notes": "패치노트 3회차 전부 이 형태. 한 단어로 붙인다. 건 플레이 → Gunplay 와 다른 섹션이므로 섞지 않는다.",
+      "notes": "현재 코퍼스 패치노트 14회차 전부 이 형태. 한 단어로 붙인다. 건 플레이 → Gunplay 와 다른 섹션이므로 섞지 않는다.",
       "status": "approved"
     },
     {
@@ -903,7 +903,7 @@
       "doc_type": "patch_notes",
       "category_id": "section_header",
       "context": "Announcement",
-      "notes": "패치노트 2/3회차(2026-07·2026-08). 한 단어로 붙인다 — Gun Play 로 띄우지 않는다. 총기 밸런스 섹션이고 게임 플레이 → Gameplay 와 별개다.",
+      "notes": "현재 코퍼스 패치노트 14회차 중 8회차에서 이 형태를 확인했다. 한 단어로 붙인다 — Gun Play 로 띄우지 않는다. 총기 밸런스 섹션이고 게임 플레이 → Gameplay 와 별개다.",
       "status": "approved"
     },
     {
@@ -915,7 +915,7 @@
       "doc_type": "patch_notes",
       "category_id": "section_header",
       "context": "Announcement",
-      "notes": "패치노트 3회차 전부 이 형태. 복수형 고정.",
+      "notes": "현재 코퍼스 패치노트 14회차 전부 이 형태. 복수형 고정.",
       "status": "approved"
     },
     {
@@ -927,7 +927,7 @@
       "doc_type": "patch_notes",
       "category_id": "section_header",
       "context": "Announcement",
-      "notes": "패치노트 3회차 전부 이 형태. 버그 수정 하위 섹션.",
+      "notes": "현재 코퍼스 패치노트 14회차 전부 이 형태. 버그 수정 하위 섹션.",
       "status": "approved"
     },
     {
@@ -939,7 +939,7 @@
       "doc_type": "patch_notes",
       "category_id": "section_header",
       "context": "Announcement",
-      "notes": "패치노트 3회차 전부 이 형태. 앰퍼샌드 앞뒤 공백을 지킨다.",
+      "notes": "현재 코퍼스 패치노트 14회차 전부 이 형태. 앰퍼샌드 앞뒤 공백을 지킨다.",
       "status": "approved"
     },
     {
@@ -951,7 +951,7 @@
       "doc_type": "patch_notes",
       "category_id": "section_header",
       "context": "Announcement",
-      "notes": "패치노트 2/3회차.",
+      "notes": "현재 코퍼스 패치노트 14회차 중 2회차에서 이 형태를 확인했다.",
       "status": "approved"
     },
     {
@@ -976,7 +976,7 @@
       "doc_type": "patch_notes",
       "category_id": "legal_notice",
       "context": "Announcement",
-      "notes": "패치노트 3회차 전부 이 형태. 상점 공지의 판매 기간은 상황에 따라 변경될 수 있습니다. → The sales periods shown below are subject to change. 와 자리가 다르다 — 이쪽은 점검 일정이므로 sales periods 를 끌어오지 않는다.",
+      "notes": "현재 코퍼스 패치노트 14회차 전부 이 형태. 상점 공지의 판매 기간은 상황에 따라 변경될 수 있습니다. → The sales periods shown below are subject to change. 와 자리가 다르다 — 이쪽은 점검 일정이므로 sales periods 를 끌어오지 않는다.",
       "status": "approved"
     },
     {
@@ -988,7 +988,7 @@
       "doc_type": "patch_notes",
       "category_id": "mission_phrase",
       "context": "Announcement",
-      "notes": "패치노트 3회차 전부 이 형태. KR 은 아이템, EN 은 item sets 로 나간다. 아포스트로피는 곧은 것(U+0027) — 발행분도 이 회차들에서는 곧은 것이었다.",
+      "notes": "현재 코퍼스 패치노트 14회차 중 11회차에서 이 형태를 확인했다. KR 은 아이템, EN 은 item sets 로 나간다. 아포스트로피는 곧은 것(U+0027) — 발행분도 이 회차들에서는 곧은 것이었다.",
       "status": "approved"
     },
     {
@@ -1000,7 +1000,7 @@
       "doc_type": "patch_notes",
       "category_id": "section_header",
       "context": "Announcement",
-      "notes": "패치노트 4회차 전부 공백 있는 형태. 경쟁전 시즌 안내에 붙는다. KR 헤더에 (UTC) 가 없어도 EN 은 붙인다.",
+      "notes": "현재 코퍼스 패치노트 14회차 중 5회차에서 이 형태를 확인했다. 경쟁전 시즌 안내에 붙는다. KR 헤더에 (UTC) 가 없어도 EN 은 붙인다.",
       "status": "approved"
     },
     {
@@ -1012,7 +1012,7 @@
       "doc_type": "patch_notes",
       "category_id": "section_header",
       "context": "Announcement",
-      "notes": "패치노트 2회차. KR 은 \"안내\"가 붙지만 EN 헤더는 안 붙인다.",
+      "notes": "현재 코퍼스 패치노트 14회차 중 2회차에서 확인했다. KR 은 \"안내\"가 붙지만 EN 헤더는 안 붙인다.",
       "status": "approved"
     },
     {
@@ -1024,7 +1024,7 @@
       "doc_type": "patch_notes",
       "category_id": "section_header",
       "context": "Announcement",
-      "notes": "패치노트 2회차.",
+      "notes": "현재 코퍼스 패치노트 14회차 중 4회차에서 확인했다.",
       "status": "approved"
     },
     {
@@ -1036,7 +1036,7 @@
       "doc_type": "patch_notes",
       "category_id": "section_header",
       "context": "Announcement",
-      "notes": "패치노트 2회차.",
+      "notes": "현재 코퍼스 패치노트 14회차 중 2회차에서 확인했다.",
       "status": "approved"
     },
     {
@@ -1048,7 +1048,7 @@
       "doc_type": "patch_notes",
       "category_id": "mission_phrase",
       "context": "Announcement",
-      "notes": "패치노트 5회차 전부 이 형태. **EN 이 KR 직역이 아니다** — KR 은 \"두 물체가 교차할 때 하나가 다른 하나를 가리는 현상\", EN 은 \"이미지·오브젝트의 보이는 범위 밖에 그려지는 그래픽\"으로 서로 다른 정의를 쓴다. 직역으로 되돌리지 않는다. 선행 기호 ※ 는 뗀 형태로 등록.",
+      "notes": "현재 코퍼스 패치노트 14회차 중 13회차에서 이 형태를 확인했다. **EN 이 KR 직역이 아니다** — KR 은 \"두 물체가 교차할 때 하나가 다른 하나를 가리는 현상\", EN 은 \"이미지·오브젝트의 보이는 범위 밖에 그려지는 그래픽\"으로 서로 다른 정의를 쓴다. 직역으로 되돌리지 않는다. 선행 기호 ※ 는 뗀 형태로 등록.",
       "status": "approved"
     },
     {
@@ -1060,7 +1060,7 @@
       "doc_type": "patch_notes",
       "category_id": "mission_phrase",
       "context": "Announcement",
-      "notes": "패치노트 2회차. KR 은 \"업데이트와 함께\", EN 은 after the live server maintenance 다 — 등록된 기간 조각 라이브 서버 점검 완료 후 → after live server maintenance 와 같은 자리다.",
+      "notes": "현재 코퍼스 패치노트 14회차 중 6회차에서 확인했다. KR 은 \"업데이트와 함께\", EN 은 after the live server maintenance 다 — 등록된 기간 조각 라이브 서버 점검 완료 후 → after live server maintenance 와 같은 자리다.",
       "status": "approved"
     },
     {
@@ -1072,7 +1072,7 @@
       "doc_type": "patch_notes",
       "category_id": "mission_phrase",
       "context": "Announcement",
-      "notes": "패치노트 2회차. 전적 페이지 → Career page. Tier 는 대문자.",
+      "notes": "현재 코퍼스 패치노트 14회차 중 6회차에서 확인했다. 전적 페이지 → Career page. Tier 는 대문자.",
       "status": "approved"
     },
     {
@@ -1084,7 +1084,7 @@
       "doc_type": "patch_notes",
       "category_id": "mission_phrase",
       "context": "Announcement",
-      "notes": "패치노트 2회차. KR 명령형(\"확인해 보세요\")이 EN 에서는 평서문(Below are...)으로 바뀐다 — 직역하지 않는다.",
+      "notes": "현재 코퍼스 패치노트 14회차 중 6회차에서 확인했다. KR 명령형(\"확인해 보세요\")이 EN 에서는 평서문(Below are...)으로 바뀐다 — 직역하지 않는다.",
       "status": "approved"
     },
     {
@@ -1096,7 +1096,103 @@
       "doc_type": "patch_notes",
       "category_id": "legal_notice",
       "context": "Announcement",
-      "notes": "패치노트 2회차. KR 은 \"운영 시간\", EN 은 service schedules 다. KR 에 없는 matchmaking quality 가 EN 에 있으므로 줄여 옮기지 않는다.",
+      "notes": "현재 코퍼스 패치노트 14회차 중 2회차에서 확인했다. KR 은 \"운영 시간\", EN 은 service schedules 다. KR 에 없는 matchmaking quality 가 EN 에 있으므로 줄여 옮기지 않는다.",
+      "status": "approved"
+    },
+    {
+      "id": "patch_notes_21",
+      "source": "스폰 변경",
+      "source_lang": "ko",
+      "target": "Spawn Changes",
+      "target_lang": "en",
+      "doc_type": "patch_notes",
+      "category_id": "section_header",
+      "context": "Announcement",
+      "notes": "현재 코퍼스 패치노트 14회차 중 7회차에서 섹션 헤더로 확인했다.",
+      "status": "approved"
+    },
+    {
+      "id": "patch_notes_22",
+      "source": "기타",
+      "source_lang": "ko",
+      "target": "Miscellaneous",
+      "target_lang": "en",
+      "doc_type": "patch_notes",
+      "category_id": "section_header",
+      "context": "Announcement",
+      "notes": "현재 코퍼스 패치노트 14회차 중 5회차에서 섹션 헤더로 확인했다.",
+      "status": "approved"
+    },
+    {
+      "id": "patch_notes_23",
+      "source": "기존 지역 업데이트",
+      "source_lang": "ko",
+      "target": "Area Modifications",
+      "target_lang": "en",
+      "doc_type": "patch_notes",
+      "category_id": "section_header",
+      "context": "Announcement",
+      "notes": "현재 코퍼스 패치노트 14회차 중 3회차에서 섹션 헤더로 확인했다.",
+      "status": "approved"
+    },
+    {
+      "id": "patch_notes_24",
+      "source": "성능",
+      "source_lang": "ko",
+      "target": "Performance",
+      "target_lang": "en",
+      "doc_type": "patch_notes",
+      "category_id": "section_header",
+      "context": "Announcement",
+      "notes": "현재 코퍼스 패치노트 14회차 중 3회차에서 섹션 헤더로 확인했다.",
+      "status": "approved"
+    },
+    {
+      "id": "patch_notes_25",
+      "source": "일반 매치, 경쟁전, 캐주얼 모드에서 지원됩니다.",
+      "source_lang": "ko",
+      "target": "Available in Normal Match, Ranked, and Casual Mode.",
+      "target_lang": "en",
+      "doc_type": "patch_notes",
+      "category_id": "mission_phrase",
+      "context": "Announcement",
+      "notes": "현재 코퍼스 패치노트 14회차 중 5회차에서 이 형태를 확인했다. KR 은 일부 회차에서 '...에 지원됩니다'로 흔들리지만 EN 은 이 형태다.",
+      "status": "approved"
+    },
+    {
+      "id": "patch_notes_26",
+      "source": "영구 소장 아이템인 낙하산 및 무기 스킨과 메달을 제외한 모든 보상 아이템은 한 경쟁전 시즌 동안만 소유할 수 있습니다.",
+      "source_lang": "ko",
+      "target": "The Ranked Parachute skins, weapon skins, and Medals are permanent rewards. The rest of the obtainable rewards are available for use during a single Ranked season.",
+      "target_lang": "en",
+      "doc_type": "patch_notes",
+      "category_id": "legal_notice",
+      "context": "Announcement",
+      "notes": "현재 코퍼스 패치노트 14회차 중 6회차에서 이 형태를 확인했다. 보상 소유 기간을 설명하는 고지이며 두 문장으로 나뉜다.",
+      "status": "approved"
+    },
+    {
+      "id": "patch_notes_27",
+      "source": "해당 업데이트는 사용자 지정 매치에도 적용됩니다.",
+      "source_lang": "ko",
+      "target": "The following updates apply to Custom Match as well.",
+      "target_lang": "en",
+      "doc_type": "patch_notes",
+      "category_id": "legal_notice",
+      "context": "Announcement",
+      "notes": "현재 코퍼스 패치노트 14회차 중 4회차에서 이 형태를 확인했다. KR/EN 모두 선행 ※와 문장부호가 회차별로 흔들릴 수 있다.",
+      "status": "approved"
+    },
+    {
+      "id": "patch_notes_28",
+      "source": "봇이 더욱 자연스럽게 행동하도록 개편하였습니다.",
+      "source_lang": "ko",
+      "target": "Bots have been improved to behave more naturally in various situations.",
+      "target_lang": "en",
+      "doc_type": "patch_notes",
+      "category_id": "mission_phrase",
+      "context": "Announcement",
+      "notes": "현재 코퍼스 패치노트 14회차 중 3회차에서 EN 정본을 확인했다. KR 은 한 회차에서 '다양한 상황에서'가 앞에 붙지만 EN 은 이 형태로 고정됐다.",
       "status": "approved"
     }
   ]

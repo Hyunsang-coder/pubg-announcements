@@ -2,7 +2,7 @@
   "_meta": {
     "kind": "terms",
     "scope": "공지에 반복 등장하는 인게임 고유명사(기능·재화·모드·아이템 유형). 공지 번역이 자기완결로 돌아가기 위한 최소 집합이며, 게임 용어집 전체의 대체물이 아니다.",
-    "selection": "추측으로 넣지 않는다 — 실제 발행 공지 말뭉치에 등장한 것만 등록했다(2026-08-31 실측 18건 → 2026-09-01 코퍼스 19회차 KR/EN 대조로 47건).",
+    "selection": "추측으로 넣지 않는다 — 실제 발행 공지 말뭉치에 등장한 것만 등록했다(2026-08-31 실측 18건 → 2026-09-01 코퍼스 19회차 KR/EN 대조로 47건 → 패치노트 14회차 반영 후 현재 73건).",
     "authority": "공지 문맥에서는 이 파일이 정본이다(발행된 영문이 곧 확정 표기이므로). 다만 인게임 표기가 확인되고 발행분과 어긋나면 인게임이 이긴다 — 반려한 발행 표기는 notes 에 남긴다(references/judgment.md \"인게임 문자열이 걸린 경우\"). 인게임 UI·기획서 등 다른 문맥의 표기는 이 파일의 소관이 아니다.",
     "inflection": "등록형은 기본형이다. 문장 안에서 수·시제·관사는 도착어 문법에 맞춘다(탈 것 → Drive vehicles, 경쟁전 → in Ranked Mode).",
     "notation": "이 파일이 고정하는 것은 철자다. 아포스트로피는 곧은 것(U+0027)으로 통일하고, 대소문자는 자리에 따라 갈리므로 references/notation.json 의 announcement-title-case-en 소관이다.",
@@ -745,6 +745,72 @@
       "category_id": "game_systems_modes",
       "context": "Game Systems & Modes",
       "notes": "맵 내 아이템 스폰 구역.",
+      "status": "approved"
+    },
+    {
+      "id": "pubg_413",
+      "source": "일반 매치",
+      "source_lang": "ko",
+      "target": "Normal Match",
+      "target_lang": "en",
+      "category_id": "game_systems_modes",
+      "context": "Game Systems & Modes",
+      "notes": "패치노트의 적용 모드 표기. Available in Normal Match... 문장에 반복 등장.",
+      "status": "approved"
+    },
+    {
+      "id": "pubg_414",
+      "source": "캐주얼 모드",
+      "source_lang": "ko",
+      "target": "Casual Mode",
+      "target_lang": "en",
+      "category_id": "game_systems_modes",
+      "context": "Game Systems & Modes",
+      "notes": "패치노트의 적용 모드 표기. Available in Normal Match... 문장에 반복 등장.",
+      "status": "approved"
+    },
+    {
+      "id": "pubg_415",
+      "source": "사용자 지정 매치",
+      "source_lang": "ko",
+      "target": "Custom Match",
+      "target_lang": "en",
+      "category_id": "game_systems_modes",
+      "context": "Game Systems & Modes",
+      "notes": "패치노트의 사용자 지정 게임 모드. 섹션 헤더와 적용 범위 고지에 반복 등장.",
+      "status": "approved"
+    },
+    {
+      "id": "pubg_416",
+      "source": "팀 데스매치",
+      "source_lang": "ko",
+      "target": "Team Deathmatch",
+      "target_lang": "en",
+      "category_id": "game_systems_modes",
+      "context": "Game Systems & Modes",
+      "notes": "패치노트의 아케이드 모드. 현재 코퍼스 패치노트 14회차 중 4회차에서 섹션 헤더로 확인했다.",
+      "status": "approved"
+    },
+    {
+      "id": "pubg_417",
+      "source": "인텐스 배틀로얄",
+      "source_lang": "ko",
+      "target": "Intense Battle Royale",
+      "target_lang": "en",
+      "category_id": "game_systems_modes",
+      "context": "Game Systems & Modes",
+      "notes": "패치노트의 아케이드 모드. 현재 코퍼스 패치노트 14회차 중 4회차에서 섹션 헤더로 확인했다.",
+      "status": "approved"
+    },
+    {
+      "id": "pubg_418",
+      "source": "UGC 알파",
+      "source_lang": "ko",
+      "target": "UGC Alpha",
+      "target_lang": "en",
+      "category_id": "game_systems_modes",
+      "context": "Game Systems & Modes",
+      "notes": "사용자 제작 콘텐츠의 알파 서비스명. 현재 코퍼스 패치노트 14회차 중 6회차에서 섹션·본문에 반복 등장.",
       "status": "approved"
     }
   ]

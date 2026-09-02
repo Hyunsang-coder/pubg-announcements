@@ -1,6 +1,6 @@
 ---
 name: pubg-announcements
-description: PUBG 라이브 out-game 공지를 한국어에서 영어로 번역할 때 쓰는 확정 문구·표기 규칙·스타일 모음. 회차마다 그대로 반복되는 고정 문구 TM(Store Update·Special Drops 기준), 법률·규정 고지, 섹션 헤더, 공지 빈출 고유명사, 날짜·기간·대소문자 표기 규칙, 그리고 선례가 갈릴 때의 판단 기준을 담는다. 상점 안내, 스토어 업데이트, Store Update, 스페셜 드롭, Special Drops, 콜라보레이션 공지, 이벤트 안내, 패치노트 공지 번역 키워드에 트리거된다. 공지 문구를 새로 번역하기 전에 반드시 이 스킬의 확정 문자열을 먼저 확인할 것 — 재번역은 표기 흔들림을 만든다.
+description: PUBG 라이브 out-game 공지를 한국어에서 영어로 번역할 때 쓰는 확정 문구·표기 규칙·스타일 모음. 회차마다 그대로 반복되는 고정 문구 TM(Store Update·Special Drops·Patch Notes 기준), 법률·규정 고지, 섹션 헤더, 공지 빈출 고유명사, 날짜·기간·대소문자 표기 규칙, 그리고 선례가 갈릴 때의 판단 기준을 담는다. 상점 안내, 스토어 업데이트, Store Update, 스페셜 드롭, Special Drops, 콜라보레이션 공지, 이벤트 안내, 패치노트 공지 번역 키워드에 트리거된다. 공지 문구를 새로 번역하기 전에 반드시 이 스킬의 확정 문자열을 먼저 확인할 것 — 재번역은 표기 흔들림을 만든다.
 ---
 
 # PUBG out-game 공지 번역
@@ -9,7 +9,7 @@ description: PUBG 라이브 out-game 공지를 한국어에서 영어로 번역�
 
 ## 방향 — KR → EN 전용
 
-**이 저장소는 한국어 → 영어만 다룬다.** 157건 전부 `source_lang: ko` / `target_lang: en` 이고, 이건 항목별 속성이 아니라 저장소 불변식이다.
+**이 저장소는 한국어 → 영어만 다룬다.** 171건 전부 `source_lang: ko` / `target_lang: en` 이고, 이건 항목별 속성이 아니라 저장소 불변식이다.
 
 **역방향(EN → KR)으로 쓰지 않는다.** 자산이 부족해서가 아니라 **틀린 답을 주기 때문**이다 — KR 원문은 회차마다 조사·공백·마침표가 흔들리지만 EN 정본은 고정이다(도착어 쪽에서 감사하는 이유가 그것). EN 에서 되짚으면 여러 KR 변형 중 임의의 하나, 그것도 과거 회차 것을 집게 된다. EN → KR 요청을 받으면 이 스킬을 쓰지 말고 그렇게 말한다.
 
@@ -40,7 +40,7 @@ description: PUBG 라이브 out-game 공지를 한국어에서 영어로 번역�
 
 ---
 
-## 1. 확정 문구 (90개) — 조회는 `glossary/_lean/announcements.tsv`, 원본은 `glossary/announcements.json`
+## 1. 확정 문구 (98개) — 조회는 `glossary/_lean/announcements.tsv`, 원본은 `glossary/announcements.json`
 
 문장 단위 TM. **가변부(날짜·서수·수치·상품명·연도)만 갈아 끼운다.**
 
@@ -48,16 +48,16 @@ description: PUBG 라이브 out-game 공지를 한국어에서 영어로 번역�
 
 | 분류 | 개수 | 무엇 |
 |---|---|---|
-| `section_header` | 36 | 섹션 헤더·라벨 (신규 아이템과 스킨 → New Items and Skins) |
-| `legal_notice` | 19 | 법률·규정·조건 고지 (지역 판매 제한, 확률 고지, 참여 조건, 초기화 안내) |
-| `mission_phrase` | 23 | 미션·안내 문장 (Special Drops 계열) |
+| `section_header` | 40 | 섹션 헤더·라벨 (신규 아이템과 스킨 → New Items and Skins) |
+| `legal_notice` | 21 | 법률·규정·조건 고지 (지역 판매 제한, 확률 고지, 참여 조건, 초기화 안내) |
+| `mission_phrase` | 25 | 미션·안내 문장 (Special Drops 계열) |
 | `boilerplate` | 7 | 인사·클로징·서명 |
 | `product_label` | 3 | 상품명 접미·할인 술부 |
 | `period_phrase` | 2 | 기간 표기 조각 (라이브 서버 점검 완료 후 → after live server maintenance) |
 
 **`doc_type` 은 "이 문장이 어느 공지에서 확인됐는가"** 다 — `store_update` / `special_drops` / `patch_notes` / `common`(여러 유형이 같이 쓰는 것).
 
-조회할 때는 신경 쓸 일이 거의 없다. **70건의 `source` 는 서로 하나도 안 겹치므로**, 원문에서 찾아 들어가는 한 doc_type 이 달라도 헷갈릴 수 없다. 클로징조차 원문이 다르다 — `즐거운 쇼핑 되시길 바랍니다` vs `전장에서 뵙겠습니다`.
+조회할 때는 신경 쓸 일이 거의 없다. **98건의 `source` 는 서로 하나도 안 겹치므로**, 원문에서 찾아 들어가는 한 doc_type 이 달라도 헷갈릴 수 없다. 클로징조차 원문이 다르다 — `즐거운 쇼핑 되시길 바랍니다` vs `전장에서 뵙겠습니다`.
 
 `doc_type` 이 실제로 일하는 자리는 하나다: **원문에 없던 자리를 채울 때.** 원문 클로징이 등록된 것 중 어느 것도 아니면 조회는 MISS 고, 그때 "이 공지 유형의 클로징은 무엇인가"를 doc_type 이 답한다 — `store_update` = `Happy shopping!` / `special_drops` = `Happy Drops!` / `patch_notes` = **없음**(버그 수정 목록으로 끝난다. 빌려 붙이지 않는다). **등록되지 않은 유형이면 지어내지 말고 확정을 받는다.**
 
@@ -66,9 +66,9 @@ description: PUBG 라이브 out-game 공지를 한국어에서 영어로 번역�
 `legal_notice` 항목은 **한정어를 빼거나 범위를 바꾸지 않는다.** 지역 제한·자격 조건·확률 고지는 문구가 곧 고지 의무다.
 UI 경로가 들어간 고지(확률 보기 페이지 등)는 **인게임 표기가 정본**이고, 예뻐 보이는 대안으로 바꾸지 않는다.
 
-## 2. 고유명사 (67개) — 아래 표가 전량. 원본은 `glossary/proper_nouns.json`
+## 2. 고유명사 (73개) — 아래 표가 전량. 원본은 `glossary/proper_nouns.json`
 
-발행 공지에 실제 등장한 인게임 고유명사만 담았다. 67건이라 **파일을 열 필요 없이 여기서 바로 쓴다.**
+발행 공지에 실제 등장한 인게임 고유명사만 담았다. 73건이라 **파일을 열 필요 없이 여기서 바로 쓴다.**
 
 <!-- BEGIN:proper-nouns (생성물 — scripts/build-lean.js) -->
 
@@ -78,9 +78,15 @@ UI 경로가 들어간 고지(확률 보기 페이지 등)는 **인게임 표기
 | 경쟁전 | Ranked |
 | 관전 | Spectating |
 | 비밀의 방 | Secret Room |
+| 사용자 지정 매치 | Custom Match |
 | 생존 레벨 | Survival Level |
 | 서바이벌 레벨 | Survival Level |
+| 인텐스 배틀로얄 | Intense Battle Royale |
+| 일반 매치 | Normal Match |
+| 캐주얼 모드 | Casual Mode |
+| 팀 데스매치 | Team Deathmatch |
 | 패스 XP | Pass XP |
+| UGC 알파 | UGC Alpha |
 | 경쟁전 낙하산 스킨 | Ranked Parachute Skin |
 | 경쟁전 무기 스킨 | Ranked Weapon Skin |
 | 기록 파일 | Record File |
@@ -227,7 +233,7 @@ node scripts/corpus-stats.js --conflicts      # 표기가 갈린 자리 (단어 
 - **단어가 갈린 자리** — 철자·어휘가 다르다. 여기만 센다(회차 수 우선, 동률이면 최신). `◆` 가 점수 우세형, `★` 가 등록된 정본이고 **둘이 어긋나면 등록이 맞다.**
 - **조판만 갈린 자리** — 글자는 같고 공백·부호·대소문자만 다르다. **세지 않고 표준 영문 스타일로 맞춘다** → `references/judgment.md`.
 
-코퍼스 25회차 실측에서는 갈린 자리 20건이 **전부 조판**이었다. 갈림을 만나면 어느 쪽인지부터 본다 — 대개 셀 일이 아니다.
+코퍼스 33회차 실측에서는 갈린 자리 22건이 **전부 조판**이었다. 갈림을 만나면 어느 쪽인지부터 본다 — 대개 셀 일이 아니다.
 
 `corpus.json` 은 회차마다 `sha256` 을 들고 있다 — **등록 근거를 센 시점의 본문 판본**이다. 원문이 개정되면 같은 회차를 다시 세도 다른 수가 나오므로, 받은 뒤 대조한다:
 
