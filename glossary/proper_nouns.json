@@ -812,6 +812,61 @@
       "context": "Game Systems & Modes",
       "notes": "사용자 제작 콘텐츠의 알파 서비스명. 현재 코퍼스 패치노트 14회차 중 6회차에서 섹션·본문에 반복 등장.",
       "status": "approved"
+    },
+    {
+      "id": "pubg_419",
+      "source": "굶주린 자들",
+      "source_lang": "ko",
+      "target": "Survivors Left Behind",
+      "target_lang": "en",
+      "category_id": "game_systems_modes",
+      "context": "Game Systems & Modes",
+      "notes": "패치노트의 SLB 모드명(KR 은 '굶주린 자들'). 현재 코퍼스 패치노트 14회차 중 1회차에서 KR/EN 쌍으로 확인했다. 인게임 모드 약칭 SLB 와 같은 모드를 가리킨다.",
+      "status": "approved"
+    },
+    {
+      "id": "pubg_420",
+      "source": "악몽에 굶주린 자들",
+      "source_lang": "ko",
+      "target": "Hungers Left Behind",
+      "target_lang": "en",
+      "category_id": "game_systems_modes",
+      "context": "Game Systems & Modes",
+      "notes": "패치노트의 SLB 상위 난이도 모드명. 현재 코퍼스 패치노트 14회차 중 1회차에서 KR/EN 쌍으로 확인했다. '굶주린 자들'(Survivors Left Behind)과 함께 병기된다.",
+      "status": "approved"
+    },
+    {
+      "id": "pubg_421",
+      "source": "자판기",
+      "source_lang": "ko",
+      "target": "Vending Machine",
+      "target_lang": "en",
+      "category_id": "items_equipment",
+      "context": "Items & Equipment",
+      "notes": "맵의 상호작용 오브젝트. 현재 코퍼스 5회차에서 KR/EN 쌍으로 확인했고 5회차 모두 Vending Machine.",
+      "status": "approved"
+    },
+    {
+      "id": "pubg_422",
+      "source": "연료통",
+      "source_lang": "ko",
+      "target": "Gas Can",
+      "target_lang": "en",
+      "category_id": "items_equipment",
+      "context": "Items & Equipment",
+      "notes": "연료를 담은 오브젝트. 현재 코퍼스 4회차에서 KR/EN 쌍으로 확인했고 4회차 모두 Gas Can. 가스통(파괴 가능한 오브젝트)은 Gas Tank 로 별개다.",
+      "status": "approved"
+    },
+    {
+      "id": "pubg_423",
+      "source": "블루칩",
+      "source_lang": "ko",
+      "target": "Blue Chip",
+      "target_lang": "en",
+      "category_id": "items_equipment",
+      "context": "Items & Equipment",
+      "notes": "팀원 부활에 쓰는 아이템. 현재 코퍼스 8회차에서 KR/EN 쌍으로 확인했고 8회차 모두 Blue Chip.",
+      "status": "approved"
     }
   ]
 }

@@ -66,9 +66,9 @@ description: PUBG 라이브 out-game 공지를 한국어에서 영어로 번역�
 `legal_notice` 항목은 **한정어를 빼거나 범위를 바꾸지 않는다.** 지역 제한·자격 조건·확률 고지는 문구가 곧 고지 의무다.
 UI 경로가 들어간 고지(확률 보기 페이지 등)는 **인게임 표기가 정본**이고, 예뻐 보이는 대안으로 바꾸지 않는다.
 
-## 2. 고유명사 (73개) — 아래 표가 전량. 원본은 `glossary/proper_nouns.json`
+## 2. 고유명사 (78개) — 아래 표가 전량. 원본은 `glossary/proper_nouns.json`
 
-발행 공지에 실제 등장한 인게임 고유명사만 담았다. 73건이라 **파일을 열 필요 없이 여기서 바로 쓴다.**
+발행 공지에 실제 등장한 인게임 고유명사만 담았다. 78건이라 **파일을 열 필요 없이 여기서 바로 쓴다.**
 
 <!-- BEGIN:proper-nouns (생성물 — scripts/build-lean.js) -->
 
@@ -77,10 +77,12 @@ UI 경로가 들어간 고지(확률 보기 페이지 등)는 **인게임 표기
 | 피해량 | Damage |
 | 경쟁전 | Ranked |
 | 관전 | Spectating |
+| 굶주린 자들 | Survivors Left Behind |
 | 비밀의 방 | Secret Room |
 | 사용자 지정 매치 | Custom Match |
 | 생존 레벨 | Survival Level |
 | 서바이벌 레벨 | Survival Level |
+| 악몽에 굶주린 자들 | Hungers Left Behind |
 | 인텐스 배틀로얄 | Intense Battle Royale |
 | 일반 매치 | Normal Match |
 | 캐주얼 모드 | Casual Mode |
@@ -96,9 +98,12 @@ UI 경로가 들어간 고지(확률 보기 페이지 등)는 **인게임 표기
 | 밀수품 쿠폰 | Contraband Coupon |
 | 보급 전리품 | Supply Loot Cache |
 | 붕대 | Bandages |
+| 블루칩 | Blue Chip |
 | 성장형 무기 스킨 | Progressive weapon skin |
+| 연료통 | Gas Can |
 | 열쇠 | Key |
 | 열쇠 조각 | Key Fragment |
+| 자판기 | Vending Machine |
 | 장인 토큰 | Artisan Token |
 | 전리품 | Loot Cache |
 | 전리품 조각 | Loot Cache Fragment |
