@@ -29,12 +29,13 @@ description: PUBG 라이브 out-game 공지를 한국어에서 영어로 번역�
 0. **처음이거나 형식이 헷갈리면** `references/example-store-update.md` 를 먼저 읽는다 — 발행분 한 편의 KR/EN 대조다.
 1. **유형 판정** → `references/skeletons.md` 를 읽고 이번 회차에 있는 블록을 표시해둔다. Special Drops 는 회차마다 이벤트형(주간 릴레이·빙고·출석·친구 초대)이 갈리므로 이 표시가 나중에 6번에서 쓰인다.
 2. **`glossary/_lean/announcements.tsv` 를 통째로 읽는다.** 조회용 압축본이라 통독해도 부담이 없다. 원문 문장마다 **정확 일치**를 찾는다.
+   - **모드 전용 공지면 여기서 scope 를 선언한다** (예: SLB → `slb`. 값의 목록은 `glossary/_scopes.json`). 전체 TSV 에 더해 `glossary/_lean/proper_nouns.<scope>.tsv`(committed)와 `proper_nouns.<scope>.local.tsv`(발행 전 · 이 머신에만 있음, 있을 때만)를 읽는다. **같은 source 가 겹치면 scope 항목이 이긴다** — 같은 KR 이 모드에 따라 다르게 옮겨지는 자리(예: 리콜)가 여기서 갈린다. `.local.tsv` 는 provisional — 확정이 아니므로 선례로 삼지 않고, 번역문에 임시 표기를 썼다고 밝힌다. 모드 전용인지 모르겠으면 확인을 받는다.
 3. **일치분** — 그대로 붙이고 가변부(날짜·서수·수치·상품명·연도)만 교체한다. **다시 번역하지 않는다.**
 4. **불일치분** — `references/notation.json`(날짜·기간·대소문자) → `references/style.json`(문체·구조·길이) → `references/judgment.md`(선례가 갈릴 때) 순으로 내려간다.
 5. **막히면 멈춘다** — 미등록 고유명사, 등록되지 않은 유형의 클로징은 **지어내지 말고 확인을 받는다.** 한 번 발행되면 그게 선례가 된다.
-6. **검증** — `node scripts/tm-audit.js --file <번역문.txt>`. `MISS` 를 1번에서 표시한 블록과 대조한다: **표시한 블록의 MISS = 드리프트 후보 / 표시 안 한 블록의 MISS = 이번 회차에 없는 섹션.**
-
-**모드 전용 번역이면 scope 를 선언한다.** SLB 처럼 같은 KR 이 다른 모드와 다르게 옮겨지는 모드는 `glossary/_scopes.json` 에 정의돼 있다. 그 모드를 번역할 때는 전체 TSV 에 더해 `glossary/_lean/proper_nouns.<scope>.tsv`(committed)와 `proper_nouns.<scope>.local.tsv`(발행 전 · 이 머신에만 있음, 있을 때만)를 읽고, **같은 source 가 겹치면 scope 항목이 이긴다.** `.local.tsv` 는 provisional — 확정이 아니므로 선례로 삼지 않고, 번역문에 임시 표기를 썼다고 밝힌다. 검증은 `node scripts/tm-audit.js --file <번역문> --scope <id>`.
+6. **검증** — `node scripts/tm-audit.js --file <번역문.txt> --source <KR원문.txt> [--scope <id>]`.
+   - `MISS`(문장 TM) 를 1번에서 표시한 블록과 대조한다: **표시한 블록의 MISS = 드리프트 후보 / 표시 안 한 블록의 MISS = 이번 회차에 없는 섹션.**
+   - `NOUN_MISS`(고유명사) 는 **원문에 나오는데 정본 표기가 번역문에 없다**는 뜻이다. 굴절·의도적 우회(원문 오타를 바로잡은 자리 등)일 수 있으니 원문과 대조해 가른다. 모드 전용 공지에서 `--scope` 를 빼면 모드 전용 항목은 대조하지 않는다.
 
 `notes`·근거·확정 사유가 필요할 때만 원본 `glossary/announcements.json` 을 연다(약 57KB). 번역 중에는 필요 없다.
 

@@ -67,12 +67,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 **도착어 쪽에서** 대조한다(원문은 회차마다 조사·공백이 흔들려 매칭이 조용히 빗나간다). 대소문자를 구분한다 — `Happy Shopping!` 은 정본 `Happy shopping!` 과 다르다.
 
 ```bash
-node scripts/tm-audit.js --file <번역문.txt>
+node scripts/tm-audit.js --file <번역문.txt> [--source <KR원문.txt>] [--scope <id>]
 ```
 
 의존성 없이(Node 내장만) 이 저장소 안에서 돈다. 출력은 `MISS<TAB>doc_type<TAB>정본<TAB>원문`.
 
 `MISS` 는 **드리프트 후보**지 오류 확정이 아니다 — 이번 회차에 그 섹션이 없으면 당연히 안 나온다. 둘을 가르는 건 사람이 하되, `references/skeletons.md` 로 이번 회차의 블록을 먼저 표시해두면 빨리 갈린다. exit code 는 항상 0(대상 TM 이 0건이면 2).
+
+`--source` 를 주면 고유명사도 대조한다(`NOUN_MISS<TAB>층<TAB>정본<TAB>원문`). 문장 TM 과 달리 **원문에 나오는 용어만** 골라 번역문에 정본이 있는지 본다. 우선순위는 committed scope > provisional > 전체이고, 대소문자·하이픈은 무시한다. 긴 용어가 충족되면 그 안에 든 짧은 용어의 MISS 는 걸지 않는다. **존재 검사이지 사용 검사가 아니다** — 한 번 맞게 쓰고 다른 곳에서 틀린 것은 못 잡고, 원문 오타를 바로잡은 자리는 MISS 로 뜬다.
 
 ### 카운트·분류 정합
 

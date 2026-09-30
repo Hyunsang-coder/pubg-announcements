@@ -18,8 +18,16 @@
  *   --file    번역문 (생략 시 stdin). "N<TAB>text" 형태의 세그먼트 줄도 그대로 받는다.
  *   --files   감사할 TM 파일 (콤마 목록). 생략하면 _index.json 의 kind=sentence_tm 전부.
  *   --json    결과를 JSON 으로 (기본은 사람용 목록).
- *   --scope   모드 전용(scope) TM 도 함께 감사한다 (예: --scope slb). 생략하면 scope 없는 전체 TM 만 —
- *             모드 전용 문장이 다른 모드 번역의 MISS 로 새지 않게 하려는 것이다.
+ *   --scope   모드 전용(scope) 항목도 함께 감사한다 (예: --scope slb). 생략하면 scope 없는 전체 항목만 —
+ *             모드 전용 항목이 다른 모드 번역의 MISS 로 새지 않게 하려는 것이다.
+ *   --source  KR 원문 (파일). 주면 고유명사 감사를 함께 돈다 — 아래.
+ *
+ * 고유명사 감사 (--source): 문장 TM 은 전량을 체크리스트로 돌리지만, 고유명사는 원문에 없는 용어까지 MISS 로
+ * 뜨면 잡음이라 **원문에 source 가 나오는 것만** 골라 그 target 이 번역문에 있는지 본다.
+ * 우선순위는 committed scope 항목 > provisional(발행 전, 로컬) > 전체 항목이라 같은 KR 의 모드별 표기가
+ * 섞이지 않는다 (예: 리콜 = 전체 Recall / scope slb revive). 대소문자·하이픈은 무시한다(문장 안 굴절 때문 —
+ * carry-over ↔ carry over). 출력은 `NOUN_MISS<TAB>층<TAB>정본<TAB>원문`. **존재 검사이지 사용 검사가 아니다** —
+ * 한 번 맞게 쓰고 다른 곳에서 틀려도 통과하고, 의도적 우회(오타 교정 등)는 MISS 로 뜬다. 판단은 사람이 한다.
  *
  * 출력: 미검출 문장 목록. **미검출 = 드리프트 확정이 아니다** — 이번 회차에 그 섹션이
  * 없으면 당연히 안 나온다. 둘을 가르는 판단은 사람 몫이고, 원문을 보면 즉시 갈린다.
@@ -84,14 +92,71 @@ function auditLockedTerms(rows, tgtJoined) {
   return misses;
 }
 
+/**
+ * 고유명사 수집 — scope 를 선언하면 그 모드 항목이 전체 항목을 덮는다.
+ * 층 우선순위: committed scope > provisional(glossary/provisional, 로컬) > 전체.
+ */
+function collectNouns(skillDir, scope = null) {
+  const index = readJsonSafe(path.join(skillDir, "glossary", "_index.json"));
+  const files = (index?.files || []).filter((f) => f.kind === "terms").map((f) => f.filename);
+  const bySource = new Map();
+  const put = (t, layer) => bySource.set(t.source, { source: t.source, expected: t.target, layer });
+
+  const committed = [];
+  for (const fn of files) {
+    for (const t of readJsonSafe(path.join(skillDir, "glossary", fn))?.terms || []) {
+      if (t.status !== "deprecated") committed.push(t);
+    }
+  }
+  for (const t of committed.filter((x) => !x.scope)) put(t, "global");
+
+  if (scope) {
+    const dir = path.join(skillDir, "glossary", "provisional");
+    if (fs.existsSync(dir)) {
+      for (const fn of fs.readdirSync(dir).filter((f) => f.endsWith(".json")).sort()) {
+        for (const t of readJsonSafe(path.join(dir, fn))?.terms || []) {
+          if (t.status !== "deprecated" && t.scope === scope) put(t, `provisional:${scope}`);
+        }
+      }
+    }
+    for (const t of committed.filter((x) => x.scope === scope)) put(t, `scope:${scope}`);
+  }
+  return [...bySource.values()];
+}
+
+/** 원문에 나오는 고유명사만 골라 target 이 번역문에 있는지 본다. 대소문자·하이픈은 무시(굴절 때문). */
+function auditNouns(nouns, krText, enText) {
+  const norm = (s) => s.normalize("NFC").toLowerCase().replace(/-/g, " ");
+  const kr = krText.normalize("NFC");
+  const en = norm(enText);
+  const present = nouns.filter((n) => kr.includes(n.source.normalize("NFC")));
+  const raw = present.filter((n) => !en.includes(norm(n.expected)));
+
+  // 짧은 용어의 MISS 는 그 등장이 전부 '충족된 더 긴 용어' 안에 들어 있으면 오탐이다
+  // (전리품 상자 → deathbox 가 충족됐으면 그 안의 '전리품' → Loot Cache 는 걸지 않는다).
+  // 단독으로 쓰인 자리가 하나라도 있으면 그대로 남긴다 — 존재 검사이므로 숨기는 쪽이 더 위험하다.
+  const occ = (hay, needle) => (needle ? hay.split(needle).length - 1 : 0);
+  const satisfied = present.filter((n) => !raw.includes(n));
+  const misses = raw.filter((m) => {
+    const total = occ(kr, m.source);
+    let covered = 0;
+    for (const s of satisfied) {
+      if (s.source !== m.source && s.source.includes(m.source)) covered += occ(kr, s.source) * occ(s.source, m.source);
+    }
+    return covered < total;
+  });
+  return { checked: present.length, misses };
+}
+
 function parseArgs(argv) {
-  const a = { file: null, files: null, json: false, scope: null };
+  const a = { file: null, files: null, json: false, scope: null, source: null };
   for (let i = 2; i < argv.length; i++) {
     const t = argv[i];
     if (t === "--file") a.file = argv[++i];
     else if (t === "--files") a.files = (argv[++i] || "").split(",").map((s) => s.trim()).filter(Boolean);
     else if (t === "--json") a.json = true;
     else if (t === "--scope") a.scope = argv[++i] || null;
+    else if (t === "--source") a.source = argv[++i] || null;
   }
   return a;
 }
@@ -112,7 +177,7 @@ function main() {
     process.exit(2);
   }
   if (!raw.trim()) {
-    console.error("usage: node scripts/tm-audit.js --file <번역문.txt> [--files a.json,b.json] [--json]");
+    console.error("usage: node scripts/tm-audit.js --file <번역문.txt> [--source <KR원문.txt>] [--scope <id>] [--files a.json,b.json] [--json]");
     process.exit(2);
   }
 
@@ -132,17 +197,38 @@ function main() {
 
   const misses = auditLockedTerms(rows, hay);
 
+  let nouns = null;
+  if (a.source) {
+    let kr;
+    try {
+      kr = fs.readFileSync(a.source, "utf8");
+    } catch (e) {
+      console.error(`[tm-audit] 원문을 읽지 못했다: ${e.message}`);
+      process.exit(2);
+    }
+    nouns = auditNouns(collectNouns(SKILL_DIR, a.scope), kr, hay);
+  }
+
   if (a.json) {
-    process.stdout.write(JSON.stringify({ checked: rows.length, misses }, null, 2) + "\n");
+    process.stdout.write(JSON.stringify({ checked: rows.length, misses, ...(nouns ? { nouns } : {}) }, null, 2) + "\n");
   } else {
     for (const m of misses) {
       process.stdout.write(`MISS\t${m.docType || "-"}\t${m.expected}\t${m.docTerm}\n`);
+    }
+    for (const m of nouns?.misses || []) {
+      process.stdout.write(`NOUN_MISS\t${m.layer}\t${m.expected}\t${m.source}\n`);
     }
   }
   console.error(
     `[tm-audit] 정본 ${rows.length}개 중 미검출 ${misses.length}건 — 이번 회차에 없는 섹션인지, 재번역 드리프트인지는 원문 대조로 가른다.`
   );
+  if (nouns) {
+    console.error(
+      `[tm-audit] 원문에 나오는 고유명사 ${nouns.checked}개 중 미검출 ${nouns.misses.length}건 — 굴절·의도적 우회(오타 교정 등)일 수 있으니 원문 대조로 가른다. scope=${a.scope || "없음(전체만)"}.`
+    );
+    if (!a.scope) console.error("[tm-audit] scope 를 안 줬다 — 모드 전용 항목은 대조하지 않았다. 모드 전용 공지면 --scope <id> 를 준다.");
+  }
 }
 
 if (require.main === module) main();
-module.exports = { parseArgs, collectSentenceTm, auditLockedTerms };
+module.exports = { parseArgs, collectSentenceTm, auditLockedTerms, collectNouns, auditNouns };
