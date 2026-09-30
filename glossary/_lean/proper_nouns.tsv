@@ -32,6 +32,7 @@ UGC 알파	UGC Alpha	game_systems_modes
 자판기	Vending Machine	items_equipment
 장인 토큰	Artisan Token	items_equipment
 전리품	Loot Cache	items_equipment
+전리품 상자	deathbox	items_equipment
 전리품 조각	Loot Cache Fragment	items_equipment
 최고급 꾸러미	Prime Parcel	items_equipment
 크로마	Chroma	items_equipment
