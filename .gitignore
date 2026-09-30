@@ -2,3 +2,6 @@
 node_modules/
 .corpus/
 .claude/settings.local.json
+# 발행 전 용어(provisional) — 발표 전 정보라 커밋하지 않는다. 발행 후 코퍼스 대조로 승격해 glossary/*.json 으로 옮긴다.
+glossary/provisional/
+glossary/_lean/*.local.tsv

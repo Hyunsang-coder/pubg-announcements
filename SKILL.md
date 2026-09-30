@@ -34,6 +34,8 @@ description: PUBG 라이브 out-game 공지를 한국어에서 영어로 번역�
 5. **막히면 멈춘다** — 미등록 고유명사, 등록되지 않은 유형의 클로징은 **지어내지 말고 확인을 받는다.** 한 번 발행되면 그게 선례가 된다.
 6. **검증** — `node scripts/tm-audit.js --file <번역문.txt>`. `MISS` 를 1번에서 표시한 블록과 대조한다: **표시한 블록의 MISS = 드리프트 후보 / 표시 안 한 블록의 MISS = 이번 회차에 없는 섹션.**
 
+**모드 전용 번역이면 scope 를 선언한다.** SLB 처럼 같은 KR 이 다른 모드와 다르게 옮겨지는 모드는 `glossary/_scopes.json` 에 정의돼 있다. 그 모드를 번역할 때는 전체 TSV 에 더해 `glossary/_lean/proper_nouns.<scope>.tsv`(committed)와 `proper_nouns.<scope>.local.tsv`(발행 전 · 이 머신에만 있음, 있을 때만)를 읽고, **같은 source 가 겹치면 scope 항목이 이긴다.** `.local.tsv` 는 provisional — 확정이 아니므로 선례로 삼지 않고, 번역문에 임시 표기를 썼다고 밝힌다. 검증은 `node scripts/tm-audit.js --file <번역문> --scope <id>`.
+
 `notes`·근거·확정 사유가 필요할 때만 원본 `glossary/announcements.json` 을 연다(39.6KB). 번역 중에는 필요 없다.
 
 재번역하면 표기가 흔들리고, 공지와 로비·상점 페이지가 어긋난다. 그게 이 스킬이 존재하는 이유다.

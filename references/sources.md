@@ -70,6 +70,16 @@ node scripts/fetch-announcement.js --verify   # 받지 않고 로컬 본문만 �
 
 회차를 특정해야 하면 **공지 제목 + 발행 연월 + news id** 로 적는다 (`2026-09 Store Update (news/10043)`). id 는 언어와 무관하게 안정적이고 공개돼 있어서, 받는 사람이 그대로 확인할 수 있다 — 인용 단위로 이걸 쓴다.
 
+## 발행 전 신규 모드 — provisional 계층
+
+신규 모드는 발행분이 없어 위 근거 수집 방법을 쓸 수 없다. 그렇다고 사내 문서·기획서·인게임 스트링 초안을 committed 표에 바로 등록하지는 않는다. 이유는 위 둘에 하나가 더해진다.
+
+- **초안은 실제로 틀린다.** 인게임 스트링 표에 남아 있던 표기가 확정 표기와 달랐고, 초안 문서에서 추정한 표기가 실제와 다른 경우가 한 작업 안에서 두 번 나왔다. 초안 기반 표기가 committed 에 들어가면 그게 선례가 된다.
+
+그래서 발행 전 용어는 `glossary/provisional/*.json`(gitignore, 이 머신 전용)에 `status: provisional` · `scope` · `evidence: pre_release` 로만 둔다. 출처 경로는 적지 않는다(공개 판정 규칙은 그대로다). 발행되면 위 "근거를 어디서 가져오는가" 방법으로 코퍼스를 받고 KR/EN 을 직접 대조해 승격한다 — 절차는 `CLAUDE.md` 의 "scope 와 provisional".
+
+`.corpus/` · `references/corpus.json` 에는 초안을 넣지 않는다. 그 둘은 발행 원문 전용이고 `--verify`(해시) · `--audit` · `--mine` 의 회차 수가 그 전제 위에서 돈다.
+
 ## TODO — 확정 필요
 
 현재 등록분은 사내 대조 기록에서 옮겨오면서 내부 경로 표기를 제거했다.

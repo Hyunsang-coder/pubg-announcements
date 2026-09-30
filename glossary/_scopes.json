@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "scope": "항목의 scope 필드가 가질 수 있는 값의 정의. 같은 KR 이 모드에 따라 다르게 번역될 때(예: 배틀로얄에서 발행된 '리콜' = Recall 인데 특정 모드에서는 다른 EN 을 쓰는 경우) 모드별 항목을 전체 항목과 공존시키기 위한 장치다.",
+    "rule": "scope 가 없으면 전체(모든 모드)에 적용된다. scope 가 있는 항목은 그 모드를 번역할 때만 읽고, 같은 source 가 전체 항목에도 있으면 scope 항목이 이긴다. 같은 source 에 다른 target 이 있으려면 scope 가 서로 달라야 한다 — scripts/check-scopes.js 가 검사한다.",
+    "adding": "새 scope 는 '같은 용어가 그 모드에서만 다르게 옮겨진다'는 실제 사례가 있을 때만 추가한다. 모드 이름이 늘었다는 이유만으로 만들지 않는다. 추가하면 id 만 여기에 정의하고 scope 지정은 번역자가 선언한다(자동 감지 없음).",
+    "lookup": "committed scope 항목은 glossary/_lean/<파일>.<scope>.tsv, 발행 전(provisional) 항목은 glossary/_lean/proper_nouns.<scope>.local.tsv (gitignore). 번역 대상이 그 scope 이면 전체 TSV 에 더해 이 둘을 읽는다."
+  },
+  "scopes": [
+    {
+      "id": "slb",
+      "name_ko": "SLB",
+      "name_en": "SLB (Survivors Left Behind)",
+      "description": "협동 PvE 모드 SLB 계열. 이 모드 안에서만 쓰이거나, 다른 모드와 같은 KR 이 다르게 옮겨지는 용어."
+    }
+  ]
+}

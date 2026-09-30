@@ -64,9 +64,17 @@ function assertClean(rows) {
   }
 }
 
-function buildAnnouncementsTsv() {
+/** scope 가 null 이면 전체 항목만, 값이 있으면 그 scope 항목만. 전체 TSV 에 모드 전용 항목이 새면 다른 모드 번역이 오염된다. */
+const inScope = (t, scope) => (scope ? t.scope === scope : !t.scope);
+
+function scopesOf(file) {
+  const data = readJson(path.join(ROOT, "glossary", file));
+  return [...new Set(data.terms.filter((t) => t.scope).map((t) => t.scope))].sort();
+}
+
+function buildAnnouncementsTsv(scope = null) {
   const data = readJson(path.join(ROOT, "glossary", "announcements.json"));
-  const terms = [...data.terms].sort(
+  const terms = data.terms.filter((t) => inScope(t, scope)).sort(
     (a, b) =>
       rank(DOC_TYPE_ORDER, a.doc_type) - rank(DOC_TYPE_ORDER, b.doc_type) ||
       rank(CATEGORY_ORDER, a.category_id) - rank(CATEGORY_ORDER, b.category_id) ||
@@ -78,6 +86,7 @@ function buildAnnouncementsTsv() {
   assertClean(rows);
   return (
     "# 생성물 — 손으로 편집하지 않는다. 원본: glossary/announcements.json / 생성: scripts/build-lean.js\n" +
+    (scope ? `# scope=${scope} 전용 — 그 모드를 번역할 때만 읽는다. 같은 source 가 전체 TSV 에 있으면 이쪽이 이긴다.\n` : "") +
     "# 확정 문장 TM. 있으면 그대로 쓰고 가변부(날짜·서수·수치·상품명·연도)만 교체한다.\n" +
     "# notes(확정 사유)·status·근거는 원본 JSON 에 있다. 문서 단위 섹션 순서는 references/skeletons.md.\n" +
     ["doc_type\tcategory\tsource\ttarget", ...rows.map((r) => r.join("\t"))].join("\n") +
@@ -85,9 +94,10 @@ function buildAnnouncementsTsv() {
   );
 }
 
-function properNounRows() {
+function properNounRows(scope = null) {
   const data = readJson(path.join(ROOT, "glossary", "proper_nouns.json"));
-  return [...data.terms]
+  return data.terms
+    .filter((t) => inScope(t, scope))
     .filter((t) => t.status !== "deprecated")
     .sort(
       (a, b) =>
@@ -96,13 +106,46 @@ function properNounRows() {
     .map((t) => [t.source, t.target, t.category_id]);
 }
 
-function buildProperNounsTsv(rows) {
+function buildProperNounsTsv(rows, scope = null) {
   assertClean(rows);
   return (
     "# 생성물 — 손으로 편집하지 않는다. 원본: glossary/proper_nouns.json / 생성: scripts/build-lean.js\n" +
+    (scope ? `# scope=${scope} 전용 — 그 모드를 번역할 때만 읽는다. 같은 source 가 전체 TSV 에 있으면 이쪽이 이긴다.\n` : "") +
     ["source\ttarget\tcategory", ...rows.map((r) => r.join("\t"))].join("\n") +
     "\n"
   );
+}
+
+/**
+ * 발행 전(provisional) 용어 — glossary/provisional/*.json 은 gitignore 라 이 머신에만 있다.
+ * scope 별로 모아 _lean/proper_nouns.<scope>.local.tsv 로 내린다. 폴더가 없으면 아무것도 만들지 않는다.
+ * 발행 후 코퍼스 대조로 승격하면 그 항목을 provisional 에서 지우고 glossary/proper_nouns.json 으로 옮긴다.
+ */
+function provisionalOutputs() {
+  const dir = path.join(ROOT, "glossary", "provisional");
+  if (!fs.existsSync(dir)) return [];
+  const byScope = new Map();
+  for (const fn of fs.readdirSync(dir).filter((f) => f.endsWith(".json")).sort()) {
+    for (const t of readJson(path.join(dir, fn)).terms) {
+      if (t.status === "deprecated") continue;
+      if (!t.scope) throw new Error(`provisional 항목에 scope 가 없다 (${fn}: ${t.source}) — 임시 표기가 전체 모드로 새면 안 된다.`);
+      if (!byScope.has(t.scope)) byScope.set(t.scope, []);
+      byScope.get(t.scope).push(t);
+    }
+  }
+  return [...byScope.entries()].map(([scope, terms]) => {
+    const rows = terms
+      .sort((a, b) => a.category_id.localeCompare(b.category_id) || a.source.localeCompare(b.source, "ko"))
+      .map((t) => [t.source, t.target, t.category_id]);
+    assertClean(rows);
+    return [
+      path.join(LEAN_DIR, `proper_nouns.${scope}.local.tsv`),
+      "# 생성물 — 손으로 편집하지 않는다. 원본: glossary/provisional/*.json (gitignore, 이 머신 전용) / 생성: scripts/build-lean.js\n" +
+        `# scope=${scope} 발행 전(provisional) — 확정이 아니다. 발행 후 코퍼스 대조로 승격하고, 승격 전까지 선례로 삼지 않는다.\n` +
+        ["source\ttarget\tcategory", ...rows.map((r) => r.join("\t"))].join("\n") +
+        "\n",
+    ];
+  });
 }
 
 /** SKILL.md 의 마커 사이를 고유명사 표로 갈아 끼운다. 조회량이 작아 파일을 따로 열 이유가 없다. */
@@ -130,6 +173,14 @@ function main() {
     [path.join(LEAN_DIR, "proper_nouns.tsv"), buildProperNounsTsv(pnRows)],
     [path.join(ROOT, "SKILL.md"), buildSkillMd(pnRows)],
   ];
+  // scope 항목은 전체 TSV 에 섞지 않고 scope 별로 갈라 낸다 — 그 모드를 번역할 때만 읽게 하려는 것이다.
+  for (const s of scopesOf("announcements.json")) {
+    outputs.push([path.join(LEAN_DIR, `announcements.${s}.tsv`), buildAnnouncementsTsv(s)]);
+  }
+  for (const s of scopesOf("proper_nouns.json")) {
+    outputs.push([path.join(LEAN_DIR, `proper_nouns.${s}.tsv`), buildProperNounsTsv(properNounRows(s), s)]);
+  }
+  outputs.push(...provisionalOutputs());
 
   let stale = 0;
   for (const [p, content] of outputs) {

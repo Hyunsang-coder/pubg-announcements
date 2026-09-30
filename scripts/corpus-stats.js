@@ -6,6 +6,8 @@
  *            → 0건이면 폐기 후보이거나 계절 한정 섹션. 회차 목록이 곧 근거다.
  *   --mine   아직 등록되지 않았는데 여러 회차에 반복되는 줄
  *            → 새 확정 문구 후보. 이게 회차를 모으는 이유다.
+ *   --provisional  발행 전(glossary/provisional/) 항목이 발행 공지에 나왔는가
+ *            → KR/EN 쌍이 잡히면 승격 후보. KR 만 있으면 발행 EN 이 다를 수 있다.
  *   --conflicts  같은 자리인데 표기가 갈린 줄 (대소문자·콤마·아포스트로피 차이)
  *            → 어느 형태를 등록할지 다툼이 있는 자리. 빈도순, 동률이면 최신순으로 점수를 매긴다.
  *
@@ -44,7 +46,10 @@ function load() {
   const docs = [];
   for (const e of corpus.announcements) {
     try {
-      docs.push({ ...e, en: fs.readFileSync(path.join(CACHE, `${e.id}.en.txt`), "utf8") });
+      const en = fs.readFileSync(path.join(CACHE, `${e.id}.en.txt`), "utf8");
+      let ko = "";
+      try { ko = fs.readFileSync(path.join(CACHE, `${e.id}.ko.txt`), "utf8"); } catch { /* KR 판이 없는 회차 */ }
+      docs.push({ ...e, en, ko });
     } catch { /* 아직 안 받은 회차 */ }
   }
   if (!docs.length) {
@@ -77,6 +82,40 @@ function audit(docs, terms) {
   }
   const zero = rows.filter((r) => !r.hits.length && !r.t.published_form).length;
   console.log(`\n0건 ${zero}건 — 폐기 후보가 아니라 '이 코퍼스에 그 섹션이 없다'일 수 있다. 회차를 늘려 보고 판단한다.`);
+}
+
+/**
+ * 발행 전(provisional) 항목이 발행 공지에 나왔는지 본다 — 승격 대상을 찾는 일이다.
+ * '쌍' = 같은 회차의 KR 에 source, EN 에 target 이 함께 있다. 같은 줄이라는 뜻이 아니므로 대조는 사람이 한다.
+ * KR 만 있고 쌍이 없으면 발행 EN 이 다르다는 신호일 수 있다 — 선례와 갈리는지 본다.
+ */
+function provisional(docs) {
+  const dir = path.join(ROOT, "glossary", "provisional");
+  const terms = [];
+  if (fs.existsSync(dir)) {
+    for (const fn of fs.readdirSync(dir).filter((f) => f.endsWith(".json")).sort()) {
+      terms.push(...JSON.parse(fs.readFileSync(path.join(dir, fn), "utf8")).terms);
+    }
+  }
+  if (!terms.length) { console.log("provisional 항목이 없다 (glossary/provisional/*.json)."); return; }
+  console.log(`provisional ${terms.length}건 · 코퍼스 ${docs.length}회차\n`);
+  console.log("✓ 쌍 있음(승격 후보 — KR/EN 대조 후 committed 로 옮긴다) · ! KR 만 있음(발행 EN 이 다를 수 있다) · · 발행분에 없음\n");
+  let promo = 0, diff = 0;
+  for (const t of terms) {
+    const kr = docs.filter((d) => d.ko.includes(t.source));
+    const pair = kr.filter((d) => d.en.includes(t.target));
+    const mark = pair.length ? "✓" : kr.length ? "!" : "·";
+    if (pair.length) promo++; else if (kr.length) diff++;
+    console.log(`${mark} [${t.scope}] ${t.source} → ${t.target}   KR ${kr.length}회차 · 쌍 ${pair.length}회차`);
+    if (pair.length || kr.length) {
+      const shown = (pair.length ? pair : kr).slice(0, 5);
+      console.log(`        ${shown.map(ref).join(", ")}`);
+      // 같은 회차에 함께 있다는 것만으로는 승격 근거가 아니다(다른 모드·다른 문맥일 수 있다) — KR 문맥 한 줄을 보여 사람이 바로 거른다.
+      const line = shown[0].ko.split("\n").find((l) => l.includes(t.source));
+      if (line) console.log(`        KR: ${line.trim().slice(0, 90)}`);
+    }
+  }
+  console.log(`\n승격 후보 ${promo}건 · KR 만 있는 ${diff}건. 승격은 KR/EN 을 직접 대조한 뒤 committed 로 옮기고 provisional 에서 지운다.`);
 }
 
 /** 가변부가 섞인 줄은 후보에서 뺀다 — 날짜·수치·괄호수량은 회차마다 달라 TM 이 될 수 없다. */
@@ -199,8 +238,9 @@ function main() {
   const dt = a.includes("--doc-type") ? a[a.indexOf("--doc-type") + 1] : null;
   if (a.includes("--mine")) mine(docs, terms, nouns, min, dt);
   else if (a.includes("--audit")) audit(docs, terms);
+  else if (a.includes("--provisional")) provisional(docs);
   else if (a.includes("--conflicts")) conflicts(docs, terms, nouns, a.includes("--min") ? min : 2);
-  else console.error("usage: node scripts/corpus-stats.js --audit | --mine [--min N] [--doc-type store_update] | --conflicts [--min N]");
+  else console.error("usage: node scripts/corpus-stats.js --audit | --mine [--min N] [--doc-type store_update] | --conflicts [--min N] | --provisional");
 }
 
 main();

@@ -67,12 +67,13 @@ skill_num() { # skill_num <파일명> → 섹션 제목의 (N개)
       s = substr($0, RSTART + 1, RLENGTH - 2); sub(/개$/, "", s); print s; exit
     }' SKILL.md
 }
+# SKILL.md 는 전체(scope 없음) 항목만 다룬다 — scope 항목은 _lean/*.<scope>.tsv 로 갈라 읽는다.
 cmp_num "SKILL.md announcements.json (N개)" \
         "$(skill_num 'glossary/announcements.json')" \
-        "$(jq -r '.terms | length' glossary/announcements.json)"
+        "$(jq -r '[.terms[] | select(.scope == null)] | length' glossary/announcements.json)"
 cmp_num "SKILL.md proper_nouns.json (N개)" \
         "$(skill_num 'glossary/proper_nouns.json')" \
-        "$(jq -r '.terms | length' glossary/proper_nouns.json)"
+        "$(jq -r '[.terms[] | select(.scope == null)] | length' glossary/proper_nouns.json)"
 cmp_num "SKILL.md notation.json (N개)" \
         "$(skill_num 'references/notation.json')" \
         "$(jq -r '.rules | length' references/notation.json)"
@@ -80,7 +81,7 @@ cmp_num "SKILL.md notation.json (N개)" \
 echo
 echo "== SKILL.md 분류별 개수 표 =="
 while IFS=$'\t' read -r cid declared; do
-  actual="$(jq -r --arg c "$cid" '[.terms[] | select(.category_id == $c)] | length' glossary/announcements.json)"
+  actual="$(jq -r --arg c "$cid" '[.terms[] | select(.category_id == $c and .scope == null)] | length' glossary/announcements.json)"
   cmp_num "표 / $cid" "$declared" "$actual"
 done < <(awk -F'|' '
   /^\| *`[a-z_]+` *\| *[0-9]+ *\|/ {
@@ -93,6 +94,11 @@ echo
 echo "== 조회면(lean) 신선도 =="
 # 생성물이 원본 JSON 과 어긋나면 번역 중에 읽는 쪽이 낡은 값을 준다 — 카운트 불일치보다 위험하다.
 if node "$ROOT/scripts/build-lean.js" --check; then :; else fail=1; fi
+
+echo
+echo "== scope · provisional 정합 =="
+# 같은 KR 의 모드별 표기가 scope 없이 공존하거나, 임시 표기가 committed 에 섞이면 조회가 어느 쪽인지 못 가른다.
+if node "$ROOT/scripts/check-scopes.js"; then :; else fail=1; fi
 
 echo
 if [[ $fail -eq 0 ]]; then

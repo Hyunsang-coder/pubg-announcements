@@ -52,6 +52,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 `category_id` 는 이 저장소 로컬 분류이고 정의는 **`glossary/_categories.json`** 에 있다(announcements 쪽 6종 · proper_nouns 쪽 7종, `file` 필드로 갈린다). 새 값을 만들기 전에 기존 값 재사용을 먼저 본다 — 분류가 흩어지면 개수 표가 의미를 잃는다. `check-counts.sh` 가 미정의 `category_id` 를 잡는다.
 
+### scope 와 provisional — 모드별 표기, 발행 전 용어
+
+**scope**: 항목에 선택 필드 `scope` 를 둘 수 있다. 비어 있으면 전체 모드에 적용되고, 값이 있으면 그 모드를 번역할 때만 읽으며 같은 `source` 가 전체 항목에 있어도 scope 항목이 이긴다. 값은 `glossary/_scopes.json` 에 정의한다. **같은 KR 이 모드에 따라 다르게 옮겨지는 실제 사례가 있을 때만** 새로 만든다(예: 배틀로얄에서 발행된 `리콜` = Recall, SLB 는 다른 표기). 조회면은 전체 TSV 에 섞지 않고 `_lean/<파일>.<scope>.tsv` 로 갈라 낸다. scope 지정은 번역자가 선언하고 자동 감지는 없다.
+
+**provisional**: 발행 전 신규 모드는 발행분이 없어 근거를 댈 수 없다. 그 자리는 `glossary/provisional/*.json`(**gitignore** — 발표 전 정보라 커밋하지 않는다)에 `status: provisional` · `scope`(필수) · `evidence: pre_release` 로 둔다. 선례가 아니고, 번역문에 임시 표기를 썼다고 밝힌다. 조회면은 `_lean/proper_nouns.<scope>.local.tsv`(역시 gitignore). **committed 파일(`glossary/*.json`)에는 provisional 을 넣지 않는다** — `check-scopes.js` 가 잡는다. 인게임 문자열·기획서·사용자 확인은 provisional 의 근거일 뿐, committed 의 근거가 아니다(초안은 자주 바뀐다).
+
+승격: 공지가 발행되면 `fetch-announcement.js` 로 회차를 받고 `corpus-stats.js --provisional` 로 KR/EN 쌍을 본다. **같은 회차에 함께 있다는 것만으로는 근거가 아니다** — KR 문맥 줄로 같은 모드·같은 뜻인지 직접 대조한 뒤에만 `glossary/proper_nouns.json`(scope 유지)으로 옮기고 provisional 에서 지운다. 발행 EN 이 인게임과 다르면 `judgment.md` 순서로 판단하고 반려한 표기는 `notes` 에 남긴다.
+
 ## 검증 명령
 
 ### TM 감사 — 확정 문장이 번역문에 살아있는지
@@ -72,7 +80,7 @@ node scripts/tm-audit.js --file <번역문.txt>
 bash scripts/check-counts.sh
 ```
 
-JSON 파싱 · `_index.json` 카운트 3종 · `category_id` 가 `_categories.json` 에 정의돼 있는지 · `SKILL.md` 의 섹션 제목 수치와 분류별 개수 표까지 한 번에 본다. 불일치면 exit 1 이고, **고치지는 않는다** — 어느 쪽이 맞는지는 사람이 판단한다.
+JSON 파싱 · `_index.json` 카운트 3종 · `category_id` 가 `_categories.json` 에 정의돼 있는지 · `SKILL.md` 의 섹션 제목 수치와 분류별 개수 표 · scope/provisional 정합(`scripts/check-scopes.js` — 미정의 scope, scope 없이 갈린 같은 source, committed 에 새어 든 provisional)까지 한 번에 본다. `SKILL.md` 의 수치는 scope 없는 전체 항목 기준이다. 불일치면 exit 1 이고, **고치지는 않는다** — 어느 쪽이 맞는지는 사람이 판단한다.
 
 수치가 **세 곳**에 중복돼 있다: `_index.json` 의 `files[].term_count` · `total_terms` · `total_categories`, 그리고 `SKILL.md` 본문의 개수 표(분류별 개수 포함)와 섹션 제목. 자동 동기화가 없으므로 등록 후 셋 다 손으로 갱신하고 위 스크립트로 확인한다. id 채번도 자동이 아니다 — 기존 최대치+1 을 실측해 쓴다.
 
@@ -83,6 +91,7 @@ node scripts/fetch-announcement.js      # corpus.json 의 회차를 .corpus/ 로
 node scripts/corpus-stats.js --audit    # 등록 정본이 몇 회차에 나오는가
 node scripts/corpus-stats.js --mine --min 5 --doc-type store_update
 node scripts/corpus-stats.js --conflicts    # 갈린 자리를 단어 / 조판으로 갈라 본다
+node scripts/corpus-stats.js --provisional  # 발행 전 항목이 발행 공지에 나왔는가 (승격 후보, KR 문맥 표시)
 node scripts/fetch-announcement.js --verify # 로컬 본문이 등록 근거 판본과 같은가
 ```
 

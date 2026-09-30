@@ -18,6 +18,8 @@
  *   --file    번역문 (생략 시 stdin). "N<TAB>text" 형태의 세그먼트 줄도 그대로 받는다.
  *   --files   감사할 TM 파일 (콤마 목록). 생략하면 _index.json 의 kind=sentence_tm 전부.
  *   --json    결과를 JSON 으로 (기본은 사람용 목록).
+ *   --scope   모드 전용(scope) TM 도 함께 감사한다 (예: --scope slb). 생략하면 scope 없는 전체 TM 만 —
+ *             모드 전용 문장이 다른 모드 번역의 MISS 로 새지 않게 하려는 것이다.
  *
  * 출력: 미검출 문장 목록. **미검출 = 드리프트 확정이 아니다** — 이번 회차에 그 섹션이
  * 없으면 당연히 안 나온다. 둘을 가르는 판단은 사람 몫이고, 원문을 보면 즉시 갈린다.
@@ -47,7 +49,7 @@ function readJsonSafe(p) {
  * 감사 대상 수집 — 문장 TM 은 *원문 적중분이 아니라 파일 전량* 을 체크리스트로 돌린다.
  * deprecated 항목과 target 중복은 건너뛴다.
  */
-function collectSentenceTm(glossaryFiles, skillDir) {
+function collectSentenceTm(glossaryFiles, skillDir, scope = null) {
   const index = readJsonSafe(path.join(skillDir, "glossary", "_index.json"));
   const tmFiles = (index?.files || [])
     .filter((f) => f.kind === "sentence_tm" && (!glossaryFiles || glossaryFiles.includes(f.filename)))
@@ -59,6 +61,7 @@ function collectSentenceTm(glossaryFiles, skillDir) {
     const data = readJsonSafe(path.join(skillDir, "glossary", fn));
     for (const t of data?.terms || []) {
       if (t.status === "deprecated" || seen.has(t.target)) continue;
+      if (t.scope && t.scope !== scope) continue;
       seen.add(t.target);
       rows.push({ docTerm: t.source, expected: t.target, docType: t.doc_type || null, file: fn });
     }
@@ -82,12 +85,13 @@ function auditLockedTerms(rows, tgtJoined) {
 }
 
 function parseArgs(argv) {
-  const a = { file: null, files: null, json: false };
+  const a = { file: null, files: null, json: false, scope: null };
   for (let i = 2; i < argv.length; i++) {
     const t = argv[i];
     if (t === "--file") a.file = argv[++i];
     else if (t === "--files") a.files = (argv[++i] || "").split(",").map((s) => s.trim()).filter(Boolean);
     else if (t === "--json") a.json = true;
+    else if (t === "--scope") a.scope = argv[++i] || null;
   }
   return a;
 }
@@ -118,7 +122,7 @@ function main() {
     .map((l) => l.replace(/^\d+\t/, "").replace(/\\n/g, "\n"))
     .join("\n");
 
-  const rows = collectSentenceTm(a.files, SKILL_DIR);
+  const rows = collectSentenceTm(a.files, SKILL_DIR, a.scope);
   if (!rows.length) {
     console.error(
       `[tm-audit] 감사 대상 문장 TM 0건 — ${path.join(SKILL_DIR, "glossary", "_index.json")} 에 kind:sentence_tm 파일이 있는지 확인.`
