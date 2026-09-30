@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 **Claude Code 스킬 패키지**다. 산출물은 `SKILL.md` + JSON 데이터이고, 빌드·린트 파이프라인이 없다(검증 스크립트 둘만 있다 — 아래 "검증 명령"). 여기서의 "작업"은 거의 항상 둘 중 하나다: **번역 자산 조회**, 또는 **새 확정 문구 등록**.
 
-내용은 PUBG out-game 공지의 **KR→EN 전용** 번역 자산이다. 157건 전부 `source_lang: ko` / `target_lang: en` 이고, 이건 항목별 속성이 아니라 저장소 불변식이다. **역방향(EN→KR)으로 쓰지 않는다** — KR 원문은 회차마다 흔들리지만 EN 정본은 고정이라, EN 에서 되짚으면 임의의 과거 변형을 집게 된다.
+내용은 PUBG out-game 공지의 **KR→EN 전용** 번역 자산이다. 전 항목이 `source_lang: ko` / `target_lang: en` 이고, 이건 항목별 속성이 아니라 저장소 불변식이다. **역방향(EN→KR)으로 쓰지 않는다** — KR 원문은 회차마다 흔들리지만 EN 정본은 고정이라, EN 에서 되짚으면 임의의 과거 변형을 집게 된다.
 
 인게임 UI·기획서·회의록은 명시적으로 범위 밖이며, 그쪽 용어 체계를 여기로 끌어오지 않는다. 구체적으로 **`pubg-context` 스킬은 이 저장소 작업에서 쓰지 않는다** — 아래 "pubg-context 와의 경계".
 
@@ -16,9 +16,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 네 파일이 서로 겹치지 않게 역할을 나눠 갖는다. 어떤 판단이든 이 순서로 내려간다.
 
-1. `glossary/announcements.json` — **문장 단위 TM(70개)**. 있으면 그대로 쓴다. 재번역 금지, 가변부(날짜·서수·수치·상품명·연도)만 교체.
+1. `glossary/announcements.json` — **문장 단위 TM**. 있으면 그대로 쓴다. 재번역 금지, 가변부(날짜·서수·수치·상품명·연도)만 교체.
 2. `references/notation.json` — **패턴 규칙(3개)**. 문자열이 아니라 형태라서 TM 으로 못 박는 것(날짜·기간 범위·title case).
-3. `glossary/proper_nouns.json` — 공지 빈출 고유명사(23개). 인게임 표기가 정본.
+3. `glossary/proper_nouns.json` — 공지 빈출 고유명사. 인게임 표기가 정본.
 4. `references/judgment.md` — 위 셋으로 안 덮이는 경우의 판단 순서와 실제 판례(선례가 갈릴 때 빈도·최근성·문법을 함께 본다).
 
 계층에 얹히는 것들 — `references/style.json` 은 문체·골격 규칙(구조 보존·길이·클로징 맵·기밀), `references/skeletons.md` 는 유형별 섹션 골격(우선순위가 아니라 작업용 지도. `MISS` 를 드리프트와 섹션 부재로 가를 때 쓴다), `references/sources.md` 는 무엇을 근거로 쓸 수 있는지의 정책, `glossary/_categories.json` 은 `category_id` 정의다.
@@ -34,7 +34,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 | 조회면 | `glossary/_lean/*.tsv` · `SKILL.md` §2 고유명사 표 | 번역 중 (항상) | ❌ 생성물 |
 | 유지보수면 | `glossary/announcements.json` · `proper_nouns.json` | 등록·분쟁 때만 | ✅ 여기만 |
 
-이유는 부피가 아니라 신호 대 잡음비다. `announcements.json` 39.6KB 중 번역에 쓰이는 `source`→`target` 은 6.4KB 뿐이고 나머지는 `notes`(확정 사유)·`status`·반복 키다. 번역할 때마다 6배를 읽으면 정작 대응 관계가 묻힌다.
+이유는 부피가 아니라 신호 대 잡음비다. `announcements.json` 약 57KB 중 번역에 쓰이는 `source`→`target` 은 약 9KB 뿐이고 나머지는 `notes`(확정 사유)·`status`·반복 키다. 번역할 때마다 6배를 읽으면 정작 대응 관계가 묻힌다.
 
 **등록은 JSON 에만 하고 `node scripts/build-lean.js` 로 다시 뽑는다.** TSV 나 SKILL.md 표를 손으로 고치면 다음 생성 때 덮어써진다. `check-counts.sh` 가 신선도를 검사하므로 어긋난 채로 커밋되지는 않는다.
 
@@ -42,11 +42,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## 데이터 스키마
 
-두 glossary 파일 모두 `{ _meta, terms[] }` 구조이고, term 필드는 `id · source · source_lang · target · target_lang · category_id · context · notes · status`. 발행분과 **일부러 다르게** 등록한 항목만 `published_form` 이 추가로 붙는다(반려한 발행 표기). `corpus-stats.js --audit` 이 이 항목을 `정` 으로 찍어 0건을 폐기 신호로 오독하지 않게 한다. `source_lang`·`target_lang` 은 93건 전부 상수(`ko`/`en`)라 조회면에서는 뺀다.
+두 glossary 파일 모두 `{ _meta, terms[] }` 구조이고, term 필드는 `id · source · source_lang · target · target_lang · category_id · context · notes · status`. 발행분과 **일부러 다르게** 등록한 항목만 `published_form` 이 추가로 붙는다(반려한 발행 표기). `corpus-stats.js --audit` 이 이 항목을 `정` 으로 찍어 0건을 폐기 신호로 오독하지 않게 한다. `source_lang`·`target_lang` 은 전 항목 상수(`ko`/`en`)라 조회면에서는 뺀다.
 
 `announcements.json` 에만 **`doc_type`** 이 추가로 있다 — `store_update` / `special_drops` / `patch_notes` / `common`. **"이 문장이 어느 공지에서 확인됐는가"** 라는 출처 표시다.
 
-조회에는 거의 쓸 일이 없다. **70건의 `source` 가 서로 하나도 안 겹쳐서**, 원문에서 찾아 들어가는 한 유형이 달라도 헷갈릴 수 없다(클로징조차 원문이 다르다 — `즐거운 쇼핑 되시길 바랍니다` vs `전장에서 뵙겠습니다`). `doc_type` 이 일하는 자리는 **원문에 없던 자리를 채울 때** 하나다: 원문 클로징이 등록된 둘 중 어느 것도 아니면 조회는 MISS 고, 그때 유형별 클로징을 doc_type 이 답한다. **등록되지 않은 유형이면 지어내지 않는다** (`references/style.json` 의 `closing.map._unlisted`).
+조회에는 거의 쓸 일이 없다. **등록된 `source` 가 서로 하나도 안 겹쳐서**, 원문에서 찾아 들어가는 한 유형이 달라도 헷갈릴 수 없다(클로징조차 원문이 다르다 — `즐거운 쇼핑 되시길 바랍니다` vs `전장에서 뵙겠습니다`). `doc_type` 이 일하는 자리는 **원문에 없던 자리를 채울 때** 하나다: 원문 클로징이 등록된 둘 중 어느 것도 아니면 조회는 MISS 고, 그때 유형별 클로징을 doc_type 이 답한다. **등록되지 않은 유형이면 지어내지 않는다** (`references/style.json` 의 `closing.map._unlisted`).
 
 `id` 접두어는 doc_type 과 일치하지 않는다 — `common` 8건 중 여럿이 `store_update_*` id 를 그대로 들고 있다(중복 제거 흔적). id 로 doc_type 을 추론하지 말 것.
 

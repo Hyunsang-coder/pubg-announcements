@@ -9,7 +9,7 @@ description: PUBG 라이브 out-game 공지를 한국어에서 영어로 번역�
 
 ## 방향 — KR → EN 전용
 
-**이 저장소는 한국어 → 영어만 다룬다.** 171건 전부 `source_lang: ko` / `target_lang: en` 이고, 이건 항목별 속성이 아니라 저장소 불변식이다.
+**이 저장소는 한국어 → 영어만 다룬다.** 전 항목이 `source_lang: ko` / `target_lang: en` 이고, 이건 항목별 속성이 아니라 저장소 불변식이다.
 
 **역방향(EN → KR)으로 쓰지 않는다.** 자산이 부족해서가 아니라 **틀린 답을 주기 때문**이다 — KR 원문은 회차마다 조사·공백·마침표가 흔들리지만 EN 정본은 고정이다(도착어 쪽에서 감사하는 이유가 그것). EN 에서 되짚으면 여러 KR 변형 중 임의의 하나, 그것도 과거 회차 것을 집게 된다. EN → KR 요청을 받으면 이 스킬을 쓰지 말고 그렇게 말한다.
 
@@ -36,7 +36,7 @@ description: PUBG 라이브 out-game 공지를 한국어에서 영어로 번역�
 
 **모드 전용 번역이면 scope 를 선언한다.** SLB 처럼 같은 KR 이 다른 모드와 다르게 옮겨지는 모드는 `glossary/_scopes.json` 에 정의돼 있다. 그 모드를 번역할 때는 전체 TSV 에 더해 `glossary/_lean/proper_nouns.<scope>.tsv`(committed)와 `proper_nouns.<scope>.local.tsv`(발행 전 · 이 머신에만 있음, 있을 때만)를 읽고, **같은 source 가 겹치면 scope 항목이 이긴다.** `.local.tsv` 는 provisional — 확정이 아니므로 선례로 삼지 않고, 번역문에 임시 표기를 썼다고 밝힌다. 검증은 `node scripts/tm-audit.js --file <번역문> --scope <id>`.
 
-`notes`·근거·확정 사유가 필요할 때만 원본 `glossary/announcements.json` 을 연다(39.6KB). 번역 중에는 필요 없다.
+`notes`·근거·확정 사유가 필요할 때만 원본 `glossary/announcements.json` 을 연다(약 57KB). 번역 중에는 필요 없다.
 
 재번역하면 표기가 흔들리고, 공지와 로비·상점 페이지가 어긋난다. 그게 이 스킬이 존재하는 이유다.
 
@@ -46,7 +46,7 @@ description: PUBG 라이브 out-game 공지를 한국어에서 영어로 번역�
 
 문장 단위 TM. **가변부(날짜·서수·수치·상품명·연도)만 갈아 끼운다.**
 
-**번역 중에는 lean 쪽만 읽는다** — `doc_type · category · source · target` 4열, 9.8KB. 원본 JSON 은 39.6KB 인데 그 차이는 전부 `notes`(확정 사유)·`status`·반복되는 JSON 키다. 번역에 필요 없고, 오히려 `source → target` 대응을 묻는다. lean 은 생성물이라 **손으로 편집하지 않는다**(`scripts/build-lean.js`).
+**번역 중에는 lean 쪽만 읽는다** — `doc_type · category · source · target` 4열, 약 12KB. 원본 JSON 은 약 57KB 인데 그 차이는 전부 `notes`(확정 사유)·`status`·반복되는 JSON 키다. 번역에 필요 없고, 오히려 `source → target` 대응을 묻는다. lean 은 생성물이라 **손으로 편집하지 않는다**(`scripts/build-lean.js`).
 
 | 분류 | 개수 | 무엇 |
 |---|---|---|
