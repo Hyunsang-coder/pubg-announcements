@@ -877,6 +877,17 @@
       "context": "Items & Equipment",
       "notes": "캐릭터가 사망하면 남기는, 소지품이 든 상자. 패치노트 4회차(37.1·37.2·38.1·42.1)에서 KR/EN 쌍으로 확인했고 4회차 모두 deathbox(문장 중 소문자, 스킨명 안에서는 Deathbox). 튜토리얼 표를 다루는 42.2 는 'death box'(두 단어)로 갈렸다 — 소수형이라 반려. 같은 KR 이 두 자리에서 다르게 나온다: 스토어 업데이트 2회차(2026-04·2026-07)의 서바이버 패스 'Lv. 8: 전리품 상자 스킨' 은 Loot Crate Skin 이고(패치노트 42.1 은 같은 KR 을 Deathbox skin 으로 옮겼다 — 자리에 따라 판단), 콜라보 상품 상자(예: 스텔라 블레이드 전리품 상자, 41.2)는 Loot Cache 계열이라 전리품 → Loot Cache 로 옮긴다. 콜라보명·상품명이 앞에 붙은 '전리품 상자' 에는 이 항목을 적용하지 않는다.",
       "status": "approved"
+    },
+    {
+      "id": "pubg_425",
+      "source": "초심자 훈련소",
+      "source_lang": "ko",
+      "target": "Beginner Training",
+      "target_lang": "en",
+      "category_id": "game_systems_modes",
+      "context": "Game Systems & Modes",
+      "notes": "기본 훈련 개편과 함께 추가된 신규 플레이어용 훈련 시스템(로비 상단 메뉴명 겸용). 현재 코퍼스 패치노트 1회차에서 KR/EN 쌍으로 확인했고 본문 전체가 Beginner Training 으로 일관. SLB 전용이 아닌 전체 모드 표기.",
+      "status": "approved"
     }
   ]
 }

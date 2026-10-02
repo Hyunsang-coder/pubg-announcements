@@ -69,9 +69,9 @@ description: PUBG 라이브 out-game 공지를 한국어에서 영어로 번역�
 `legal_notice` 항목은 **한정어를 빼거나 범위를 바꾸지 않는다.** 지역 제한·자격 조건·확률 고지는 문구가 곧 고지 의무다.
 UI 경로가 들어간 고지(확률 보기 페이지 등)는 **인게임 표기가 정본**이고, 예뻐 보이는 대안으로 바꾸지 않는다.
 
-## 2. 고유명사 (79개) — 아래 표가 전량. 원본은 `glossary/proper_nouns.json`
+## 2. 고유명사 (80개) — 아래 표가 전량. 원본은 `glossary/proper_nouns.json`
 
-발행 공지에 실제 등장한 인게임 고유명사만 담았다. 79건이라 **파일을 열 필요 없이 여기서 바로 쓴다.**
+발행 공지에 실제 등장한 인게임 고유명사만 담았다. 80건이라 **파일을 열 필요 없이 여기서 바로 쓴다.**
 
 <!-- BEGIN:proper-nouns (생성물 — scripts/build-lean.js) -->
 
@@ -88,6 +88,7 @@ UI 경로가 들어간 고지(확률 보기 페이지 등)는 **인게임 표기
 | 악몽에 굶주린 자들 | Hungers Left Behind |
 | 인텐스 배틀로얄 | Intense Battle Royale |
 | 일반 매치 | Normal Match |
+| 초심자 훈련소 | Beginner Training |
 | 캐주얼 모드 | Casual Mode |
 | 팀 데스매치 | Team Deathmatch |
 | 패스 XP | Pass XP |
