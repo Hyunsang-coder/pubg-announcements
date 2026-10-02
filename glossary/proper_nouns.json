@@ -519,13 +519,12 @@
       "id": "pubg_392",
       "source": "서바이버 상자",
       "source_lang": "ko",
-      "target": "Survivor's Chest",
+      "target": "Survivor Crate",
       "target_lang": "en",
       "category_id": "store_economy",
       "context": "Store & Economy",
-      "notes": "인게임 표기가 정본이라 Survivor's Chest 로 등록(2026-09-01 확인). 발행분 2회차(2026-07 news/10427 · 2026-08 news/10828)는 Survivor Crate 로 나갔으나 반려 — 둘 다 서바이버 패스 보상 변경을 알리는 같은 문장이고, 인게임 문자열과 어긋난다. 발행분이 정본이라는 원칙은 인게임 표기가 확인되지 않을 때의 기준이다.",
-      "status": "approved",
-      "published_form": "Survivor Crate"
+      "notes": "발행분 2회차(2026-07 news/10427 · 2026-08 news/10828)가 Survivor Crate 로 나갔고 사용자 확인으로 확정(2026-09-30). 인게임 표기 Survivor's Chest 는 반려.",
+      "status": "approved"
     },
     {
       "id": "pubg_393",

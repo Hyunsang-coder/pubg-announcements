@@ -133,7 +133,7 @@ UI 경로가 들어간 고지(확률 보기 페이지 등)는 **인게임 표기
 | 기록보관소 상자 | Archivist's Chest |
 | 나만의 상점 | Your Shop |
 | 보급고 | Supply Bay |
-| 서바이버 상자 | Survivor's Chest |
+| 서바이버 상자 | Survivor Crate |
 | 서바이버 패스 | Survivor Pass |
 | 스크랩 브로커 | Scrap Broker |
 | 스텝 업 팩 | Step Up Pack |
